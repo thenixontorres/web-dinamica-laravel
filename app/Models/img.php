@@ -29,6 +29,12 @@ class img extends Model
         'section_id'
     ];
 
+    //BelongsTo----------------------------------
+    public function section()
+    {
+        return $this->BelongsTo(section::class);
+    }
+
     /**
      * The attributes that should be casted to native types.
      *

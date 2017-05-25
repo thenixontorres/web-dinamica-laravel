@@ -26,6 +26,12 @@ class page extends Model
         'visibility'
     ];
 
+    //Has Many
+    public function sections()
+    {
+        return $this->hasMany(section::class);
+    }
+
     /**
      * The attributes that should be casted to native types.
      *
