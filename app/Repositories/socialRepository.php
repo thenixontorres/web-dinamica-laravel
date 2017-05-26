@@ -12,7 +12,8 @@ class socialRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'icon',
-        'url'
+        'url',
+        'page'
     ];
 
     /**

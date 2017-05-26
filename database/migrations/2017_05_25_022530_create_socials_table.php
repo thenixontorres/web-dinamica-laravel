@@ -17,6 +17,7 @@ class CreatesocialsTable extends Migration
             $table->increments('id');
             $table->string('icon');
             $table->string('url');
+            $table->string('page');
             $table->timestamps();
             $table->softDeletes();
         });

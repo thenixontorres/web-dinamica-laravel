@@ -12,8 +12,7 @@
             <td>{!! $section->position !!}</td>
             <td>{!! $section->visibility !!}</td>
             <td>{!! $section->name !!}</td>
-            <td>{!! $section->visibility !!}</td>
-            <td>{!! $section->page_id !!}</td>
+            <td>{!! $section->page->title !!}</td>
             <td>
                 {!! Form::open(['route' => ['sections.destroy', $section->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
