@@ -26,7 +26,7 @@
     <a href="{!! route('socials.index') !!}"><i class="fa fa-edit"></i><span>Redes Sociales</span></a>
 </li>
 
-<li class="{{ Request::is('vars*') ? 'active' : '' }}">
-    <a href="{!! route('vars.index') !!}"><i class="fa fa-edit"></i><span>Variables</span></a>
+<li class="{{ Request::is('constants*') ? 'active' : '' }}">
+    <a href="{!! route('constants.index') !!}"><i class="fa fa-edit"></i><span>Constantes</span></a>
 </li>
 

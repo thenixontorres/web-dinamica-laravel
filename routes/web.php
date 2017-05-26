@@ -34,3 +34,7 @@ Route::resource('services', 'serviceController');
 Route::resource('socials', 'socialController');
 
 Route::resource('vars', 'varController');
+
+Route::resource('globals', 'globalController');
+
+Route::resource('constants', 'constantController');

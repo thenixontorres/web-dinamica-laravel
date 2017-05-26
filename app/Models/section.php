@@ -74,7 +74,6 @@ class section extends Model
      * @var array
      */
     public static $rules = [
-        'position' => 'required',
         'visibility' => 'required',
         'name' => 'required',
         'visibility' => 'required',

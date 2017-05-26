@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Var
+            Constant
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($var, ['route' => ['vars.update', $var->id], 'method' => 'patch']) !!}
+                   {!! Form::model($constant, ['route' => ['constants.update', $constant->id], 'method' => 'patch']) !!}
 
-                        @include('vars.fields')
+                        @include('constants.fields')
 
                    {!! Form::close() !!}
                </div>

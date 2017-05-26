@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\page;
 
 class sectionController extends AppBaseController
 {
@@ -42,8 +43,10 @@ class sectionController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('sections.create');
+    {   
+        $pages = page::all();
+        return view('sections.create')
+            ->with('pages', $pages);
     }
 
     /**
@@ -94,6 +97,7 @@ class sectionController extends AppBaseController
     public function edit($id)
     {
         $section = $this->sectionRepository->findWithoutFail($id);
+        $pages = page::all();
 
         if (empty($section)) {
             Flash::error('Section not found');
@@ -101,7 +105,9 @@ class sectionController extends AppBaseController
             return redirect(route('sections.index'));
         }
 
-        return view('sections.edit')->with('section', $section);
+        return view('sections.edit')
+            ->with('section', $section)
+            ->with('pages', $pages);
     }
 
     /**

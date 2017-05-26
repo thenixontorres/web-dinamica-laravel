@@ -2,18 +2,17 @@
 
 namespace App\Repositories;
 
-use App\Models\var;
+use App\Models\constant;
 use InfyOm\Generator\Common\BaseRepository;
 
-class varRepository extends BaseRepository
+class constantRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'name',
-        'description',
-        'var'
+        'var',
+        'value'
     ];
 
     /**
@@ -21,6 +20,6 @@ class varRepository extends BaseRepository
      **/
     public function model()
     {
-        return var::class;
+        return constant::class;
     }
 }

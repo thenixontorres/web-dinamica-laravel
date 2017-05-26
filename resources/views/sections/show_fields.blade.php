@@ -6,43 +6,37 @@
 
 <!-- Position Field -->
 <div class="form-group">
-    {!! Form::label('position', 'Position:') !!}
+    {!! Form::label('position', 'Posicion:') !!}
     <p>{!! $section->position !!}</p>
 </div>
 
 <!-- Visibility Field -->
 <div class="form-group">
-    {!! Form::label('visibility', 'Visibility:') !!}
+    {!! Form::label('visibility', 'Visibilidad:') !!}
     <p>{!! $section->visibility !!}</p>
 </div>
 
 <!-- Name Field -->
 <div class="form-group">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Nombre:') !!}
     <p>{!! $section->name !!}</p>
-</div>
-
-<!-- Visibility Field -->
-<div class="form-group">
-    {!! Form::label('visibility', 'Visibility:') !!}
-    <p>{!! $section->visibility !!}</p>
 </div>
 
 <!-- Page Id Field -->
 <div class="form-group">
-    {!! Form::label('page_id', 'Page Id:') !!}
+    {!! Form::label('page_id', 'Pagina:') !!}
     <p>{!! $section->page_id !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creado:') !!}
     <p>{!! $section->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Editado:') !!}
     <p>{!! $section->updated_at !!}</p>
 </div>
 

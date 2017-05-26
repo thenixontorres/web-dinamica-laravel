@@ -6,24 +6,23 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class var
+ * Class constant
  * @package App\Models
- * @version May 25, 2017, 2:26 am UTC
+ * @version May 26, 2017, 12:22 am UTC
  */
-class var extends Model
+class constant extends Model
 {
     use SoftDeletes;
 
-    public $table = 'vars';
+    public $table = 'constants';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'name',
-        'description',
-        'var'
+        'var',
+        'value'
     ];
 
     /**
@@ -32,9 +31,8 @@ class var extends Model
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'description' => 'string',
-        'var' => 'string'
+        'var' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -43,9 +41,8 @@ class var extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
-        'description' => 'required',
-        'var' => 'required'
+        'var' => 'required',
+        'value' => 'exit'
     ];
 
     

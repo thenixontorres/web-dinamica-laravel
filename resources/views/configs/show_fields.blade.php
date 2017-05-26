@@ -6,25 +6,25 @@
 
 <!-- Count Img Field -->
 <div class="form-group">
-    {!! Form::label('count_img', 'Count Img:') !!}
+    {!! Form::label('count_img', 'Cantidad de Imagenes:') !!}
     <p>{!! $config->count_img !!}</p>
 </div>
 
 <!-- Section Id Field -->
 <div class="form-group">
-    {!! Form::label('section_id', 'Section Id:') !!}
+    {!! Form::label('section_id', 'Seccion:') !!}
     <p>{!! $config->section_id !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creado:') !!}
     <p>{!! $config->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Actualizado:') !!}
     <p>{!! $config->updated_at !!}</p>
 </div>
 
