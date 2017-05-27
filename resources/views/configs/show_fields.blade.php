@@ -13,7 +13,7 @@
 <!-- Section Id Field -->
 <div class="form-group">
     {!! Form::label('section_id', 'Seccion:') !!}
-    <p>{!! $config->section_id !!}</p>
+    <p>{!! $config->section->name !!}</p>
 </div>
 
 <!-- Created At Field -->

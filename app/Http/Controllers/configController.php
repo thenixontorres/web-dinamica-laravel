@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\config;
 use App\Models\section;
 
 class configController extends AppBaseController
@@ -44,9 +45,9 @@ class configController extends AppBaseController
      */
     public function create()
     {
-        $configs = config::all();
+        $sections = section::all();
         return view('configs.create')
-            ->with('configs', $configs);
+            ->with('sections', $sections);
     }
 
     /**

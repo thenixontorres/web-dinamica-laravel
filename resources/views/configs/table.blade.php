@@ -8,7 +8,7 @@
     @foreach($configs as $config)
         <tr>
             <td>{!! $config->count_img !!}</td>
-            <td>{!! $config->section_id !!}</td>
+            <td>{!! $config->section->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['configs.destroy', $config->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
