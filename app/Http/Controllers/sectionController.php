@@ -13,6 +13,8 @@ use Response;
 use App\Models\page;
 use App\Models\section;
 use App\Models\content;
+use App\Models\config;
+
 
 class sectionController extends AppBaseController
 {
@@ -166,7 +168,8 @@ class sectionController extends AppBaseController
 
             return redirect(route('sections.index'));
         }
-
+        $config = config::where('section_id',$id)->first();
+        $config->delete();
         $content = content::where('section_id',$id)->first();
         $content->delete();
         $this->sectionRepository->delete($id);

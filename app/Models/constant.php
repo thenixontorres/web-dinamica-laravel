@@ -42,7 +42,7 @@ class constant extends Model
      */
     public static $rules = [
         'var' => 'required',
-        'value' => 'exit'
+        'value' => 'required'
     ];
 
     

@@ -59,11 +59,6 @@
     <p>{!! $content->visibility !!}</p>
 </div>
 
-<!-- Section Id Field -->
-<div class="form-group">
-    {!! Form::label('section_id', 'Section Id:') !!}
-    <p>{!! $content->section_id !!}</p>
-</div>
 @endif
 <!-- Created At Field -->
 <div class="form-group">
