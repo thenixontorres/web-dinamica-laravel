@@ -1,6 +1,5 @@
 <table class="table table-responsive" id="sections-table">
     <thead>
-        <th>Posicion</th>
         <th>Visibilidad</th>
         <th>Nombre</th>
         <th>Pagina</th>
@@ -9,7 +8,6 @@
     <tbody>
     @foreach($sections as $section)
         <tr>
-            <td>{!! $section->position !!}</td>
             <td>{!! $section->visibility !!}</td>
             <td>{!! $section->name !!}</td>
             <td>{!! $section->page->title !!}</td>

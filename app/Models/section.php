@@ -21,7 +21,6 @@ class section extends Model
 
 
     public $fillable = [
-        'position',
         'name',
         'visibility',
         'page_id'
@@ -61,7 +60,6 @@ class section extends Model
      * @var array
      */
     protected $casts = [
-        'position' => 'integer',
         'visibility' => 'integer',
         'name' => 'string',
         'visibility' => 'integer',

@@ -4,12 +4,6 @@
     <p>{!! $section->id !!}</p>
 </div>
 
-<!-- Position Field -->
-<div class="form-group">
-    {!! Form::label('position', 'Posicion:') !!}
-    <p>{!! $section->position !!}</p>
-</div>
-
 <!-- Visibility Field -->
 <div class="form-group">
     {!! Form::label('visibility', 'Visibilidad:') !!}
@@ -25,9 +19,52 @@
 <!-- Page Id Field -->
 <div class="form-group">
     {!! Form::label('page_id', 'Pagina:') !!}
-    <p>{!! $section->page_id !!}</p>
+    <p>{!! $section->page->title !!}</p>
 </div>
 
+@if(isset($content))
+<!-- Title Field -->
+<div class="form-group">
+    {!! Form::label('title', 'Title:') !!}
+    <p>{!! $content->title !!}</p>
+</div>
+
+<!-- Subtitle Field -->
+<div class="form-group">
+    {!! Form::label('subtitle', 'Subtitle:') !!}
+    <p>{!! $content->subtitle !!}</p>
+</div>
+
+<!-- Body Field -->
+<div class="form-group">
+    {!! Form::label('body', 'Body:') !!}
+    <p>{!! $content->body !!}</p>
+</div>
+
+<!-- Button Text Field -->
+<div class="form-group">
+    {!! Form::label('button_text', 'Button Text:') !!}
+    <p>{!! $content->button_text !!}</p>
+</div>
+
+<!-- Button Link Field -->
+<div class="form-group">
+    {!! Form::label('button_link', 'Button Link:') !!}
+    <p>{!! $content->button_link !!}</p>
+</div>
+
+<!-- Visibility Field -->
+<div class="form-group">
+    {!! Form::label('visibility', 'Visibility:') !!}
+    <p>{!! $content->visibility !!}</p>
+</div>
+
+<!-- Section Id Field -->
+<div class="form-group">
+    {!! Form::label('section_id', 'Section Id:') !!}
+    <p>{!! $content->section_id !!}</p>
+</div>
+@endif
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Creado:') !!}

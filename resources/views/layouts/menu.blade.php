@@ -6,9 +6,9 @@
     <a href="{!! route('sections.index') !!}"><i class="fa fa-edit"></i><span>Secciones</span></a>
 </li>
 
-<li class="{{ Request::is('contents*') ? 'active' : '' }}">
+<!-- <li class="{{ Request::is('contents*') ? 'active' : '' }}">
     <a href="{!! route('contents.index') !!}"><i class="fa fa-edit"></i><span>Contenidos</span></a>
-</li>
+</li> -->
 
 <li class="{{ Request::is('configs*') ? 'active' : '' }}">
     <a href="{!! route('configs.index') !!}"><i class="fa fa-edit"></i><span>Configuraciones</span></a>

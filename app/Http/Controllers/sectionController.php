@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\page;
+use App\Models\section;
+use App\Models\content;
 
 class sectionController extends AppBaseController
 {
@@ -62,7 +64,11 @@ class sectionController extends AppBaseController
 
         $section = $this->sectionRepository->create($input);
 
-        Flash::success('Section saved successfully.');
+        $content = new content();
+        $content->section_id = $section->id;
+        $content->fill($input);
+        $content->save();
+        Flash::success('Section guardada con exito.');
 
         return redirect(route('sections.index'));
     }
@@ -77,6 +83,8 @@ class sectionController extends AppBaseController
     public function show($id)
     {
         $section = $this->sectionRepository->findWithoutFail($id);
+        
+        $content = content::where('section_id',$id)->first();
 
         if (empty($section)) {
             Flash::error('Section not found');
@@ -84,7 +92,9 @@ class sectionController extends AppBaseController
             return redirect(route('sections.index'));
         }
 
-        return view('sections.show')->with('section', $section);
+        return view('sections.show')
+            ->with('section', $section)
+            ->with('content', $content);
     }
 
     /**
@@ -98,16 +108,18 @@ class sectionController extends AppBaseController
     {
         $section = $this->sectionRepository->findWithoutFail($id);
         $pages = page::all();
+        $content = content::where('section_id',$id)->first();
 
         if (empty($section)) {
-            Flash::error('Section not found');
+            Flash::error('Seccion no encontrada.');
 
             return redirect(route('sections.index'));
         }
 
         return view('sections.edit')
             ->with('section', $section)
-            ->with('pages', $pages);
+            ->with('pages', $pages)
+            ->with('content', $content);
     }
 
     /**
@@ -123,13 +135,16 @@ class sectionController extends AppBaseController
         $section = $this->sectionRepository->findWithoutFail($id);
 
         if (empty($section)) {
-            Flash::error('Section not found');
+            Flash::error('Seccion no encontrada.');
 
             return redirect(route('sections.index'));
         }
-
+        
         $section = $this->sectionRepository->update($request->all(), $id);
 
+        $content = content::where('section_id',$section->id)->first();
+        $content->fill($request->all());
+        $content->save();
         Flash::success('Section updated successfully.');
 
         return redirect(route('sections.index'));
@@ -152,6 +167,8 @@ class sectionController extends AppBaseController
             return redirect(route('sections.index'));
         }
 
+        $content = content::where('section_id',$id)->first();
+        $content->delete();
         $this->sectionRepository->delete($id);
 
         Flash::success('Section deleted successfully.');

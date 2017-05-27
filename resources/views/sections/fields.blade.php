@@ -1,11 +1,12 @@
-    {!! Form::hidden('position', 0, ['class' => 'form-control']) !!}
-
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Nombre:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
+@if(isset($section))
+    <input type="hidden" name="page_id" value="{{ $section->page_id}}">
+@else   
 <!-- Page Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('page_id', 'Pagina:') !!}
@@ -23,9 +24,9 @@
         @endforeach 
     </select>
 </div>
-
+@endif
 <!-- Visibility Field -->
-<div class="form-group col-sm-2">
+<div class="form-group col-sm-6">
     {!! Form::label('visibility', '¿Visibile?: ') !!}
     <br>
     @if(isset($section))
@@ -41,7 +42,68 @@
         <input type="radio" name="visibility" value="0"> No
     @endif  
 </div>
+<!--De la tabla contents -->
+@if(isset($content))
+<!-- Title Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('title', 'Title:') !!}
+    {!! Form::text('title', $content->title, ['class' => 'form-control']) !!}
+</div>
 
+<!-- Subtitle Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('subtitle', 'Subtitle:') !!}
+    {!! Form::text('subtitle', $content->subtitle, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Body Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('body', 'Body:') !!}
+    {!! Form::text('body', $content->body, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Button Text Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('button_text', 'Button Text:') !!}
+    {!! Form::text('button_text', $content->button_text, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Button Link Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('button_link', 'Button Link:') !!}
+    {!! Form::text('button_link', $content->button_link, ['class' => 'form-control']) !!}
+</div>
+@else
+<!-- Title Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('title', 'Title:') !!}
+    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Subtitle Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('subtitle', 'Subtitle:') !!}
+    {!! Form::text('subtitle', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Body Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('body', 'Body:') !!}
+    {!! Form::text('body', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Button Text Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('button_text', 'Button Text:') !!}
+    {!! Form::text('button_text', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Button Link Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('button_link', 'Button Link:') !!}
+    {!! Form::text('button_link', null, ['class' => 'form-control']) !!}
+</div>
+@endif
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
