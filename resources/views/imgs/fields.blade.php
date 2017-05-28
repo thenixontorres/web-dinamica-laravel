@@ -1,7 +1,7 @@
 <!-- Img Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('img', 'Img:') !!}
-    {!! Form::text('img', null, ['class' => 'form-control']) !!}
+        {!! Form::file('img', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Position Field -->
@@ -12,8 +12,34 @@
 
 <!-- Visibility Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('visibility', 'Visibility:') !!}
-    {!! Form::text('visibility', null, ['class' => 'form-control']) !!}
+    {!! Form::label('visibility', '¿Visibile?: ') !!}
+    <br>
+    @if(isset($img))
+        @if($img->visibility == "1")
+        <input type="radio" name="visibility" checked value="1"> Si
+        <input type="radio" name="visibility" value="0"> No
+        @else
+        <input type="radio" name="visibility" value="1"> Si
+        <input type="radio" name="visibility" checked value="0"> No
+        @endif
+    @else
+        <input type="radio" name="visibility" value="1"> Si
+        <input type="radio" name="visibility" value="0"> No
+    @endif  
+</div>
+
+<!-- Section_id Field -->
+<div class="form-group col-sm-6">
+    @if(isset($img))
+        <input type="hidden" name="section_id" value="{{ $img->section_id }}">
+    @else
+        {!! Form::label('section_id', 'Seccion:') !!}
+        <select class="form-control" name="section_id">
+        @foreach($sections as $section)
+            <option value="{{ $section->id}}"> {{ $section->name }}</option>
+        @endforeach
+        </select>
+    @endif
 </div>
 
 <!-- Title Field -->

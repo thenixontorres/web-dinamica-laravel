@@ -7,9 +7,12 @@ use App\Http\Requests\UpdateimgRequest;
 use App\Repositories\imgRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\img;
+use App\Models\section;
 
 class imgController extends AppBaseController
 {
@@ -42,8 +45,10 @@ class imgController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('imgs.create');
+    {   
+        $sections = section::all();
+        return view('imgs.create')
+            ->with('sections', $sections);
     }
 
     /**
@@ -57,9 +62,28 @@ class imgController extends AppBaseController
     {
         $input = $request->all();
 
-        $img = $this->imgRepository->create($input);
+        //$img = $this->imgRepository->create($input);
 
-        Flash::success('Img saved successfully.');
+        $path = storage_path('app/public/images/');
+        if (!is_dir($path)) {
+        mkdir($path, 0777, true);
+        }
+
+        //crear img
+        $img = new img();
+        $img->fill($input);
+        //guardado de la imagen
+        if (empty($request->file('img'))) {
+            $img->img = 'images/default.jpg';
+            $img->save();
+        }else{
+        $idImage = uniqid();
+        $imageUp = $request->file('img');
+        $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+        $img->img = $image;
+        $img->save();
+        }
+        Flash::success('Imagen saved successfully.');
 
         return redirect(route('imgs.index'));
     }
@@ -121,8 +145,29 @@ class imgController extends AppBaseController
 
             return redirect(route('imgs.index'));
         }
-
-        $img = $this->imgRepository->update($request->all(), $id);
+        if ($request->file('img') != null) {
+            //Borrado de imagen anterior
+            Storage::disk('images')->delete($img->img);
+            
+            //guaradado de nueva imagen
+            $path = storage_path('app/public/images/');
+            if (!is_dir($path)) {
+            mkdir($path, 0777, true);
+            }
+            
+            $idImage = uniqid();
+            $imageUp = $request->file('img');
+            $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+            $img->fill($request->all());
+            $img->img = $image;
+            $img->save();
+        }else{
+            $request->img = $img->img;
+            $img->fill($request->all());
+            $img->save();
+        }
+        
+        //$img = $this->imgRepository->update($request->all(), $id);
 
         Flash::success('Img updated successfully.');
 
