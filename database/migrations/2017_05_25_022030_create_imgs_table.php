@@ -18,8 +18,8 @@ class CreateimgsTable extends Migration
             $table->string('img');
             $table->integer('position');
             $table->integer('visibility');
-            $table->string('title');
-            $table->string('subtitle');
+            $table->string('title')->nullable()	;
+            $table->string('subtitle')->nullable()	;
             $table->integer('section_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

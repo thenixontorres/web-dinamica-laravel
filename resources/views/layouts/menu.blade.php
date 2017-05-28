@@ -22,11 +22,15 @@
     <a href="{!! route('services.index') !!}"><i class="fa fa-edit"></i><span>Servicios</span></a>
 </li>
 
-<li class="{{ Request::is('socials*') ? 'active' : '' }}">
+<!--<li class="{{ Request::is('socials*') ? 'active' : '' }}">
     <a href="{!! route('socials.index') !!}"><i class="fa fa-edit"></i><span>Redes Sociales</span></a>
-</li>
+</li> -->
 
 <li class="{{ Request::is('constants*') ? 'active' : '' }}">
     <a href="{!! route('constants.index') !!}"><i class="fa fa-edit"></i><span>Constantes</span></a>
+</li>
+
+<li class="{{ Request::is('icons*') ? 'active' : '' }}">
+    <a href="{!! route('icons.index') !!}"><i class="fa fa-edit"></i><span>icons</span></a>
 </li>
 

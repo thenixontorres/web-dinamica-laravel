@@ -15,15 +15,16 @@ class CreateservicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('icon');
+            $table->integer('icon_id')->unsigned();
             $table->string('title');
-            $table->string('description');
-            $table->string('url');
+            $table->string('description')->nullable();
+            $table->string('url')->nullable();
             $table->integer('visibility');
             $table->integer('section_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('section_id')->references('id')->on('sections');
+             $table->foreign('icon_id')->references('id')->on('icons');
         });
     }
 

@@ -38,3 +38,5 @@ Route::resource('vars', 'varController');
 Route::resource('globals', 'globalController');
 
 Route::resource('constants', 'constantController');
+
+Route::resource('icons', 'iconController');
