@@ -6,8 +6,20 @@
 
 <!-- Position Field -->
 <div class="form-group col-sm-6">
+    @if(isset($img))
     {!! Form::label('position', 'Position:') !!}
-    {!! Form::text('position', null, ['class' => 'form-control']) !!}
+    <select name="position" class="form-control">
+        @for($i=0; $i < $positions; $i++)
+            @if($img->position == $i+1) 
+                <option selected value="{{ $i+1 }}">{{ $i+1 }}</option>
+            @else
+                <option value="{{ $i+1 }}">{{ $i+1 }}</option>
+            @endif
+        @endfor 
+    </select>
+    @else
+    {!! Form::hidden('position', 1, ['class' => 'form-control']) !!}
+    @endif
 </div>
 
 <!-- Visibility Field -->

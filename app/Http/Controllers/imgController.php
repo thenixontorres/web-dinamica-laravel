@@ -71,6 +71,8 @@ class imgController extends AppBaseController
 
         //crear img
         $img = new img();
+        //agregarle la posicion por default
+        $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
         $img->fill($input);
         //guardado de la imagen
         if (empty($request->file('img'))) {
@@ -118,14 +120,16 @@ class imgController extends AppBaseController
     public function edit($id)
     {
         $img = $this->imgRepository->findWithoutFail($id);
-
+        $positions = count(img::where('section_id', $img->section_id)->get());
         if (empty($img)) {
             Flash::error('Img not found');
 
             return redirect(route('imgs.index'));
         }
 
-        return view('imgs.edit')->with('img', $img);
+        return view('imgs.edit')
+        ->with('positions', $positions)
+        ->with('img', $img);
     }
 
     /**
@@ -145,6 +149,17 @@ class imgController extends AppBaseController
 
             return redirect(route('imgs.index'));
         }
+
+        //actualizacion de la posicion
+        //ontengo las imagenes de la seccion
+        $coincidencias = img::where('section_id', $img->section_id)->get();
+        foreach ($coincidencias as $coincidencia) {
+            if ($request->position == $coincidencia->position) {
+                $coincidencia->position = $img->position;
+                $coincidencia->save();
+            }
+        }
+
         if ($request->file('img') != null) {
             //Borrado de imagen anterior
             Storage::disk('images')->delete($img->img);
@@ -184,6 +199,7 @@ class imgController extends AppBaseController
     public function destroy($id)
     {
         $img = $this->imgRepository->findWithoutFail($id);
+        Storage::disk('images')->delete($img->img);
 
         if (empty($img)) {
             Flash::error('Img not found');
