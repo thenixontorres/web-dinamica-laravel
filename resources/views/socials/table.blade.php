@@ -1,8 +1,8 @@
 <table class="table table-responsive" id="socials-table">
     <thead>
-        <th>Icon</th>
+        <th>Icono</th>
         <th>Url</th>
-        <th colspan="3">Action</th>
+        <th colspan="3">Accion</th>
     </thead>
     <tbody>
     @foreach($socials as $social)

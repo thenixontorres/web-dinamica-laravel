@@ -1,30 +1,30 @@
 <!-- Id Field -->
 <div class="form-group">
     {!! Form::label('id', 'Id:') !!}
-    <p>{!! $config->id !!}</p>
+    <p>{!! $icon->id !!}</p>
 </div>
 
-<!-- Count Img Field -->
+<!-- Name Field -->
 <div class="form-group">
-    {!! Form::label('count_img', 'Count Img:') !!}
-    <p>{!! $config->count_img !!}</p>
+    {!! Form::label('name', 'Name:') !!}
+    <p>{!! $icon->name !!}</p>
 </div>
 
-<!-- Section Id Field -->
+<!-- Css Value Field -->
 <div class="form-group">
-    {!! Form::label('section_id', 'Section Id:') !!}
-    <p>{!! $config->section_id !!}</p>
+    {!! Form::label('css_value', 'Css Value:') !!}
+    <p>{!! $icon->css_value !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $config->created_at !!}</p>
+    <p>{!! $icon->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
     {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $config->updated_at !!}</p>
+    <p>{!! $icon->updated_at !!}</p>
 </div>
 

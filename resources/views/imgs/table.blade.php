@@ -5,7 +5,7 @@
         <th>Visibility</th>
         <th>Title</th>
         <th>Subtitle</th>
-        <th>Section Id</th>
+        <th>Section</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
             <td>{!! $img->visibility !!}</td>
             <td>{!! $img->title !!}</td>
             <td>{!! $img->subtitle !!}</td>
-            <td>{!! $img->section_id !!}</td>
+            <td>{!! $img->section->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['imgs.destroy', $img->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

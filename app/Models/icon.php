@@ -6,15 +6,15 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class var
+ * Class icon
  * @package App\Models
- * @version May 25, 2017, 2:26 am UTC
+ * @version May 28, 2017, 11:25 pm UTC
  */
-class var extends Model
+class icon extends Model
 {
     use SoftDeletes;
 
-    public $table = 'vars';
+    public $table = 'icons';
     
 
     protected $dates = ['deleted_at'];
@@ -22,9 +22,13 @@ class var extends Model
 
     public $fillable = [
         'name',
-        'description',
-        'var'
+        'css_value'
     ];
+
+    public function services()
+    {
+        return $this->hasMany(service::class);
+    }
 
     /**
      * The attributes that should be casted to native types.
@@ -33,8 +37,7 @@ class var extends Model
      */
     protected $casts = [
         'name' => 'string',
-        'description' => 'string',
-        'var' => 'string'
+        'css_value' => 'string'
     ];
 
     /**
@@ -44,8 +47,7 @@ class var extends Model
      */
     public static $rules = [
         'name' => 'required',
-        'description' => 'required',
-        'var' => 'required'
+        'css_value' => 'required'
     ];
 
     

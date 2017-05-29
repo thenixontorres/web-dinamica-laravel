@@ -22,6 +22,7 @@ class social extends Model
 
     public $fillable = [
         'icon',
+        'page',
         'url'
     ];
 
@@ -32,6 +33,7 @@ class social extends Model
      */
     protected $casts = [
         'icon' => 'string',
+        'page' => 'string',
         'url' => 'string'
     ];
 
@@ -42,7 +44,8 @@ class social extends Model
      */
     public static $rules = [
         'icon' => 'required',
-        'url' => 'required'
+        'url' => 'required',
+        'page' => 'page'
     ];
 
     

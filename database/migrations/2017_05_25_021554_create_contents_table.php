@@ -15,11 +15,11 @@ class CreatecontentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('subtitle');
-            $table->string('body');
-            $table->string('button_text');
-            $table->string('button_link');
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('body')->nullable()	;
+            $table->string('button_text')->nullable()	;
+            $table->string('button_link')->nullable()	;
             $table->integer('visibility');
             $table->integer('section_id')->unsigned();
             $table->timestamps();

@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\config;
+use App\Models\constant;
 
-class UpdateconfigRequest extends FormRequest
+class CreateconstantRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdateconfigRequest extends FormRequest
      */
     public function rules()
     {
-        return config::$rules;
+        return constant::$rules;
     }
 }

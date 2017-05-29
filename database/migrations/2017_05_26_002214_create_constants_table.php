@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateconfigsTable extends Migration
+class CreateconstantsTable extends Migration
 {
 
     /**
@@ -13,13 +13,12 @@ class CreateconfigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('configs', function (Blueprint $table) {
+        Schema::create('constants', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('count_img');
-            $table->integer('section_id')->unsigned();
+            $table->string('var');
+            $table->string('value');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('section_id')->references('id')->on('sections');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateconfigsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('configs');
+        Schema::drop('constants');
     }
 }

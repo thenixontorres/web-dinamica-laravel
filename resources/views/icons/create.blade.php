@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Var
+            Icon
         </h1>
     </section>
     <div class="content">
@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'vars.store']) !!}
+                    {!! Form::open(['route' => 'icons.store']) !!}
 
-                        @include('vars.fields')
+                        @include('icons.fields')
 
                     {!! Form::close() !!}
                 </div>

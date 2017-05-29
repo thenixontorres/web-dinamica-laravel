@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('landing.public');
-});
+Route::get('/', [
+        'uses'  =>  'landingController@landing',
+        'as'    =>  'landing',
+]);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/panel', 'HomeController@index');
 
 Route::resource('pages', 'pageController');
 
@@ -34,3 +35,9 @@ Route::resource('services', 'serviceController');
 Route::resource('socials', 'socialController');
 
 Route::resource('vars', 'varController');
+
+Route::resource('globals', 'globalController');
+
+Route::resource('constants', 'constantController');
+
+Route::resource('icons', 'iconController');

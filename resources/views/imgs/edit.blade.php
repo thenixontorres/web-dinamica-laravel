@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($img, ['route' => ['imgs.update', $img->id], 'method' => 'patch']) !!}
+                   {!! Form::model($img, ['route' => ['imgs.update', $img->id], 'method' => 'patch','files' => true]) !!}
 
                         @include('imgs.fields')
 

@@ -15,7 +15,6 @@ class CreatesectionsTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('position');
             $table->integer('visibility');
             $table->string('name');
             $table->integer('page_id')->unsigned();

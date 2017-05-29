@@ -2,17 +2,17 @@
 
 namespace App\Repositories;
 
-use App\Models\config;
+use App\Models\icon;
 use InfyOm\Generator\Common\BaseRepository;
 
-class configRepository extends BaseRepository
+class iconRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'count_img',
-        'section_id'
+        'name',
+        'css_value'
     ];
 
     /**
@@ -20,6 +20,6 @@ class configRepository extends BaseRepository
      **/
     public function model()
     {
-        return config::class;
+        return icon::class;
     }
 }

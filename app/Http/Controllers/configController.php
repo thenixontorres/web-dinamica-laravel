@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\config;
+use App\Models\section;
 
 class configController extends AppBaseController
 {
@@ -43,7 +45,9 @@ class configController extends AppBaseController
      */
     public function create()
     {
-        return view('configs.create');
+        $sections = section::all();
+        return view('configs.create')
+            ->with('sections', $sections);
     }
 
     /**
@@ -94,14 +98,17 @@ class configController extends AppBaseController
     public function edit($id)
     {
         $config = $this->configRepository->findWithoutFail($id);
-
+        $sections = section::all();
         if (empty($config)) {
             Flash::error('Config not found');
 
             return redirect(route('configs.index'));
         }
 
-        return view('configs.edit')->with('config', $config);
+        return view('configs.edit')
+            ->with('config', $config)
+            ->with('sections', $sections);
+;
     }
 
     /**

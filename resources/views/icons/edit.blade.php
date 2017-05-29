@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Config
+            Icon
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($config, ['route' => ['configs.update', $config->id], 'method' => 'patch']) !!}
+                   {!! Form::model($icon, ['route' => ['icons.update', $icon->id], 'method' => 'patch']) !!}
 
-                        @include('configs.fields')
+                        @include('icons.fields')
 
                    {!! Form::close() !!}
                </div>

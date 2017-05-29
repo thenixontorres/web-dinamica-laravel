@@ -11,7 +11,6 @@ class sectionRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'position',
         'visibility',
         'name',
         'visibility',

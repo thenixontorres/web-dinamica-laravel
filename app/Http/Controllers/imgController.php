@@ -7,9 +7,12 @@ use App\Http\Requests\UpdateimgRequest;
 use App\Repositories\imgRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\img;
+use App\Models\section;
 
 class imgController extends AppBaseController
 {
@@ -42,8 +45,10 @@ class imgController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('imgs.create');
+    {   
+        $sections = section::all();
+        return view('imgs.create')
+            ->with('sections', $sections);
     }
 
     /**
@@ -57,9 +62,30 @@ class imgController extends AppBaseController
     {
         $input = $request->all();
 
-        $img = $this->imgRepository->create($input);
+        //$img = $this->imgRepository->create($input);
 
-        Flash::success('Img saved successfully.');
+        $path = storage_path('app/public/images/');
+        if (!is_dir($path)) {
+        mkdir($path, 0777, true);
+        }
+
+        //crear img
+        $img = new img();
+        //agregarle la posicion por default
+        $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
+        $img->fill($input);
+        //guardado de la imagen
+        if (empty($request->file('img'))) {
+            $img->img = 'images/default.jpg';
+            $img->save();
+        }else{
+        $idImage = uniqid();
+        $imageUp = $request->file('img');
+        $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+        $img->img = $image;
+        $img->save();
+        }
+        Flash::success('Imagen saved successfully.');
 
         return redirect(route('imgs.index'));
     }
@@ -94,14 +120,16 @@ class imgController extends AppBaseController
     public function edit($id)
     {
         $img = $this->imgRepository->findWithoutFail($id);
-
+        $positions = count(img::where('section_id', $img->section_id)->get());
         if (empty($img)) {
             Flash::error('Img not found');
 
             return redirect(route('imgs.index'));
         }
 
-        return view('imgs.edit')->with('img', $img);
+        return view('imgs.edit')
+        ->with('positions', $positions)
+        ->with('img', $img);
     }
 
     /**
@@ -122,7 +150,39 @@ class imgController extends AppBaseController
             return redirect(route('imgs.index'));
         }
 
-        $img = $this->imgRepository->update($request->all(), $id);
+        //actualizacion de la posicion
+        //ontengo las imagenes de la seccion
+        $coincidencias = img::where('section_id', $img->section_id)->get();
+        foreach ($coincidencias as $coincidencia) {
+            if ($request->position == $coincidencia->position) {
+                $coincidencia->position = $img->position;
+                $coincidencia->save();
+            }
+        }
+
+        if ($request->file('img') != null) {
+            //Borrado de imagen anterior
+            Storage::disk('images')->delete($img->img);
+            
+            //guaradado de nueva imagen
+            $path = storage_path('app/public/images/');
+            if (!is_dir($path)) {
+            mkdir($path, 0777, true);
+            }
+            
+            $idImage = uniqid();
+            $imageUp = $request->file('img');
+            $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+            $img->fill($request->all());
+            $img->img = $image;
+            $img->save();
+        }else{
+            $request->img = $img->img;
+            $img->fill($request->all());
+            $img->save();
+        }
+        
+        //$img = $this->imgRepository->update($request->all(), $id);
 
         Flash::success('Img updated successfully.');
 
@@ -139,6 +199,7 @@ class imgController extends AppBaseController
     public function destroy($id)
     {
         $img = $this->imgRepository->findWithoutFail($id);
+        Storage::disk('images')->delete($img->img);
 
         if (empty($img)) {
             Flash::error('Img not found');

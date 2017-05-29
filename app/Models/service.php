@@ -21,7 +21,7 @@ class service extends Model
 
 
     public $fillable = [
-        'icon',
+        'icon_id',
         'title',
         'description',
         'url',
@@ -35,13 +35,18 @@ class service extends Model
         return $this->BelongsTo(section::class);
     }
 
+    public function icon()
+    {
+        return $this->BelongsTo(icon::class);
+    }
+
     /**
      * The attributes that should be casted to native types.
      *
      * @var array
      */
     protected $casts = [
-        'icon' => 'string',
+        'icon_id' => 'string',
         'title' => 'string',
         'description' => 'string',
         'url' => 'string',
@@ -55,7 +60,7 @@ class service extends Model
      * @var array
      */
     public static $rules = [
-        'icon' => 'required',
+        'icon_id' => 'required',
         'title' => 'required', 
         'visibility' => 'required',
         'section_id' => 'required'

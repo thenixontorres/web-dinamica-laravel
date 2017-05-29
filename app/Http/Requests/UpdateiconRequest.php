@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\var;
+use App\Models\icon;
 
-class UpdatevarRequest extends FormRequest
+class UpdateiconRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdatevarRequest extends FormRequest
      */
     public function rules()
     {
-        return var::$rules;
+        return icon::$rules;
     }
 }

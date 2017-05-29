@@ -6,31 +6,24 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class config
+ * Class constant
  * @package App\Models
- * @version May 25, 2017, 2:17 am UTC
+ * @version May 26, 2017, 12:22 am UTC
  */
-class config extends Model
+class constant extends Model
 {
     use SoftDeletes;
 
-    public $table = 'configs';
+    public $table = 'constants';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'count_img',
-        'section_id'
+        'var',
+        'value'
     ];
-
-
-    //BelongsTo----------------------------------
-    public function section()
-    {
-        return $this->BelongsTo(section::class);
-    }
 
     /**
      * The attributes that should be casted to native types.
@@ -38,8 +31,8 @@ class config extends Model
      * @var array
      */
     protected $casts = [
-        'count_img' => 'integer',
-        'section_id' => 'integer'
+        'var' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -48,8 +41,8 @@ class config extends Model
      * @var array
      */
     public static $rules = [
-        'count_img' => 'required',
-        'section_id' => 'required'
+        'var' => 'required',
+        'value' => 'required'
     ];
 
     

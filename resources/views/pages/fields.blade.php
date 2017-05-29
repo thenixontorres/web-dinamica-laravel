@@ -1,6 +1,6 @@
 <!-- Title Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('title', 'Title:') !!}
+    {!! Form::label('title', 'Titulo:') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -11,9 +11,21 @@
 </div>
 
 <!-- Visibility Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('visibility', 'Visibility:') !!}
-    {!! Form::text('visibility', null, ['class' => 'form-control']) !!}
+<div class="form-group col-sm-2">
+    {!! Form::label('visibility', '¿Visibile?: ') !!}
+    <br>
+    @if(isset($page))
+    	@if($page->visibility == "1")
+    	<input type="radio" name="visibility" checked value="1"> Si
+    	<input type="radio" name="visibility" value="0"> No
+    	@else
+    	<input type="radio" name="visibility" value="1"> Si
+    	<input type="radio" name="visibility" checked value="0"> No
+    	@endif
+   	@else
+   		<input type="radio" name="visibility" value="1"> Si
+    	<input type="radio" name="visibility" value="0"> No
+   	@endif 	
 </div>
 
 <!-- Submit Field -->

@@ -1,19 +1,57 @@
 <!-- Img Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('img', 'Img:') !!}
-    {!! Form::text('img', null, ['class' => 'form-control']) !!}
+        {!! Form::file('img', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Position Field -->
 <div class="form-group col-sm-6">
+    @if(isset($img))
     {!! Form::label('position', 'Position:') !!}
-    {!! Form::text('position', null, ['class' => 'form-control']) !!}
+    <select name="position" class="form-control">
+        @for($i=0; $i < $positions; $i++)
+            @if($img->position == $i+1) 
+                <option selected value="{{ $i+1 }}">{{ $i+1 }}</option>
+            @else
+                <option value="{{ $i+1 }}">{{ $i+1 }}</option>
+            @endif
+        @endfor 
+    </select>
+    @else
+    {!! Form::hidden('position', 1, ['class' => 'form-control']) !!}
+    @endif
 </div>
 
 <!-- Visibility Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('visibility', 'Visibility:') !!}
-    {!! Form::text('visibility', null, ['class' => 'form-control']) !!}
+    {!! Form::label('visibility', '¿Visibile?: ') !!}
+    <br>
+    @if(isset($img))
+        @if($img->visibility == "1")
+        <input type="radio" name="visibility" checked value="1"> Si
+        <input type="radio" name="visibility" value="0"> No
+        @else
+        <input type="radio" name="visibility" value="1"> Si
+        <input type="radio" name="visibility" checked value="0"> No
+        @endif
+    @else
+        <input type="radio" name="visibility" value="1"> Si
+        <input type="radio" name="visibility" value="0"> No
+    @endif  
+</div>
+
+<!-- Section_id Field -->
+<div class="form-group col-sm-6">
+    @if(isset($img))
+        <input type="hidden" name="section_id" value="{{ $img->section_id }}">
+    @else
+        {!! Form::label('section_id', 'Seccion:') !!}
+        <select class="form-control" name="section_id">
+        @foreach($sections as $section)
+            <option value="{{ $section->id}}"> {{ $section->name }}</option>
+        @endforeach
+        </select>
+    @endif
 </div>
 
 <!-- Title Field -->
