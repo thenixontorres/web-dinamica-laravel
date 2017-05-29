@@ -142,12 +142,28 @@ class sectionController extends AppBaseController
 
             return redirect(route('sections.index'));
         }
-        
+        //actualizar seccion
         $section = $this->sectionRepository->update($request->all(), $id);
-
+        //actualizar contenido
         $content = content::where('section_id',$section->id)->first();
         $content->fill($request->all());
         $content->save();
+        //actualizar imagen
+        //encontramos la imagen visible y la volvemos invisible
+        $visible =  img::where('section_id', $section->id)->where('visibility','1')->first();
+        if(!empty($visible)){
+            $visible->visibility = "0";
+            $visible->save();
+        }
+        //encontramos la imagen que el usuario pide que sea visible
+        $imgs = img::where('section_id', $section->id)->get();
+        foreach($imgs as $img){
+            if($img->id == $request->img){
+                $img->visibility = "1";
+                $img->save();
+            }
+        } 
+        
         Flash::success('Section updated successfully.');
 
         return redirect(route('sections.index'));

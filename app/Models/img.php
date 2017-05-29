@@ -55,7 +55,7 @@ class img extends Model
      * @var array
      */
     public static $rules = [
-        'required' => 'required',
+        'title' => 'required',
         'position' => 'required',
         'visibility' => 'required',
         'section_id' => 'required'

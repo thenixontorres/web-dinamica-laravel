@@ -114,8 +114,8 @@
     {!! Form::label('img', 'Imagen para mostrar:') !!}
     <select name="img" class="form-control" id="">
         @foreach($imgs as $img)
-            @if($img->visivility == "1")
-            <option selected value="{{$img->id}}"> {{ $img->title }} </option>
+            @if($img->visibility == "1")
+            <option selected value="{{$img->id}}"> {{ $img->title }} (Imagen Mostrada)</option>
             @else
             <option value="{{$img->id}}"> {{ $img->title }} </option>
             @endif
