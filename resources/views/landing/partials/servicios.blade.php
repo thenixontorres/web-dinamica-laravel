@@ -1,5 +1,5 @@
 <!-- Six -->
-<section class="wrapper style1 align-center">
+<section id="Servicios" class="wrapper style1 align-center">
 	<div class="inner">
 		<h2>Tratamientos que brinda nuestro equipo de salud profesional</h2>
 		<p>Contamos con una alta variedad de servicios para los cuidados esteticos que necesitas.</p>

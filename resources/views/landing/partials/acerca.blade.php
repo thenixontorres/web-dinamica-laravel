@@ -1,5 +1,5 @@
 <!-- Four -->
-<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+<section id="Acerca" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 	<div class="content">
 		<h2>Sobre nosotros.</h2>
 		<p>Detalles sobre el centro de estetica.</p>

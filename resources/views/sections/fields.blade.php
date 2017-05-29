@@ -1,9 +1,12 @@
 <!-- Name Field -->
+@if(isset($section))
+{!! Form::hidden('name', $section->name, ['class' => 'form-control']) !!}
+@else
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Nombre:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
-
+@endif
 @if(isset($section))
     <input type="hidden" name="page_id" value="{{ $section->page_id}}">
 @else   
