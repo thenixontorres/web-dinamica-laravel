@@ -27,6 +27,34 @@ class section extends Model
         'page_id'
     ];
 
+    //BelongsTo----------------------------------
+    public function page()
+    {
+        return $this->BelongsTo(page::class);
+    }
+    //Has One
+    public function config()
+    {
+        return $this->hasOne(config::class);
+    }
+
+    public function content()
+    {
+        return $this->hasOne(content::class);
+    }
+    //Has many
+    public function imgs()
+    {
+        return $this->hasMany(img::class);
+    }
+    public function services()
+    {
+        return $this->hasMany(service::class);
+    }
+
+
+
+
     /**
      * The attributes that should be casted to native types.
      *
