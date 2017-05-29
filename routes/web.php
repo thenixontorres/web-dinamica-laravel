@@ -16,7 +16,9 @@ Route::get('/', [
         'as'    =>  'landing',
 ]);
 
-Auth::routes();
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/panel', 'HomeController@index');
 

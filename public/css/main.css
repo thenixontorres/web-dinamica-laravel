@@ -56,6 +56,30 @@
 		box-sizing: border-box;
 	}
 
+.nav-landing{
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.89);
+	position: fixed;
+	z-index: 1000;
+	border-bottom:  solid 1px #333;
+}
+
+.nav-landing ul{
+	width: 100%;
+	margin: 10px;
+}
+
+.nav-landing ul li{
+	display: inline-block;
+	list-style: none;
+}
+
+.nav-landing ul li a{
+	display: inline-block;
+	text-decoration: none;
+}
+
+
 /* Grid */
 
 	.row {

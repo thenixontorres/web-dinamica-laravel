@@ -11,7 +11,7 @@
     <tbody>
     @foreach($imgs as $img)
         <tr>
-            <td>{!! $img->img !!}</td>
+            <td><img class="img-responsive" style="max-width: 100px;" src="{{ asset('storage/images/').'/'.$img->img }}"></td>
             <td>{!! $img->position !!}</td>
             <td>{!! $img->visibility !!}</td>
             <td>{!! $img->title !!}</td>

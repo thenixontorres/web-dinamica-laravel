@@ -10,7 +10,7 @@
     <tbody>
     @foreach($services as $service)
         <tr>
-            <td>{!! $service->icon->name !!}</td>
+            <td> <i class="fa {!! $service->icon->css_value !!}"></i> </td>
             <td>{!! $service->title !!}</td>
             <td>{!! $service->description !!}</td>
             <td>{!! $service->url !!}</td>
