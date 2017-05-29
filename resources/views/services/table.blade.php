@@ -5,18 +5,16 @@
         <th>Description</th>
         <th>Url</th>
         <th>Visibility</th>
-        <th>Section Id</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
     @foreach($services as $service)
         <tr>
-            <td>{!! $service->icon !!}</td>
+            <td>{!! $service->icon->name !!}</td>
             <td>{!! $service->title !!}</td>
             <td>{!! $service->description !!}</td>
             <td>{!! $service->url !!}</td>
             <td>{!! $service->visibility !!}</td>
-            <td>{!! $service->section_id !!}</td>
             <td>
                 {!! Form::open(['route' => ['services.destroy', $service->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

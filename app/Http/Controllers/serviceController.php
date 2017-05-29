@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\icon;
 
 class serviceController extends AppBaseController
 {
@@ -42,8 +43,10 @@ class serviceController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('services.create');
+    {   
+        $icons = icon::all();
+        return view('services.create')
+        ->with('icons', $icons);
     }
 
     /**
@@ -100,8 +103,10 @@ class serviceController extends AppBaseController
 
             return redirect(route('services.index'));
         }
-
-        return view('services.edit')->with('service', $service);
+        $icons = icon::all();
+        return view('services.edit')
+        ->with('service', $service)
+        ->with('icons', $icons);
     }
 
     /**

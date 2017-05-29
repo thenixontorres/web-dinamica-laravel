@@ -16,6 +16,11 @@ class ConstansTableSeeder extends Seeder
             'value' => 'Example@email.com',
         ]);
 
+        DB::table('constants')->insert([
+            'var' => 'Contraseña de Email de contacto',
+            'value' => 'test',
+        ]);
+
        DB::table('constants')->insert([
             'var' => 'Boton de contacto',
             'value' => 'ENVIAR MENSAJE',

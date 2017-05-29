@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('landing.public');
-});
+Route::get('/', [
+        'uses'  =>  'landingController@landing',
+        'as'    =>  'landing',
+]);
 
 Auth::routes();
 

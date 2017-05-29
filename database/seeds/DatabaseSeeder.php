@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ImgsTableSeeder::class);
         $this->call(ConstansTableSeeder::class);
         $this->call(IconsTableSeeder::class);
+        $this->call(ServicesTableSeeder::class);
     }
 }

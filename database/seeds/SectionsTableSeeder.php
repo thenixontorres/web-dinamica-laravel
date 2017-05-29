@@ -31,12 +31,6 @@ class SectionsTableSeeder extends Seeder
 
         DB::table('sections')->insert([
             'visibility' => '1',
-            'name' => 'Perfil',
-            'page_id' => '1',
-        ]);
-
-        DB::table('sections')->insert([
-            'visibility' => '1',
             'name' => 'Acerca',
             'page_id' => '1',
         ]);
