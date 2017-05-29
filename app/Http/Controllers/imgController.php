@@ -216,6 +216,12 @@ class imgController extends AppBaseController
     public function destroy($id)
     {
         $img = $this->imgRepository->findWithoutFail($id);
+        $count = count(img::where('section_id', $img->section_id)->get());
+        if($count < 2)
+        {
+            Flash::error('No puedes dejar a esta seccion sin imagenes.');
+            return redirect(route('imgs.index'));
+        }
         Storage::disk('images')->delete($img->img);
 
         if (empty($img)) {
