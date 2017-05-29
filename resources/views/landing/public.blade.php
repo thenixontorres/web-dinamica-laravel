@@ -2,19 +2,19 @@
 
 @section('content')
 
-	@include('landing.partials.one')
+	@include('landing.partials.cabecera')
 
-	@include('landing.partials.two')
+	@include('landing.partials.perfil')
 
-	@include('landing.partials.three')
+	@include('landing.partials.noticias')
 
-	@include('landing.partials.four')
+	@include('landing.partials.acerca')
 
-	@include('landing.partials.five')
+	@include('landing.partials.testimonio')
 
-	@include('landing.partials.six')
+	@include('landing.partials.servicios')
 
-	@include('landing.partials.seven')
+	@include('landing.partials.contacto')
 
 	@include('landing.partials.footer')
 

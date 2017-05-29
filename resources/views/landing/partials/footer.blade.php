@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="wrapper style1 align-center">
+<footer id="Footer" class="wrapper style1 align-center">
 	<div class="inner">
 		<ul class="icons">
 			<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>

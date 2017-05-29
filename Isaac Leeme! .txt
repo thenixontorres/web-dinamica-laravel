@@ -1,0 +1,24 @@
+Usuario admin
+admin@mail.com
+pass:
+admin
+
+-en http://localhost:8000/imgs
+mostrar preview en lugar de url
+
+-en http://localhost:8000/services
+mostrar iconos en lugar de su nombre
+el la clase css se puede encontrar en $service->icon->css_value
+
+-en http://localhost:8000/services/1/edit
+mostrar tambien los iconos en ese select 
+
+-Traducion de los campos, tablas y botones en general de los modulos
+
+-hacer un boton de acceso al panel desde la landing cuando se esta logueado (puede ser una barra)
+
+-eliminar cualquier titulo que diga infyOm y sustituir por espacio pisanu
+
+-eliminar imagen de Infyom
+
+-eliminar menu desplegable de perfil y sustituir por un boton de logout

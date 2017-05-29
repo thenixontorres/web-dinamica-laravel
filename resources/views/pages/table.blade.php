@@ -3,7 +3,9 @@
         <th>Titulo</th>
         <th>Url</th>
         <th>Visibilidad</th>
+        @if(Auth::User()->tipo=='master')
         <th colspan="3">Accion</th>
+        @endif
     </thead>
     <tbody>
     @foreach($pages as $page)
@@ -11,6 +13,7 @@
             <td>{!! $page->title !!}</td>
             <td>{!! $page->url !!}</td>
             <td>{!! $page->visibility !!}</td>
+            @if(Auth::User()->tipo=='master')
             <td>
                 {!! Form::open(['route' => ['pages.destroy', $page->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
@@ -22,6 +25,7 @@
                 </div>
                 {!! Form::close() !!}
             </td>
+            @endif
         </tr>
     @endforeach
     </tbody>
