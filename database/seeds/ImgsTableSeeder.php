@@ -15,7 +15,7 @@ class ImgsTableSeeder extends Seeder
             'img' => 'images/banner.jpg',
             'position' => '1',
             'visibility' => '1',
-            'title' => null,
+            'title' => 'Banner',
             'subtitle' => null,
             'section_id' => '1',
         ]);
@@ -24,7 +24,7 @@ class ImgsTableSeeder extends Seeder
             'img' => 'images/spotlight01.jpg',
             'position' => '1',
             'visibility' => '1',
-            'title' => null,
+            'title' => 'Perfil',
             'subtitle' => null,
             'section_id' => '2',
         ]);
@@ -33,7 +33,7 @@ class ImgsTableSeeder extends Seeder
             'img' => 'images/default.jpg',
             'position' => '1',
             'visibility' => '1',
-            'title' => null,
+            'title' => 'Noticias',
             'subtitle' => null,
             'section_id' => '3',
         ]);
@@ -42,7 +42,7 @@ class ImgsTableSeeder extends Seeder
             'img' => 'images/spotlight03.jpg',
             'position' => '1',
             'visibility' => '1',
-            'title' => null,
+            'title' => 'Nosotros',
             'subtitle' => null,
             'section_id' => '4',
         ]);

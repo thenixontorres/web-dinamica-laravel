@@ -107,6 +107,22 @@
     {!! Form::text('button_link', null, ['class' => 'form-control']) !!}
 </div>
 @endif
+
+<!-- Img -->
+@if(isset($section))
+<div class="form-group col-sm-6">
+    {!! Form::label('img', 'Imagen para mostrar:') !!}
+    <select name="img" class="form-control" id="">
+        @foreach($imgs as $img)
+            @if($img->visivility == "1")
+            <option selected value="{{$img->id}}"> {{ $img->title }} </option>
+            @else
+            <option value="{{$img->id}}"> {{ $img->title }} </option>
+            @endif
+        @endforeach
+    </select>
+</div>
+@endif
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}

@@ -14,7 +14,7 @@ use App\Models\page;
 use App\Models\section;
 use App\Models\content;
 use App\Models\config;
-
+use App\Models\img;
 
 class sectionController extends AppBaseController
 {
@@ -111,7 +111,7 @@ class sectionController extends AppBaseController
         $section = $this->sectionRepository->findWithoutFail($id);
         $pages = page::all();
         $content = content::where('section_id',$id)->first();
-
+        $imgs = img::where('section_id',$id)->get();
         if (empty($section)) {
             Flash::error('Seccion no encontrada.');
 
@@ -121,7 +121,8 @@ class sectionController extends AppBaseController
         return view('sections.edit')
             ->with('section', $section)
             ->with('pages', $pages)
-            ->with('content', $content);
+            ->with('content', $content)
+            ->with('imgs', $imgs);
     }
 
     /**
