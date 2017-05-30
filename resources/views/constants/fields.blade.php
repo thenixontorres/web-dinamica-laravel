@@ -8,12 +8,28 @@
     {!! Form::text('var', null, ['class' => 'form-control']) !!}
 </div>
 @endif
+
+@if(isset($constant))
+	@if($constant->var == "Contraseña de Email de contacto")
+	<!-- Value Field -->
+	<div class="form-group col-sm-6">
+	    {!! Form::label('value', 'Value:') !!}
+	    {!! Form::password('value', ['class' => 'form-control']) !!}
+	</div>
+	@else
+	<!-- Value Field -->
+	<div class="form-group col-sm-6">
+	    {!! Form::label('value', 'Value:') !!}
+	    {!! Form::text('value', null, ['class' => 'form-control']) !!}
+	</div>
+	@endif
+@else
 <!-- Value Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('value', 'Value:') !!}
     {!! Form::text('value', null, ['class' => 'form-control']) !!}
 </div>
-
+@endif
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}

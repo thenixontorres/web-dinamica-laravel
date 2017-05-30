@@ -32,6 +32,8 @@
             </li>
         </ul>
     </nav>
+    <br>
+    <br>
 @endif
 
     <div id="wrapper" class="divided"></div>
