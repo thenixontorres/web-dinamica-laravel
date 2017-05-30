@@ -16,9 +16,6 @@
     <nav class="nav-landing" >
         <ul>
             <li>
-                <a href="">Espacio Pisanu</a>
-            </li>
-            <li>
                 <a href="{!! url('/panel') !!}">Panel</a>
             </li>
             <li>
