@@ -18,7 +18,7 @@ class landingController extends Controller
         $Acerca = section::where('page_id', '1')->where('name', 'Acerca')->first();
         $Testimonio = section::where('page_id', '1')->where('name', 'Testimonio')->first();
         $Servicios = section::where('page_id', '1')->where('name', 'Servicios')->first();
-
+        
         return view('landing.public')
         ->with('Cabecera', $Cabecera)
         ->with('Perfil', $Perfil)
