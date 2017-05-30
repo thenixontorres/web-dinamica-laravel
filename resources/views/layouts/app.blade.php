@@ -24,7 +24,7 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>Panel Administrativo</b>
+                <b>Menu</b>
             </a>
 
             <!-- Header Navbar -->

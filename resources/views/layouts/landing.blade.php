@@ -16,7 +16,7 @@
     <nav class="nav-landing" >
         <ul>
             <li>
-                <a href="{!! url('/panel') !!}">Panel</a>
+                <a href="{!! url('/panel') !!}">Menu</a>
             </li>
             <li>
                 <a href="{!! url('/logout') !!}"

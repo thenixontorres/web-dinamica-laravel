@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>espacio pisanu</title>
+    <title>Espacio Pisanu</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -34,12 +34,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>espacio </b>pisanu</a>
+        <a href="{{ url('/') }}"><b>Espacio </b>Pisanu</a>
     </div>
 
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Inicie sesión para ingresar</p>
 
         <form method="post" action="{{ url('/login') }}">
             {!! csrf_field() !!}

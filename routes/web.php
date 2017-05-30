@@ -20,26 +20,29 @@ $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/panel', 'HomeController@index');
+Route::group(['middleware'=>'auth'], function(){ 
 
-Route::resource('pages', 'pageController');
+	Route::get('/panel', 'HomeController@index');
 
-Route::resource('sections', 'sectionController');
+	Route::resource('pages', 'pageController');
 
-Route::resource('contents', 'contentController');
+	Route::resource('sections', 'sectionController');
 
-Route::resource('configs', 'configController');
+	Route::resource('contents', 'contentController');
 
-Route::resource('imgs', 'imgController');
+	Route::resource('configs', 'configController');
 
-Route::resource('services', 'serviceController');
+	Route::resource('imgs', 'imgController');
 
-Route::resource('socials', 'socialController');
+	Route::resource('services', 'serviceController');
 
-Route::resource('vars', 'varController');
+	Route::resource('socials', 'socialController');
 
-Route::resource('globals', 'globalController');
+	Route::resource('vars', 'varController');
 
-Route::resource('constants', 'constantController');
+	Route::resource('globals', 'globalController');
 
-Route::resource('icons', 'iconController');
+	Route::resource('constants', 'constantController');
+
+	Route::resource('icons', 'iconController');
+});
