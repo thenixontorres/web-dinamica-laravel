@@ -4,21 +4,21 @@ pass:
 admin
 
 -en http://localhost:8000/imgs
-mostrar preview en lugar de url
+mostrar preview en lugar de url // listo ramon
 
 -en http://localhost:8000/services
 mostrar iconos en lugar de su nombre
-el la clase css se puede encontrar en $service->icon->css_value
+el la clase css se puede encontrar en $service->icon->css_value // listo ramon
 
 -en http://localhost:8000/services/1/edit
-mostrar tambien los iconos en ese select 
+mostrar tambien los iconos en ese select // pendiente es un poco complicado por que a los select no adminten etiquetas en las option
 
--Traducion de los campos, tablas y botones en general de los modulos
+-Traducion de los campos, tablas y botones en general de los modulos //listo ramon
 
 -hacer un boton de acceso al panel desde la landing cuando se esta logueado (puede ser una barra)
 
--eliminar cualquier titulo que diga infyOm y sustituir por espacio pisanu
+-eliminar cualquier titulo que diga infyOm y sustituir por espacio pisanu //listo ramon
 
--eliminar imagen de Infyom
+-eliminar imagen de Infyom //listo ramon
 
--eliminar menu desplegable de perfil y sustituir por un boton de logout
+-eliminar menu desplegable de perfil y sustituir por un boton de logout //listo ramon
