@@ -71,8 +71,8 @@ class imgController extends AppBaseController
 
         //posicion = cantidad de imagenes de la seccion +1
         $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
-        //solo la seccion testimonios (id=5) puede tener mas de una imagen visible
-        if($request->section_id != "5" && $request->visibility == "1"){
+        //solo la seccion testimonios (id=5) y slider (id=7) puede tener mas de una imagen visible
+        if(($request->section_id != "5" && $request->section_id != "7") &&$request->visibility == "1"){
             $imgs = img::where('section_id', $request->section_id)->get();
             foreach($imgs as $img){
                 $img->visibility = "0";

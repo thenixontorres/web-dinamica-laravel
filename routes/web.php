@@ -45,4 +45,12 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::resource('constants', 'constantController');
 
 	Route::resource('icons', 'iconController');
+
+	Route::resource('articles', 'articleController');
+
+	Route::resource('thumbs', 'thumbController');
+
+	Route::resource('tags', 'tagController');
 });
+
+

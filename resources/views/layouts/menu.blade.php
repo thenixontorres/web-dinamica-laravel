@@ -33,4 +33,19 @@
 <li class="{{ Request::is('icons*') ? 'active' : '' }}">
     <a href="{!! route('icons.index') !!}"><i class="fa fa-edit"></i><span>Iconos</span></a>
 </li>
+<li class="{{ Request::is('thumbs*') ? 'active' : '' }}">
+    <a href="{!! route('thumbs.index') !!}"><i class="fa fa-edit"></i><span>Thumbs</span></a>
+</li>
 @endif
+
+<li class="{{ Request::is('tags*') ? 'active' : '' }}">
+    <a href="{!! route('tags.index') !!}"><i class="fa fa-edit"></i><span>Categorias</span></a>
+</li>
+
+
+<li class="{{ Request::is('articles*') ? 'active' : '' }}">
+    <a href="{!! route('articles.index') !!}"><i class="fa fa-edit"></i><span>Articulos</span></a>
+</li>
+
+
+

@@ -17,7 +17,7 @@
 				<li><a href="{{ $Cabecera->content->button_link }}" class="button big wide smooth-scroll-middle">{{ $Cabecera->content->button_text }}</a></li>
 			</ul>
 		@endif
-	</div>
+	</div> 
 		@foreach($Cabecera->imgs as $img)
 			@if($img->visibility == '1')	
 				<div class="image">

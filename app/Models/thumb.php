@@ -6,31 +6,29 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class icon
+ * Class thumb
  * @package App\Models
- * @version May 28, 2017, 11:25 pm UTC
+ * @version May 31, 2017, 6:56 pm UTC
  */
-class icon extends Model
+class thumb extends Model
 {
     use SoftDeletes;
 
-    public $table = 'icons';
+    public $table = 'thumbs';
     
 
     protected $dates = ['deleted_at'];
 
+    //BelongsTo----------------------------------
+    public function article()
+    {
+        return $this->BelongsTo(article::class);
+    }
 
     public $fillable = [
-        'name',
-        'css_value'
+        'thumb',
+        'article_id'
     ];
-
-    //HasMany
-    
-    public function services()
-    {
-        return $this->hasMany(service::class);
-    }
 
     /**
      * The attributes that should be casted to native types.
@@ -38,8 +36,8 @@ class icon extends Model
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'css_value' => 'string'
+        'thumb' => 'string',
+        'article_id' => 'integer'
     ];
 
     /**
@@ -48,8 +46,8 @@ class icon extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
-        'css_value' => 'required'
+        'thumb' => 'required',
+        'article_id' => 'required'
     ];
 
     
