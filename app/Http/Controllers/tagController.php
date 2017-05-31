@@ -59,7 +59,7 @@ class tagController extends AppBaseController
 
         $tag = $this->tagRepository->create($input);
 
-        Flash::success('Tag saved successfully.');
+        Flash::success('Caregoria guardada con exito.');
 
         return redirect(route('tags.index'));
     }
@@ -96,7 +96,7 @@ class tagController extends AppBaseController
         $tag = $this->tagRepository->findWithoutFail($id);
 
         if (empty($tag)) {
-            Flash::error('Tag not found');
+            Flash::error('Categoria no encontrada.');
 
             return redirect(route('tags.index'));
         }
@@ -117,14 +117,14 @@ class tagController extends AppBaseController
         $tag = $this->tagRepository->findWithoutFail($id);
 
         if (empty($tag)) {
-            Flash::error('Tag not found');
+            Flash::error('Categoria no encontrada.');
 
             return redirect(route('tags.index'));
         }
 
         $tag = $this->tagRepository->update($request->all(), $id);
 
-        Flash::success('Tag updated successfully.');
+        Flash::success('categoria actualizada con exito.');
 
         return redirect(route('tags.index'));
     }
@@ -141,7 +141,7 @@ class tagController extends AppBaseController
         $tag = $this->tagRepository->findWithoutFail($id);
 
         if (empty($tag)) {
-            Flash::error('Tag not found');
+            Flash::error('Categoria no encontrada.');
 
             return redirect(route('tags.index'));
         }
@@ -153,7 +153,7 @@ class tagController extends AppBaseController
         }
         $this->tagRepository->delete($id);
 
-        Flash::success('Tag deleted successfully.');
+        Flash::success('categoria borrada con exito.');
 
         return redirect(route('tags.index'));
     }

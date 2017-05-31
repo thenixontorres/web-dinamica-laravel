@@ -164,7 +164,7 @@ class sectionController extends AppBaseController
             }
         } 
         
-        Flash::success('Section updated successfully.');
+        Flash::success('Section actualizada con exito.');
 
         return redirect(route('sections.index'));
     }

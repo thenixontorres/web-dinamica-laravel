@@ -12,6 +12,7 @@
 		<p>{{ $Servicios->content->body }}</p>
 		@endif
 		<div class="items style1 medium onscroll-fade-in">
+		@if(!empty($Servicios->services))
 		@foreach($Servicios->services as $service)
 			@if($service->visibility == "1")
 			<section>
@@ -23,6 +24,7 @@
 			</section>
 			@endif
 		@endforeach
+		@endif
 		</div>
 	</div>
 </section>

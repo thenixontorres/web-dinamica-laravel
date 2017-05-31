@@ -16,6 +16,12 @@
     <nav class="nav-landing" >
         <ul>
             <li>
+                <a href="{!! url('/') !!}">Inicio</a>
+            </li>
+            <li>
+                <a href="{!! url('/blog') !!}">Blog</a>
+            </li>
+            <li>
                 <a href="{!! url('/panel') !!}">Menu</a>
             </li>
             <li>

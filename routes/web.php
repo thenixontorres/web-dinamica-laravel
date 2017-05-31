@@ -16,6 +16,11 @@ Route::get('/', [
         'as'    =>  'landing',
 ]);
 
+Route::get('/blog', [
+        'uses'  =>  'blogController@index',
+        'as'    =>  'blog',
+]);
+
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');

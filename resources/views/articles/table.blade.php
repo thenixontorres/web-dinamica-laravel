@@ -1,8 +1,6 @@
 <table class="table table-responsive" id="articles-table">
     <thead>
         <th>Title</th>
-        <th>Content</th>
-        <th>Summary</th>
         <th>Categoria</th>
         <th>Imagen de muestra</th>
         <th colspan="3">Action</th>
@@ -11,10 +9,8 @@
     @foreach($articles as $article)
         <tr>
             <td>{!! $article->title !!}</td>
-            <td>{!! $article->content !!}</td>
-            <td>{!! $article->summary !!}</td>
             <td>{!! $article->tag->category !!}</td>
-            <td>{!! $article->thumb->thumb !!}</td>
+            <td><img class="img-responsive" style="max-width: 100px;" src="{{ asset('storage/images/').'/'.$article->thumb->thumb }}"></td>
             <td>
                 {!! Form::open(['route' => ['articles.destroy', $article->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

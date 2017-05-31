@@ -72,7 +72,7 @@ class imgController extends AppBaseController
         //posicion = cantidad de imagenes de la seccion +1
         $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
         //solo la seccion testimonios (id=5) y slider (id=7) puede tener mas de una imagen visible
-        if(($request->section_id != "5" && $request->section_id != "7") &&$request->visibility == "1"){
+        if(($request->section_id != "5" && $request->section_id != "7") && $request->visibility == "1"){
             $imgs = img::where('section_id', $request->section_id)->get();
             foreach($imgs as $img){
                 $img->visibility = "0";
@@ -93,7 +93,7 @@ class imgController extends AppBaseController
         $img->img = $image;
         $img->save();
         }
-        Flash::success('Imagen saved successfully.');
+        Flash::success('Imagen guardada con exito.');
 
         return redirect(route('imgs.index'));
     }
@@ -130,7 +130,7 @@ class imgController extends AppBaseController
         $img = $this->imgRepository->findWithoutFail($id);
         $positions = count(img::where('section_id', $img->section_id)->get());
         if (empty($img)) {
-            Flash::error('Img not found');
+            Flash::error('Imagen no encontrada.');
 
             return redirect(route('imgs.index'));
         }
@@ -153,13 +153,13 @@ class imgController extends AppBaseController
         $Newimg = $this->imgRepository->findWithoutFail($id);
 
         if (empty($Newimg)) {
-            Flash::error('Img not found');
+            Flash::error('Imagen no encontrada.');
 
             return redirect(route('imgs.index'));
         }
 
         //solo la seccion testimonios (id=5) puede tener mas de una imagen visible
-        if($request->section_id != "5" && $request->visibility == "1"){
+        if(($request->section_id != "5" && $request->section_id != "7") && $request->visibility == "1"){
             $imgs = img::where('section_id', $request->section_id)->where('visibility', '1')->get();
             foreach($imgs as $img){
                 $img->visibility = "0";
@@ -201,7 +201,7 @@ class imgController extends AppBaseController
         
         //$img = $this->imgRepository->update($request->all(), $id);
 
-        Flash::success('Img updated successfully.');
+        Flash::success('Imagen guardada con exito.');
 
         return redirect(route('imgs.index'));
     }
@@ -232,7 +232,7 @@ class imgController extends AppBaseController
 
         $this->imgRepository->delete($id);
 
-        Flash::success('Img deleted successfully.');
+        Flash::success('Imagen borrada con exito.');
 
         return redirect(route('imgs.index'));
     }
