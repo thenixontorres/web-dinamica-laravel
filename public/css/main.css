@@ -1,6 +1,19 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
 
+@font-face {
+    font-family: 'CornDemo-Regular';
+    src: url(../fonts/CornDemo-Regular.ttf) format("truetype");
+}
+
+.title-header{
+	font-family: 'CornDemo-Regular';
+	color: #7c7678;
+}
+
+.subtitle-header{
+	color: #729ea5;
+}
 /*
 	Story by HTML5 UP
 	html5up.net | @ajlkn

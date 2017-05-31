@@ -70,5 +70,15 @@ class ContentsTableSeeder extends Seeder
             'visibility' => '1',
             'section_id' => '6',
         ]);
+
+        DB::table('contents')->insert([
+            'title' => 'Titulo del Slider.',
+            'subtitle' => 'Subtitulo del slider',
+            'body' => null,
+            'button_link' => null,
+            'button_text' => null,
+            'visibility' => '1',
+            'section_id' => '7',
+        ]);
     }
 }

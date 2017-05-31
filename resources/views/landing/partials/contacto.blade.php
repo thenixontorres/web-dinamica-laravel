@@ -16,7 +16,7 @@
 				<textarea name="message" id="message" rows="6"></textarea>
 			</div>
 			<ul class="actions">
-				<li><input type="submit" name="submit" id="submit" value="{{ $Constant[2]->value }}" /></li>
+				<li><input type="submit" name="submit" id="submit" value="{{ $Constant[1]->value }}" /></li>
 			</ul>
 		</form>
 

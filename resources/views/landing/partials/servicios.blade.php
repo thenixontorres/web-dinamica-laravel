@@ -13,6 +13,7 @@
 		@endif
 		<div class="items style1 medium onscroll-fade-in">
 		@foreach($Servicios->services as $service)
+			@if($service->visibility == "1")
 			<section>
 				<span class="icon style2 major {{ $service->icon->css_value }}"></span>
 				<h3>{{ $service->title }} </h3>
@@ -20,6 +21,7 @@
 				<p>{{ $service->description }}</p>
 				@endif
 			</section>
+			@endif
 		@endforeach
 		</div>
 	</div>

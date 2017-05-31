@@ -19,6 +19,7 @@ class landingController extends Controller
         $Acerca = section::where('page_id', '1')->where('name', 'Acerca')->first();
         $Testimonio = section::where('page_id', '1')->where('name', 'Testimonio')->first();
         $Servicios = section::where('page_id', '1')->where('name', 'Servicios')->first();
+        $Slider = section::where('page_id', '1')->where('name', 'Slider')->first();
         $Constant = constant::all();
 
         return view('landing.public')
@@ -28,6 +29,7 @@ class landingController extends Controller
         ->with('Acerca', $Acerca)
         ->with('Testimonio', $Testimonio)
         ->with('Constant', $Constant)
-        ->with('Servicios', $Servicios);
+        ->with('Servicios', $Servicios)
+        ->with('Slider', $Slider);
     }
 }
