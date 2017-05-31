@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use App\Models\article;
 class tagController extends AppBaseController
 {
     /** @var  tagRepository */
@@ -146,6 +146,11 @@ class tagController extends AppBaseController
             return redirect(route('tags.index'));
         }
 
+        $count = count(article::where('tag_id', $id)->get());
+        if ($count != 0) {
+            Flash::error('Aun hay articluos asociados a esta categoria.');
+            return redirect(route('tags.index'));
+        }
         $this->tagRepository->delete($id);
 
         Flash::success('Tag deleted successfully.');

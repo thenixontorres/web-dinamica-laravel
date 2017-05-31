@@ -64,10 +64,15 @@ class articleController extends AppBaseController
 
         $article = $this->articleRepository->create($input);
 
+        $path = storage_path('app/public/images/');
+        if (!is_dir($path)) {
+        mkdir($path, 0777, true);
+        }
+
         $thumb = new thumb();
         $idThumb = uniqid();
         $thumbUp = $request->file('thumb');
-        $image = Storage::disk('images')->putFileAs('thumbs', $request->file('thumb'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+        $image = Storage::disk('images')->putFileAs('thumbs', $request->file('thumb'), $idThumb.'.'.$thumbUp->getClientOriginalExtension());
         $thumb->thumb = $image;
         $thumb->article_id = $article->id;
         $thumb->save();
@@ -139,6 +144,25 @@ class articleController extends AppBaseController
             return redirect(route('articles.index'));
         }
 
+        //si carga la imagen
+        if ($request->file('thumb') != null) {
+            //Borrado de imagen anterior
+            Storage::disk('images')->delete($article->thumb->thumb);
+
+            $path = storage_path('app/public/images/');
+            if (!is_dir($path)) {
+            mkdir($path, 0777, true);
+            }
+
+            $thumb = thumb::where('article_id', $id)->first();
+            $idThumb = uniqid();
+            $thumbUp = $request->file('thumb');
+            $image = Storage::disk('images')->putFileAs('thumbs', $request->file('thumb'), $idThumb.'.'.$thumbUp->getClientOriginalExtension());
+            $thumb->thumb = $image;
+            $thumb->article_id = $article->id;
+            $thumb->save();
+        }    
+
         $article = $this->articleRepository->update($request->all(), $id);
 
         Flash::success('Article updated successfully.');
@@ -163,6 +187,10 @@ class articleController extends AppBaseController
             return redirect(route('articles.index'));
         }
 
+        $thumb = thumb::where('article_id', $id)->first();
+        Storage::disk('images')->delete($thumb->thumb);
+
+        $thumb->delete();
         $this->articleRepository->delete($id);
 
         Flash::success('Article deleted successfully.');

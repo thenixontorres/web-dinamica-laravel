@@ -25,7 +25,7 @@ class article extends Model
     }
 
     //Has One
-    public function thumbs()
+    public function thumb()
     {
         return $this->hasOne(thumb::class);
     }
