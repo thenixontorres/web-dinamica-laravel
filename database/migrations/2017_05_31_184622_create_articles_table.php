@@ -18,6 +18,7 @@ class CreatearticlesTable extends Migration
             $table->string('title');
             $table->string('content');
             $table->string('summary');
+            $table->integer('visibility');
             $table->integer('tag_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

@@ -47,7 +47,7 @@
         <input type="radio" name="visibility" checked value="0"> No
         @endif
     @else
-        <input type="radio" name="visibility" value="1"> Si
+        <input type="radio" checked name="visibility" value="1"> Si
         <input type="radio" name="visibility" value="0"> No
     @endif  
 </div>

@@ -13,6 +13,7 @@ class articleRepository extends BaseRepository
     protected $fieldSearchable = [
         'title',
         'content',
+        'visibility',
         'summary',
         'category_id'
     ];

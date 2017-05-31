@@ -33,6 +33,7 @@ class article extends Model
     public $fillable = [
         'title',
         'content',
+        'visibility',
         'summary',
         'tag_id'
     ];
@@ -45,6 +46,7 @@ class article extends Model
     protected $casts = [
         'title' => 'string',
         'content' => 'string',
+        'visibility' => 'integer',
         'summary' => 'string',
         'tag_id' => 'integer'
     ];
@@ -57,6 +59,7 @@ class article extends Model
     public static $rules = [
         'title' => 'required',
         'content' => 'required',
+        'visibility' => 'required',
         'summary' => 'required',
         'tag_id' => 'required'
     ];
