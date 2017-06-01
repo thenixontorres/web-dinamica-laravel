@@ -110,18 +110,20 @@
 
 <!-- Img -->
 @if(isset($section))
-<div class="form-group col-sm-6">
-    {!! Form::label('img', 'Imagen para mostrar:') !!}
-    <select name="img" class="form-control" id="">
-        @foreach($imgs as $img)
-            @if($img->visibility == "1")
-            <option selected value="{{$img->id}}"> {{ $img->title }} (Imagen Mostrada)</option>
-            @else
-            <option value="{{$img->id}}"> {{ $img->title }} </option>
-            @endif
-        @endforeach
-    </select>
-</div>
+    @if($section->sectionConfig->imgs != 'no-img')
+    <div class="form-group col-sm-6">
+        {!! Form::label('img', 'Imagen para mostrar:') !!}
+        <select name="img" class="form-control" id="">
+            @foreach($imgs as $img)
+                @if($img->visibility == "1")
+                <option selected value="{{$img->id}}"> {{ $img->title }} (Imagen Mostrada)</option>
+                @else
+                <option value="{{$img->id}}"> {{ $img->title }} </option>
+                @endif
+            @endforeach
+        </select>
+    </div>
+    @endif
 @endif
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

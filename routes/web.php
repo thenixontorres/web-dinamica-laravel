@@ -56,6 +56,10 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::resource('thumbs', 'thumbController');
 
 	Route::resource('tags', 'tagController');
+
+	Route::resource('sectionConfigs', 'sectionConfigController');
 });
+
+
 
 
