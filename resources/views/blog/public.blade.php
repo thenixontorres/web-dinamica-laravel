@@ -9,7 +9,7 @@
 		<div class="col-sm-10">		
 			<article class="wrapper style1 align-center">
 				<div class="inner">
-						<h2>{{ $article->title }}</h2>
+						<h2><a href="{{ route('article', $article->id) }}">{{ $article->title }}</h2></a>
 				</div>
 				<p class="align-left">{{ $article->tag->category }}</p>
 				<div class="image">
