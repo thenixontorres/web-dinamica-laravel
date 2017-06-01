@@ -85,15 +85,16 @@ class imgController extends AppBaseController
         //crear img
         $img = new img();
         if (empty($request->file('img'))) {
+            $img->fill($input);
             $img->img = 'images/default.jpg';
             $img->save();
         }else{
-        $idImage = uniqid();
-        $imageUp = $request->file('img');
-        $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
-        $img->fill($input);
-        $img->img = $image;
-        $img->save();
+            $idImage = uniqid();
+            $imageUp = $request->file('img');
+            $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+            $img->fill($input);
+            $img->img = $image;
+            $img->save();
         }
         Flash::success('Imagen guardada con exito.');
 
@@ -184,8 +185,9 @@ class imgController extends AppBaseController
         //si carga una nueva imagen
         if ($request->file('img') != null) {
             //Borrado de imagen anterior
-            Storage::disk('images')->delete($Newimg->img);
-            
+            if ($Newimg->img != 'images/default.jpg') {
+                Storage::disk('images')->delete($Newimg->img);
+            }
             //guaradado de nueva imagen
             $path = storage_path('app/public/images/');
             if (!is_dir($path)) {
@@ -227,12 +229,15 @@ class imgController extends AppBaseController
             Flash::error('No puedes dejar a esta seccion sin imagenes.');
             return redirect(route('imgs.index'));
         }
-        Storage::disk('images')->delete($img->img);
 
         if (empty($img)) {
             Flash::error('Img not found');
 
             return redirect(route('imgs.index'));
+        }
+        //la img default no puede borrarse
+        if ($img->img != 'images/default.jpg') {
+            Storage::disk('images')->delete($img->img);
         }
 
         $this->imgRepository->delete($id);

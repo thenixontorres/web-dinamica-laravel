@@ -70,13 +70,18 @@ class articleController extends AppBaseController
         }
 
         $thumb = new thumb();
+        if (empty($request->file('thumb'))) {
+            $thumb->thumb = 'thumbs/default.jpg';
+            $thumb->article_id = $article->id;
+            $thumb->save();
+        }else{
         $idThumb = uniqid();
         $thumbUp = $request->file('thumb');
         $image = Storage::disk('images')->putFileAs('thumbs', $request->file('thumb'), $idThumb.'.'.$thumbUp->getClientOriginalExtension());
         $thumb->thumb = $image;
         $thumb->article_id = $article->id;
         $thumb->save();
-        
+        }    
         Flash::success('Article saved successfully.');
 
         return redirect(route('articles.index'));
@@ -147,8 +152,9 @@ class articleController extends AppBaseController
         //si carga la imagen
         if ($request->file('thumb') != null) {
             //Borrado de imagen anterior
+            if ($article->thumb->thumb != 'thumbs/default.jpg'){
             Storage::disk('images')->delete($article->thumb->thumb);
-
+            }
             $path = storage_path('app/public/images/');
             if (!is_dir($path)) {
             mkdir($path, 0777, true);
@@ -188,7 +194,10 @@ class articleController extends AppBaseController
         }
 
         $thumb = thumb::where('article_id', $id)->first();
-        Storage::disk('images')->delete($thumb->thumb);
+        //la img default no puede borrarse
+        if ($thumb->thumb != 'thumbs/default.jpg') {
+            Storage::disk('images')->delete($thumb->thumb);
+        }
 
         $thumb->delete();
         $this->articleRepository->delete($id);

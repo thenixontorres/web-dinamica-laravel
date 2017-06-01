@@ -1,8 +1,8 @@
 <table class="table table-responsive" id="constants-table">
     <thead>
-        <th>Var</th>
-        <th>Value</th>
-        <th colspan="3">Action</th>
+        <th>Variable</th>
+        <th>Valor</th>
+        <th colspan="3">Accion</th>
     </thead>
     <tbody>
     @foreach($constants as $constant)

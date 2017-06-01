@@ -1,10 +1,10 @@
 <table class="table table-responsive" id="articles-table">
     <thead>
-        <th>Title</th>
+        <th>Titulo</th>
         <th>Categoria</th>
         <th>Imagen de muestra</th>
-        <th>Visible</th>
-        <th colspan="3">Action</th>
+        <th>¿Visible?</th>
+        <th colspan="3">Accion</th>
     </thead>
     <tbody>
     @foreach($articles as $article)

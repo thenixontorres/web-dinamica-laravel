@@ -1,11 +1,11 @@
 <table class="table table-responsive" id="services-table">
     <thead>
-        <th>Icon</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Url</th>
-        <th>Visibility</th>
-        <th colspan="3">Action</th>
+        <th>Icono</th>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Enlace</th>
+        <th>¿Visibile?</th>
+        <th colspan="3">Accion</th>
     </thead>
     <tbody>
     @foreach($services as $service)

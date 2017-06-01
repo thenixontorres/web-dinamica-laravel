@@ -1,6 +1,6 @@
 <!-- Title Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('title', 'Title:') !!}
+    {!! Form::label('title', 'Titulo:') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -30,13 +30,13 @@
 
 <!-- Content Field -->
 <div class="form-group col-sm-12">
-    {!! Form::label('content', 'Content:') !!}
+    {!! Form::label('content', 'Contenido:') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Summary Field -->
 <div class="form-group col-sm-12">
-    {!! Form::label('summary', 'Summary:') !!}
+    {!! Form::label('summary', 'Resumen:') !!}
     {!! Form::textarea('summary', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -66,6 +66,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('articles.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('articles.index') !!}" class="btn btn-default">Cancelar</a>
 </div>

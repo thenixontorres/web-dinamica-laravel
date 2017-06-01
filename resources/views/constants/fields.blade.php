@@ -4,7 +4,7 @@
 @else
 <!-- Var Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('var', 'Var:') !!}
+    {!! Form::label('var', 'Variable:') !!}
     {!! Form::text('var', null, ['class' => 'form-control']) !!}
 </div>
 @endif
@@ -13,20 +13,20 @@
 	@if($constant->var == "Contraseña de Email de contacto")
 	<!-- Value Field -->
 	<div class="form-group col-sm-6">
-	    {!! Form::label('value', 'Value:') !!}
+	    {!! Form::label('value', 'Valor:') !!}
 	    {!! Form::password('value', ['class' => 'form-control']) !!}
 	</div>
 	@else
 	<!-- Value Field -->
 	<div class="form-group col-sm-6">
-	    {!! Form::label('value', 'Value:') !!}
+	    {!! Form::label('value', 'Valor:') !!}
 	    {!! Form::text('value', null, ['class' => 'form-control']) !!}
 	</div>
 	@endif
 @else
 <!-- Value Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('value', 'Value:') !!}
+    {!! Form::label('value', 'Valor:') !!}
     {!! Form::text('value', null, ['class' => 'form-control']) !!}
 </div>
 @endif

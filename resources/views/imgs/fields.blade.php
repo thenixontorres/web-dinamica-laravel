@@ -1,13 +1,13 @@
 <!-- Img Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('img', 'Img:') !!}
+    {!! Form::label('img', 'Imagen:') !!}
         {!! Form::file('img', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Position Field -->
 <div class="form-group col-sm-6">
     @if(isset($img))
-    {!! Form::label('position', 'Position:') !!}
+    {!! Form::label('position', 'Posicion:') !!}
     <select name="position" class="form-control">
         @for($i=0; $i < $positions; $i++)
             @if($img->position == $i+1) 
@@ -58,13 +58,13 @@
 
 <!-- Title Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('title', 'Title:') !!}
+    {!! Form::label('title', 'Titulo:') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Subtitle Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('subtitle', 'Subtitle:') !!}
+    {!! Form::label('subtitle', 'Subtitulo:') !!}
     {!! Form::text('subtitle', null, ['class' => 'form-control']) !!}
 </div>
 
