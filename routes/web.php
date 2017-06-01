@@ -21,9 +21,14 @@ Route::get('/blog', [
         'as'    =>  'blog',
 ]);
 
-Route::get('/article/{id}', [
+Route::get('/blog/article/{id}', [
         'uses'  =>  'blogController@article',
-        'as'    =>  'article',
+        'as'    =>  'blog.article',
+]);
+
+Route::get('/blog/category/{id}', [
+        'uses'  =>  'blogController@category',
+        'as'    =>  'blog.category',
 ]);
 
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');

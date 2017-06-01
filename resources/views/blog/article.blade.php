@@ -26,7 +26,7 @@
 	</div>
 	<div class="col-sm-3">
 		<div class="row">
-		Barra
+		@include('blog.partials.category')
 		</div>
 	</div>					
 </div>
