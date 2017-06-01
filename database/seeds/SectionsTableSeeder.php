@@ -64,5 +64,23 @@ class SectionsTableSeeder extends Seeder
             'name' => 'Spotlight',
             'page_id' => '3',
         ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Sobre Nosotros',
+            'page_id' => '4',
+        ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Misión',
+            'page_id' => '4',
+        ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Nuestro Equipo',
+            'page_id' => '4',
+        ]);
     }
 }

@@ -100,5 +100,35 @@ class ContentsTableSeeder extends Seeder
             'visibility' => '1',
             'section_id' => '9',
         ]);
+
+        DB::table('contents')->insert([
+            'title' => 'Sobre Nosotros.',
+            'subtitle' => 'Subtitulo de la seccion',
+            'body' => 'Cuerpo de la seccion.',
+            'button_link' => null,
+            'button_text' => null,
+            'visibility' => '1',
+            'section_id' => '10',
+        ]);
+
+        DB::table('contents')->insert([
+            'title' => 'Mision.',
+            'subtitle' => 'Subtitulo de la seccion',
+            'body' => 'Cuerpo de la seccion.',
+            'button_link' => null,
+            'button_text' => null,
+            'visibility' => '1',
+            'section_id' => '11',
+        ]);
+
+        DB::table('contents')->insert([
+            'title' => 'Nuestro Equipo.',
+            'subtitle' => 'Subtitulo de la seccion',
+            'body' => 'Cuerpo de la seccion.',
+            'button_link' => null,
+            'button_text' => null,
+            'visibility' => '1',
+            'section_id' => '12',
+        ]);
     }
 }

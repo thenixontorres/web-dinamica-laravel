@@ -22,6 +22,9 @@
                 <a href="{!! url('/perfil') !!}">Doctor Carlos Pisanu</a>
             </li>
             <li>
+                <a href="{!! url('/acerca') !!}">Sobre Nosotros</a>
+            </li>
+            <li>
                 <a href="{!! url('/blog') !!}">Blog</a>
             </li>
             <li>

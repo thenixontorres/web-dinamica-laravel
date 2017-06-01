@@ -21,6 +21,11 @@ Route::get('/perfil', [
         'as'    =>  'perfil',
 ]);
 
+Route::get('/acerca', [
+        'uses'  =>  'landingController@acerca',
+        'as'    =>  'acerca',
+]);
+
 Route::get('/blog', [
         'uses'  =>  'blogController@index',
         'as'    =>  'blog',

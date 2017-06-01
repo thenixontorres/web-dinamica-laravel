@@ -17,8 +17,12 @@
 		</ul>
 		@endif
 	</div>
-	<div class="image">
-		<img src="images/spotlight02.jpg" alt="" />
-	</div>
+	@foreach($Noticias->imgs as $img)
+		@if($img->visibility == '1')
+		<div class="image">
+			<img src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
+		</div>
+		@endif
+	@endforeach
 </section>
 @endif

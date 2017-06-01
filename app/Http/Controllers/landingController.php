@@ -43,4 +43,16 @@ class landingController extends Controller
         ->with('Spotlight', $Spotlight);
     }
 
+    public function acerca(){
+        $Sobre = section::where('page_id', '4')->where('name', 'Sobre Nosotros')->first();
+        $Mision = section::where('page_id', '4')->where('name', 'Misión')->first();
+        $Equipo = section::where('page_id', '4')->where('name', 'Nuestro Equipo')->first();
+        $Constant = constant::all();
+        return view('landing.acerca')
+        ->with('Constant', $Constant)
+        ->with('Sobre', $Sobre)
+        ->with('Mision', $Mision)
+        ->with('Equipo', $Equipo);
+    }
+
 }
