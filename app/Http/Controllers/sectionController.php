@@ -149,11 +149,15 @@ class sectionController extends AppBaseController
         $content->fill($request->all());
         $content->save();
         //actualizar imagen
+        
+        //Si la seccion solo permite una imagen visible
+        if ($section->sectionConfig->imgs == 'one-active-img'){
         //encontramos la imagen visible y la volvemos invisible
         $visible =  img::where('section_id', $section->id)->where('visibility','1')->first();
-        if(!empty($visible)){
-            $visible->visibility = "0";
-            $visible->save();
+            if(!empty($visible)){
+                $visible->visibility = "0";
+                $visible->save();
+            }
         }
         //encontramos la imagen que el usuario pide que sea visible
         $imgs = img::where('section_id', $section->id)->get();

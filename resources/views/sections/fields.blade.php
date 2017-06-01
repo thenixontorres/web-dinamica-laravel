@@ -64,18 +64,19 @@
     {!! Form::label('body', 'Body:') !!}
     {!! Form::text('body', $content->body, ['class' => 'form-control']) !!}
 </div>
+    @if($section->sectionConfig->btns == 'btn')
+    <!-- Button Text Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('button_text', 'Button Text:') !!}
+        {!! Form::text('button_text', $content->button_text, ['class' => 'form-control']) !!}
+    </div>
 
-<!-- Button Text Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('button_text', 'Button Text:') !!}
-    {!! Form::text('button_text', $content->button_text, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Button Link Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('button_link', 'Button Link:') !!}
-    {!! Form::text('button_link', $content->button_link, ['class' => 'form-control']) !!}
-</div>
+    <!-- Button Link Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('button_link', 'Button Link:') !!}
+        {!! Form::text('button_link', $content->button_link, ['class' => 'form-control']) !!}
+    </div>
+    @endif
 @else
 <!-- Title Field -->
 <div class="form-group col-sm-6">

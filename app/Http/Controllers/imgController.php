@@ -71,8 +71,10 @@ class imgController extends AppBaseController
 
         //posicion = cantidad de imagenes de la seccion +1
         $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
-        //solo la seccion testimonios (id=5) y slider (id=7) puede tener mas de una imagen visible
-        if(($request->section_id != "5" && $request->section_id != "7") && $request->visibility == "1"){
+        //solo las secciones multi-active-img puede tener mas de una imagen visible
+        $section = section::where('id', $request->section_id)->first();
+
+        if($section->sectionConfig->imgs == "one-active-img" && $request->visibility == "1"){
             $imgs = img::where('section_id', $request->section_id)->get();
             foreach($imgs as $img){
                 $img->visibility = "0";
@@ -158,8 +160,11 @@ class imgController extends AppBaseController
             return redirect(route('imgs.index'));
         }
 
-        //solo la seccion testimonios (id=5) puede tener mas de una imagen visible
-        if(($request->section_id != "5" && $request->section_id != "7") && $request->visibility == "1"){
+        //solo la seccion testimonios multi-active-img pueden tener mas de una imagen activa
+        $section = section::where('id', $request->section_id)->first();
+
+        if($section->sectionConfig->imgs == "one-active-img" &&
+            $request->visibility == "1"){
             $imgs = img::where('section_id', $request->section_id)->where('visibility', '1')->get();
             foreach($imgs as $img){
                 $img->visibility = "0";
@@ -176,7 +181,7 @@ class imgController extends AppBaseController
                 $coincidencia->save();
             }
         }
-
+        //si carga una nueva imagen
         if ($request->file('img') != null) {
             //Borrado de imagen anterior
             Storage::disk('images')->delete($Newimg->img);

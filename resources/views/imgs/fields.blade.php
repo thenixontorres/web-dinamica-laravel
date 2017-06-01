@@ -48,7 +48,9 @@
         {!! Form::label('section_id', 'Seccion:') !!}
         <select class="form-control" name="section_id">
         @foreach($sections as $section)
+            @if($section->sectionConfig->imgs != 'no-img')
             <option value="{{ $section->id}}"> {{ $section->name }}</option>
+            @endif
         @endforeach
         </select>
     @endif
