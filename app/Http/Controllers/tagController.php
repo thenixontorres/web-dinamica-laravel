@@ -33,7 +33,7 @@ class tagController extends AppBaseController
     {
         $this->tagRepository->pushCriteria(new RequestCriteria($request));
         //$tags = $this->tagRepository->all();
-        $tags = tag::paginate(10);
+        $tags = tag::orderBy('id', 'DESC')->paginate(10);
         return view('tags.index')
             ->with('tags', $tags);
     }

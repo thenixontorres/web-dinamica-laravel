@@ -34,7 +34,7 @@ class imgController extends AppBaseController
     {
         $this->imgRepository->pushCriteria(new RequestCriteria($request));
         //$imgs = $this->imgRepository->all();
-        $imgs = img::paginate(10);
+        $imgs = img::orderBy('id', 'DESC')->paginate(10);
         return view('imgs.index')
             ->with('imgs', $imgs);
     }

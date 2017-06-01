@@ -35,7 +35,7 @@ class articleController extends AppBaseController
     {
         $this->articleRepository->pushCriteria(new RequestCriteria($request));
         //$articles = $this->articleRepository->all();
-        $articles = article::paginate(5);
+        $articles = article::orderBy('id', 'DESC')->paginate(5);
         return view('articles.index')
             ->with('articles', $articles);
     }

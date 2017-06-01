@@ -33,7 +33,7 @@ class serviceController extends AppBaseController
     {
         $this->serviceRepository->pushCriteria(new RequestCriteria($request));
         //$services = $this->serviceRepository->all();
-        $services = service::paginate(10);
+        $services = service::orderBy('id', 'DESC')->paginate(10);
         return view('services.index')
             ->with('services', $services);
     }
