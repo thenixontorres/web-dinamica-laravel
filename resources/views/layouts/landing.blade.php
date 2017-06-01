@@ -19,6 +19,9 @@
                 <a href="{!! url('/') !!}">Inicio</a>
             </li>
             <li>
+                <a href="{!! url('/perfil') !!}">Doctor Carlos Pisanu</a>
+            </li>
+            <li>
                 <a href="{!! url('/blog') !!}">Blog</a>
             </li>
             <li>

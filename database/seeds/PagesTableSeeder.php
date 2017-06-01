@@ -22,5 +22,17 @@ class PagesTableSeeder extends Seeder
             'url' => '/blog',
             'visibility' => '1',
         ]);
+
+        DB::table('pages')->insert([
+            'title' => 'perfil',
+            'url' => '/perfil',
+            'visibility' => '1',
+        ]);
+
+        DB::table('pages')->insert([
+            'title' => 'acerca',
+            'url' => '/acerca',
+            'visibility' => '1',
+        ]);
     }
 }

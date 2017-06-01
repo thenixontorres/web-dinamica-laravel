@@ -118,5 +118,23 @@ class ImgsTableSeeder extends Seeder
             'subtitle' => 'texto',
             'section_id' => '7',
         ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Bio img',
+            'subtitle' => null,
+            'section_id' => '8',
+        ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Spotlight img',
+            'subtitle' => null,
+            'section_id' => '9',
+        ]);
     }
 }

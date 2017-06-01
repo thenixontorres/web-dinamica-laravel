@@ -52,5 +52,17 @@ class SectionsTableSeeder extends Seeder
             'name' => 'Slider',
             'page_id' => '1',
         ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Bio',
+            'page_id' => '3',
+        ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Spotlight',
+            'page_id' => '3',
+        ]);
     }
 }

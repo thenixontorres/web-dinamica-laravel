@@ -60,5 +60,19 @@ class SectionConfigTableSeeder extends Seeder
             'imgs' => 'multi-active-img',
             'btns' => 'no-btn',
         ]);
+
+        DB::table('section_configs')->insert([
+            'section_id' => '8',
+            'structure' => 'standar',
+            'imgs' => 'one-active-img',
+            'btns' => 'no-btn',
+        ]);
+
+        DB::table('section_configs')->insert([
+            'section_id' => '9',
+            'structure' => 'standar',
+            'imgs' => 'one-active-img',
+            'btns' => 'no-btn',
+        ]);
     }
 }

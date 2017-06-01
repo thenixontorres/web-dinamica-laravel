@@ -80,5 +80,25 @@ class ContentsTableSeeder extends Seeder
             'visibility' => '1',
             'section_id' => '7',
         ]);
+
+        DB::table('contents')->insert([
+            'title' => 'Dr Carlos Pisanu.',
+            'subtitle' => 'Subtitulo de la seccion',
+            'body' => 'Cuerpo de la seccion.',
+            'button_link' => null,
+            'button_text' => null,
+            'visibility' => '1',
+            'section_id' => '8',
+        ]);
+
+        DB::table('contents')->insert([
+            'title' => 'Spotlight.',
+            'subtitle' => 'Subtitulo de la seccion',
+            'body' => 'Cuerpo de la seccion.',
+            'button_link' => null,
+            'button_text' => null,
+            'visibility' => '1',
+            'section_id' => '9',
+        ]);
     }
 }

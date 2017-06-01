@@ -16,6 +16,11 @@ Route::get('/', [
         'as'    =>  'landing',
 ]);
 
+Route::get('/perfil', [
+        'uses'  =>  'landingController@perfil',
+        'as'    =>  'perfil',
+]);
+
 Route::get('/blog', [
         'uses'  =>  'blogController@index',
         'as'    =>  'blog',

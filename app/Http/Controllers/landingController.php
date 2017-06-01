@@ -32,5 +32,15 @@ class landingController extends Controller
         ->with('Servicios', $Servicios)
         ->with('Slider', $Slider);
     }
+    //page id 3 contiene Bio y Spotlight
+    public function perfil(){
+        $Bio = section::where('page_id', '3')->where('name', 'Bio')->first();
+        $Spotlight = section::where('page_id', '3')->where('name', 'Spotlight')->first();
+        $Constant = constant::all();
+        return view('landing.perfil')
+        ->with('Constant', $Constant)
+        ->with('Bio', $Bio)
+        ->with('Spotlight', $Spotlight);
+    }
 
 }
