@@ -13,6 +13,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\tag;
 use App\Models\thumb;
+use App\Models\article;
 
 class articleController extends AppBaseController
 {
@@ -33,8 +34,8 @@ class articleController extends AppBaseController
     public function index(Request $request)
     {
         $this->articleRepository->pushCriteria(new RequestCriteria($request));
-        $articles = $this->articleRepository->all();
-
+        //$articles = $this->articleRepository->all();
+        $articles = article::paginate(5);
         return view('articles.index')
             ->with('articles', $articles);
     }

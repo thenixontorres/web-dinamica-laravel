@@ -21,25 +21,23 @@
 	    </div>
 
 		<div id="slider" class="nivoSlider">
-		    @foreach($Testimonio->imgs as $img)	
+		    @foreach($Slider->imgs as $img)	
 				@if($img->visibility == '1')
 					<img src="{{ asset('/storage/images/').'/'.$img->img }}" data-thumb="{{ asset('/storage/images/').'/'.$img->img }}" alt="" title="#htmlcaption{{$img->id}}" />
 				@endif
 			@endforeach
 	    </div>
-			@foreach($Testimonio->imgs as $img)	
-				@if($img->visibility == '1')
-					<div id="htmlcaption{{$img->id}}" class="nivo-html-caption">
-		                <b style="color: #fff; font-size: 25px;">{{ $img->title }}</b> <br>
-		                @if(!empty($img->subtitle))
-							{{ $img->subtitle }}
-						@endif
-		            </div>
-					
-				@endif
-			@endforeach
+		@foreach($Slider->imgs as $img)	
+			@if($img->visibility == '1')
+				<div id="htmlcaption{{$img->id}}" class="nivo-html-caption">
+	                <b style="color: #fff; font-size: 25px;">{{ $img->title }}</b> <br>
+	                @if(!empty($img->subtitle))
+						{{ $img->subtitle }}
+					@endif
+	            </div>
+			@endif
+		@endforeach
 	</div>
-	
 </section>
 @endif
 <br>

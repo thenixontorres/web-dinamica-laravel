@@ -27,3 +27,4 @@
     @endforeach
     </tbody>
 </table>
+{{ $services->links() }}

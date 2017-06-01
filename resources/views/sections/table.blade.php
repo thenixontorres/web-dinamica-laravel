@@ -25,3 +25,4 @@
     @endforeach
     </tbody>
 </table>
+{{ $sections->links() }}

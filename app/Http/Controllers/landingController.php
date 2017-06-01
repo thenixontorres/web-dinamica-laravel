@@ -42,7 +42,7 @@ class landingController extends Controller
         ->with('Bio', $Bio)
         ->with('Spotlight', $Spotlight);
     }
-
+    //page id 4 mision vision y equipo
     public function acerca(){
         $Sobre = section::where('page_id', '4')->where('name', 'Sobre Nosotros')->first();
         $Mision = section::where('page_id', '4')->where('name', 'Misión')->first();

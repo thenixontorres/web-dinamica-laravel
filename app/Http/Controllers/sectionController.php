@@ -35,8 +35,8 @@ class sectionController extends AppBaseController
     public function index(Request $request)
     {
         $this->sectionRepository->pushCriteria(new RequestCriteria($request));
-        $sections = $this->sectionRepository->all();
-
+        //$sections = $this->sectionRepository->all();
+        $sections = section::paginate(10);
         return view('sections.index')
             ->with('sections', $sections);
     }

@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\article;
+use App\Models\tag;
+
 class tagController extends AppBaseController
 {
     /** @var  tagRepository */
@@ -30,8 +32,8 @@ class tagController extends AppBaseController
     public function index(Request $request)
     {
         $this->tagRepository->pushCriteria(new RequestCriteria($request));
-        $tags = $this->tagRepository->all();
-
+        //$tags = $this->tagRepository->all();
+        $tags = tag::paginate(10);
         return view('tags.index')
             ->with('tags', $tags);
     }

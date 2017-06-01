@@ -84,37 +84,37 @@ class ImgsTableSeeder extends Seeder
         ]);
 
            DB::table('imgs')->insert([
-            'img' => 'images/pic01.jpg',
+            'img' => 'images/slider-default.jpg',
             'position' => '1',
             'visibility' => '1',
-            'title' => 'Testimonio 1',
+            'title' => 'Slider',
             'subtitle' => 'texto',
             'section_id' => '7',
         ]);
 
         DB::table('imgs')->insert([
-            'img' => 'images/pic02.jpg',
+            'img' => 'images/slider-default.jpg',
             'position' => '2',
             'visibility' => '1',
-            'title' => 'Testimonio 2',
+            'title' => 'Slider',
             'subtitle' => 'texto',
             'section_id' => '7',
         ]);
 
         DB::table('imgs')->insert([
-            'img' => 'images/pic03.jpg',
+            'img' => 'images/slider-default.jpg',
             'position' => '3',
             'visibility' => '1',
-            'title' => 'Testimonio 3',
+            'title' => 'Slider',
             'subtitle' => 'texto',
             'section_id' => '7',
         ]);
 
         DB::table('imgs')->insert([
-            'img' => 'images/default.jpg',
+            'img' => 'images/slider-default.jpg',
             'position' => '4',
             'visibility' => '1',
-            'title' => 'Testimonio 4',
+            'title' => 'Slider',
             'subtitle' => 'texto',
             'section_id' => '7',
         ]);

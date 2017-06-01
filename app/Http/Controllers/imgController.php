@@ -33,8 +33,8 @@ class imgController extends AppBaseController
     public function index(Request $request)
     {
         $this->imgRepository->pushCriteria(new RequestCriteria($request));
-        $imgs = $this->imgRepository->all();
-
+        //$imgs = $this->imgRepository->all();
+        $imgs = img::paginate(10);
         return view('imgs.index')
             ->with('imgs', $imgs);
     }
@@ -86,7 +86,12 @@ class imgController extends AppBaseController
         $img = new img();
         if (empty($request->file('img'))) {
             $img->fill($input);
-            $img->img = 'images/default.jpg';
+            //las secciones tipo slider tiene una imagen default diferente
+            if($section->sectionConfig->structure == 'slider'){
+                $img->img = 'images/slider-default.jpg';
+            }else{
+                $img->img = 'images/default.jpg';
+            }
             $img->save();
         }else{
             $idImage = uniqid();
@@ -185,7 +190,7 @@ class imgController extends AppBaseController
         //si carga una nueva imagen
         if ($request->file('img') != null) {
             //Borrado de imagen anterior
-            if ($Newimg->img != 'images/default.jpg') {
+            if ($Newimg->img != 'images/default.jpg' && $Newimg->img != 'images/slider-default.jpg') {
                 Storage::disk('images')->delete($Newimg->img);
             }
             //guaradado de nueva imagen
@@ -236,7 +241,7 @@ class imgController extends AppBaseController
             return redirect(route('imgs.index'));
         }
         //la img default no puede borrarse
-        if ($img->img != 'images/default.jpg') {
+        if ($img->img != 'images/default.jpg' && $img->img != 'images/slider-default.jpg') {
             Storage::disk('images')->delete($img->img);
         }
 

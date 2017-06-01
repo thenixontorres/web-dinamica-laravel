@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\icon;
+use App\Models\service;
 
 class serviceController extends AppBaseController
 {
@@ -31,8 +32,8 @@ class serviceController extends AppBaseController
     public function index(Request $request)
     {
         $this->serviceRepository->pushCriteria(new RequestCriteria($request));
-        $services = $this->serviceRepository->all();
-
+        //$services = $this->serviceRepository->all();
+        $services = service::paginate(10);
         return view('services.index')
             ->with('services', $services);
     }
