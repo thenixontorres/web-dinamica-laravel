@@ -13,26 +13,33 @@
 		@endif
 	</div>
 
-<!-- Gallery -->
-	<div class="gallery style2 medium lightbox onscroll-fade-in">
-	@foreach($Testimonio->imgs as $img)	
-		@if($img->visibility == '1')
-		<article>
-			<a href="{{ asset('/storage/images/').'/'.$img->img }}" class="image">
-				<img src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
-			</a>
-			<div class="caption">
-				<h3>{{ $img->title }} </h3>
-				@if(!empty($img->subtitle))
-				<p>
-					{{ $img->subtitle }}
-				</p>
+	<!-- Gallery -->
+
+	<div class="slider-wrapper theme-default">
+	    <div id="htmlcaption" class="nivo-html-caption">
+	        <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+	    </div>
+
+		<div id="slider" class="nivoSlider">
+		    @foreach($Testimonio->imgs as $img)	
+				@if($img->visibility == '1')
+					<img src="{{ asset('/storage/images/').'/'.$img->img }}" data-thumb="{{ asset('/storage/images/').'/'.$img->img }}" alt="" title="#htmlcaption{{$img->id}}" />
 				@endif
-			</div>
-		</article>
-		@endif
-	@endforeach	
-	</div>	
+			@endforeach
+	    </div>
+			@foreach($Testimonio->imgs as $img)	
+				@if($img->visibility == '1')
+					<div id="htmlcaption{{$img->id}}" class="nivo-html-caption">
+		                <b style="color: #fff; font-size: 25px;">{{ $img->title }}</b> <br>
+		                @if(!empty($img->subtitle))
+							{{ $img->subtitle }}
+						@endif
+		            </div>
+					
+				@endif
+			@endforeach
+	</div>
+	
 </section>
 @endif
 <br>

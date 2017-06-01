@@ -58,6 +58,12 @@
     <script src="{{ url('plugins/Nivo-Slider/jquery.nivo.slider.js') }}"></script>
     <script src="{{ url('js/home/main.js') }}"></script>
 
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider();
+        });
+    </script>
+
     @yield('scripts')
 </body>
 </html>
