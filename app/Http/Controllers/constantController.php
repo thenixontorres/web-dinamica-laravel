@@ -117,14 +117,14 @@ class constantController extends AppBaseController
         $constant = $this->constantRepository->findWithoutFail($id);
 
         if (empty($constant)) {
-            Flash::error('Constant not found');
+            Flash::error('Variable no encontrada.');
 
             return redirect(route('constants.index'));
         }
 
         $constant = $this->constantRepository->update($request->all(), $id);
 
-        Flash::success('Constant updated successfully.');
+        Flash::success('Variable actualizada con exito.');
 
         return redirect(route('constants.index'));
     }

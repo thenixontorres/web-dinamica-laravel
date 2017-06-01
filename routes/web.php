@@ -16,28 +16,50 @@ Route::get('/', [
         'as'    =>  'landing',
 ]);
 
-Auth::routes();
+Route::get('/blog', [
+        'uses'  =>  'blogController@index',
+        'as'    =>  'blog',
+]);
 
-Route::get('/panel', 'HomeController@index');
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::resource('pages', 'pageController');
+Route::group(['middleware'=>'auth'], function(){ 
 
-Route::resource('sections', 'sectionController');
+	Route::get('/panel', 'HomeController@index');
 
-Route::resource('contents', 'contentController');
+	Route::resource('pages', 'pageController');
 
-Route::resource('configs', 'configController');
+	Route::resource('sections', 'sectionController');
 
-Route::resource('imgs', 'imgController');
+	Route::resource('contents', 'contentController');
 
-Route::resource('services', 'serviceController');
+	Route::resource('configs', 'configController');
 
-Route::resource('socials', 'socialController');
+	Route::resource('imgs', 'imgController');
 
-Route::resource('vars', 'varController');
+	Route::resource('services', 'serviceController');
 
-Route::resource('globals', 'globalController');
+	Route::resource('socials', 'socialController');
 
-Route::resource('constants', 'constantController');
+	Route::resource('vars', 'varController');
 
-Route::resource('icons', 'iconController');
+	Route::resource('globals', 'globalController');
+
+	Route::resource('constants', 'constantController');
+
+	Route::resource('icons', 'iconController');
+
+	Route::resource('articles', 'articleController');
+
+	Route::resource('thumbs', 'thumbController');
+
+	Route::resource('tags', 'tagController');
+
+	Route::resource('sectionConfigs', 'sectionConfigController');
+});
+
+
+
+

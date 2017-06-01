@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Constants</h1>
+        <h1 class="pull-left">Variables</h1>
         <h1 class="pull-right">
         @if(Auth::User()->tipo=='master')
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('constants.create') !!}">Add New</a>

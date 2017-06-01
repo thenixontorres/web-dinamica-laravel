@@ -71,8 +71,10 @@ class imgController extends AppBaseController
 
         //posicion = cantidad de imagenes de la seccion +1
         $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
-        //solo la seccion testimonios (id=5) puede tener mas de una imagen visible
-        if($request->section_id != "5" && $request->visibility == "1"){
+        //solo las secciones multi-active-img puede tener mas de una imagen visible
+        $section = section::where('id', $request->section_id)->first();
+
+        if($section->sectionConfig->imgs == "one-active-img" && $request->visibility == "1"){
             $imgs = img::where('section_id', $request->section_id)->get();
             foreach($imgs as $img){
                 $img->visibility = "0";
@@ -83,17 +85,18 @@ class imgController extends AppBaseController
         //crear img
         $img = new img();
         if (empty($request->file('img'))) {
+            $img->fill($input);
             $img->img = 'images/default.jpg';
             $img->save();
         }else{
-        $idImage = uniqid();
-        $imageUp = $request->file('img');
-        $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
-        $img->fill($input);
-        $img->img = $image;
-        $img->save();
+            $idImage = uniqid();
+            $imageUp = $request->file('img');
+            $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+            $img->fill($input);
+            $img->img = $image;
+            $img->save();
         }
-        Flash::success('Imagen saved successfully.');
+        Flash::success('Imagen guardada con exito.');
 
         return redirect(route('imgs.index'));
     }
@@ -130,7 +133,7 @@ class imgController extends AppBaseController
         $img = $this->imgRepository->findWithoutFail($id);
         $positions = count(img::where('section_id', $img->section_id)->get());
         if (empty($img)) {
-            Flash::error('Img not found');
+            Flash::error('Imagen no encontrada.');
 
             return redirect(route('imgs.index'));
         }
@@ -153,13 +156,16 @@ class imgController extends AppBaseController
         $Newimg = $this->imgRepository->findWithoutFail($id);
 
         if (empty($Newimg)) {
-            Flash::error('Img not found');
+            Flash::error('Imagen no encontrada.');
 
             return redirect(route('imgs.index'));
         }
 
-        //solo la seccion testimonios (id=5) puede tener mas de una imagen visible
-        if($request->section_id != "5" && $request->visibility == "1"){
+        //solo la seccion testimonios multi-active-img pueden tener mas de una imagen activa
+        $section = section::where('id', $request->section_id)->first();
+
+        if($section->sectionConfig->imgs == "one-active-img" &&
+            $request->visibility == "1"){
             $imgs = img::where('section_id', $request->section_id)->where('visibility', '1')->get();
             foreach($imgs as $img){
                 $img->visibility = "0";
@@ -176,11 +182,12 @@ class imgController extends AppBaseController
                 $coincidencia->save();
             }
         }
-
+        //si carga una nueva imagen
         if ($request->file('img') != null) {
             //Borrado de imagen anterior
-            Storage::disk('images')->delete($Newimg->img);
-            
+            if ($Newimg->img != 'images/default.jpg') {
+                Storage::disk('images')->delete($Newimg->img);
+            }
             //guaradado de nueva imagen
             $path = storage_path('app/public/images/');
             if (!is_dir($path)) {
@@ -201,7 +208,7 @@ class imgController extends AppBaseController
         
         //$img = $this->imgRepository->update($request->all(), $id);
 
-        Flash::success('Img updated successfully.');
+        Flash::success('Imagen guardada con exito.');
 
         return redirect(route('imgs.index'));
     }
@@ -216,17 +223,26 @@ class imgController extends AppBaseController
     public function destroy($id)
     {
         $img = $this->imgRepository->findWithoutFail($id);
-        Storage::disk('images')->delete($img->img);
+        $count = count(img::where('section_id', $img->section_id)->get());
+        if($count < 2)
+        {
+            Flash::error('No puedes dejar a esta seccion sin imagenes.');
+            return redirect(route('imgs.index'));
+        }
 
         if (empty($img)) {
             Flash::error('Img not found');
 
             return redirect(route('imgs.index'));
         }
+        //la img default no puede borrarse
+        if ($img->img != 'images/default.jpg') {
+            Storage::disk('images')->delete($img->img);
+        }
 
         $this->imgRepository->delete($id);
 
-        Flash::success('Img deleted successfully.');
+        Flash::success('Imagen borrada con exito.');
 
         return redirect(route('imgs.index'));
     }

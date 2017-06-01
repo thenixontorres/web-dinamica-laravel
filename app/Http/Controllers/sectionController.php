@@ -14,7 +14,7 @@ use App\Models\page;
 use App\Models\section;
 use App\Models\content;
 use App\Models\config;
-
+use App\Models\img;
 
 class sectionController extends AppBaseController
 {
@@ -111,7 +111,7 @@ class sectionController extends AppBaseController
         $section = $this->sectionRepository->findWithoutFail($id);
         $pages = page::all();
         $content = content::where('section_id',$id)->first();
-
+        $imgs = img::where('section_id',$id)->get();
         if (empty($section)) {
             Flash::error('Seccion no encontrada.');
 
@@ -121,7 +121,8 @@ class sectionController extends AppBaseController
         return view('sections.edit')
             ->with('section', $section)
             ->with('pages', $pages)
-            ->with('content', $content);
+            ->with('content', $content)
+            ->with('imgs', $imgs);
     }
 
     /**
@@ -141,13 +142,33 @@ class sectionController extends AppBaseController
 
             return redirect(route('sections.index'));
         }
-        
+        //actualizar seccion
         $section = $this->sectionRepository->update($request->all(), $id);
-
+        //actualizar contenido
         $content = content::where('section_id',$section->id)->first();
         $content->fill($request->all());
         $content->save();
-        Flash::success('Section updated successfully.');
+        //actualizar imagen
+        
+        //Si la seccion solo permite una imagen visible
+        if ($section->sectionConfig->imgs == 'one-active-img'){
+        //encontramos la imagen visible y la volvemos invisible
+        $visible =  img::where('section_id', $section->id)->where('visibility','1')->first();
+            if(!empty($visible)){
+                $visible->visibility = "0";
+                $visible->save();
+            }
+        }
+        //encontramos la imagen que el usuario pide que sea visible
+        $imgs = img::where('section_id', $section->id)->get();
+        foreach($imgs as $img){
+            if($img->id == $request->img){
+                $img->visibility = "1";
+                $img->save();
+            }
+        } 
+        
+        Flash::success('Section actualizada con exito.');
 
         return redirect(route('sections.index'));
     }

@@ -4,6 +4,8 @@
 
 	@include('landing.partials.cabecera')
 
+	@include('landing.partials.slider')
+
 	@include('landing.partials.perfil')
 
 	@include('landing.partials.noticias')

@@ -25,6 +25,8 @@ class icon extends Model
         'css_value'
     ];
 
+    //HasMany
+    
     public function services()
     {
         return $this->hasMany(service::class);

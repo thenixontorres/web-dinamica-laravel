@@ -32,11 +32,10 @@ class section extends Model
         return $this->BelongsTo(page::class);
     }
     //Has One
-    public function config()
+    public function sectionConfig()
     {
-        return $this->hasOne(config::class);
+        return $this->hasOne(sectionConfig::class);
     }
-
     public function content()
     {
         return $this->hasOne(content::class);

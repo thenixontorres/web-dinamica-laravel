@@ -18,6 +18,33 @@
 
 <body>
 
+@if (!Auth::guest())
+    <nav class="nav-landing" >
+        <ul>
+            <li>
+                <a href="{!! url('/') !!}">Inicio</a>
+            </li>
+            <li>
+                <a href="{!! url('/blog') !!}">Blog</a>
+            </li>
+            <li>
+                <a href="{!! url('/panel') !!}">Menu</a>
+            </li>
+            <li>
+                <a href="{!! url('/logout') !!}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Salir
+                </a>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+@endif
+
     <div id="wrapper" class="divided"></div>
         @yield('content')
     </div>
