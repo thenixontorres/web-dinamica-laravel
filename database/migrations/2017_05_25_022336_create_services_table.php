@@ -18,7 +18,9 @@ class CreateservicesTable extends Migration
             $table->integer('icon_id')->unsigned();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->string('url')->nullable();
+            $table->string('banner_img');
+            $table->string('content');
+            //$table->string('url')->nullable();
             $table->integer('visibility');
             $table->integer('section_id')->unsigned();
             $table->timestamps();

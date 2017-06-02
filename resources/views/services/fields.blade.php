@@ -23,15 +23,21 @@
 </div>
 
 <!-- Description Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-12">
     {!! Form::label('description', 'Descripcion:') !!}
-    {!! Form::text('description', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Url Field -->
+<!-- Content Field -->
+<div class="form-group col-sm-12">
+    {!! Form::label('content', 'Contenido:') !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Visibility Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('url', 'Enlace:') !!}
-    {!! Form::text('url', null, ['class' => 'form-control']) !!}
+    {!! Form::label('banner_img', 'Imagen de Banner: ') !!}
+    {!! Form::file('banner_img', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Visibility Field -->

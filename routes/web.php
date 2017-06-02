@@ -16,6 +16,11 @@ Route::get('/', [
         'as'    =>  'landing',
 ]);
 
+Route::get('/servicios/{id}', [
+        'uses'  =>  'landingController@servicios',
+        'as'    =>  'servicios',
+]);
+
 Route::get('/perfil', [
         'uses'  =>  'landingController@perfil',
         'as'    =>  'perfil',

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\section;
 use App\Models\constant;
 use Illuminate\Support\Facades\Mail;
+use App\Models\service;
+use Flash;
+
 
 class landingController extends Controller
 {
@@ -55,4 +58,18 @@ class landingController extends Controller
         ->with('Equipo', $Equipo);
     }
 
+    //recibe el id del servicio
+    public function servicios($id){
+        $service = service::where('id', $id)->first();
+        $Constant = constant::all(); 
+        if (empty($service)) {
+            Flash::error('Este servicio no esta disponible.');
+            return route('landing');
+        }else{
+            Flash::error('Este servicio no esta disponible.');
+            return view('landing.service')
+            ->with('service', $service)
+            ->with('Constant', $Constant);
+        }
+    }
 }

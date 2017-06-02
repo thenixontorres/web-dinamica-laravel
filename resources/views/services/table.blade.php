@@ -2,8 +2,7 @@
     <thead>
         <th>Icono</th>
         <th>Titulo</th>
-        <th>Descripcion</th>
-        <th>Enlace</th>
+        <th>Banner</th>
         <th>¿Visibile?</th>
         <th colspan="3">Accion</th>
     </thead>
@@ -12,8 +11,7 @@
         <tr>
             <td> <i class="fa {!! $service->icon->css_value !!}"></i> </td>
             <td>{!! $service->title !!}</td>
-            <td>{!! $service->description !!}</td>
-            <td>{!! $service->url !!}</td>
+            <td><img class="img-responsive" style="max-width: 100px;" src="{{ asset('storage/images/').'/'.$service->banner_img }}"></td></td>
             <td>{!! $service->visibility !!}</td>
             <td>
                 {!! Form::open(['route' => ['services.destroy', $service->id], 'method' => 'delete']) !!}

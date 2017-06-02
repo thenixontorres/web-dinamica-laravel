@@ -12,6 +12,8 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\icon;
 use App\Models\service;
+use Illuminate\Support\Facades\Storage;
+
 
 class serviceController extends AppBaseController
 {
@@ -61,7 +63,26 @@ class serviceController extends AppBaseController
     {
         $input = $request->all();
 
-        $service = $this->serviceRepository->create($input);
+        $path = storage_path('app/public/images/');
+        if (!is_dir($path)) {
+        mkdir($path, 0777, true);
+        }
+        // se crea el servicio
+        $service = new service();
+        $service->fill($input);
+        //si esta vacio se le pone el default
+        if (empty($request->file('banner_img'))) {
+            $service->banner_img = 'images/slider-default.jpg';
+            $service->save();
+        }else{
+            $idBanner = uniqid();
+            $bannerUp = $request->file('banner_img');
+            $image = Storage::disk('images')->putFileAs('images', $request->file('banner_img'), $idBanner.'.'.$bannerUp->getClientOriginalExtension());
+            $service->banner_img = $image;
+            $service->save();
+        } 
+
+        //$service = $this->serviceRepository->create($input);
 
         Flash::success('Servicio registrado con exito.');
 

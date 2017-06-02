@@ -17,7 +17,7 @@
 			@if($service->visibility == "1")
 			<section>
 				<span class="icon style2 major {{ $service->icon->css_value }}"></span>
-				<h3>{{ $service->title }} </h3>
+				<h3><a href="{{ route('servicios', $service->id)}}">{{ $service->title }}</a></h3>
 				@if(!empty($service->description))
 				<p>{{ $service->description }}</p>
 				@endif
@@ -28,4 +28,4 @@
 		</div>
 	</div>
 </section>
-@endif
+@endif 

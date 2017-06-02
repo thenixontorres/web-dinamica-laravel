@@ -24,7 +24,8 @@ class service extends Model
         'icon_id',
         'title',
         'description',
-        'url',
+        'banner_ing',
+        'content',
         'visibility',
         'section_id'
     ];
@@ -49,7 +50,8 @@ class service extends Model
         'icon_id' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'url' => 'string',
+        'banner_ing' => 'string',
+        'content' => 'string',
         'visibility' => 'integer',
         'section_id' => 'integer'
     ];
@@ -61,7 +63,9 @@ class service extends Model
      */
     public static $rules = [
         'icon_id' => 'required',
-        'title' => 'required', 
+        'title' => 'required',
+        'description' => 'required',
+        'content' => 'required', 
         'visibility' => 'required',
         'section_id' => 'required'
     ];
