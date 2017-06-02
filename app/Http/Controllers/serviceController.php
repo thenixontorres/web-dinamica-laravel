@@ -149,7 +149,31 @@ class serviceController extends AppBaseController
             return redirect(route('services.index'));
         }
 
-        $service = $this->serviceRepository->update($request->all(), $id);
+         //si carga la imagen
+        if ($request->file('banner_img') != null) {
+            //Borrado de imagen anterior
+            if ($service->banner_img != 'thumbs/default.jpg' && $service->banner_img != 'thumbs/slider-default.jpg'){
+            Storage::disk('images')->delete($service->banner_img);
+            }
+            $path = storage_path('app/public/images/');
+            if (!is_dir($path)) {
+            mkdir($path, 0777, true);
+            }
+
+            $idBanner = uniqid();
+            $bannerUp = $request->file('banner_img');
+            $image = Storage::disk('images')->putFileAs('images', $request->file('banner_img'), $idBanner.'.'.$bannerUp->getClientOriginalExtension());
+            $service->fill($request->all());
+            $service->banner_img = $image;
+            $service->save();
+        }else{
+            $image = $service->banner_img;
+            $service->fill($request->all());
+            $service->banner_img = $image;
+            $service->save();
+        } 
+
+        //$service = $this->serviceRepository->update($request->all(), $id);
 
         Flash::success('Servicio actualizado con exito.');
 
@@ -171,6 +195,10 @@ class serviceController extends AppBaseController
             Flash::error('Servicio no encontrado.');
 
             return redirect(route('services.index'));
+        }
+
+        if ($service->banner_img != 'images/slider-default.jpg') {
+            Storage::disk('images')->delete($service->banner_img);
         }
 
         $this->serviceRepository->delete($id);
