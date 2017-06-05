@@ -13,9 +13,11 @@ class blogController extends Controller
 {
     public function index(Request $request)
     {	
+
+        
     	$tags = tag::all();
     	$Constant = constant::all();
-    	$articles = article::buscar($request->title)->where('visibility', '1')->paginate(3);
+    	$articles = article::buscar($request->title)->orderBy('id', 'DESC')->where('visibility', '1')->paginate(3);
     	return view('blog.public')
         ->with('articles', $articles)
         ->with('Constant', $Constant)
@@ -44,7 +46,7 @@ class blogController extends Controller
     {
     	$tags = tag::all();
     	$Constant = constant::all();
-    	$articles = article::where('tag_id', $id)->where('visibility', '1')->paginate(3);
+    	$articles = article::orderBy('id', 'DESC')->where('tag_id', $id)->where('visibility', '1')->paginate(3);
     	if(empty($articles)){
     		Flash::error('Esta categria no posee articulos aun.');
     		return view('blog.public');

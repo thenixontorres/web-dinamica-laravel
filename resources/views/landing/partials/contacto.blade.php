@@ -2,7 +2,7 @@
 <section id="Contacto" class="wrapper style1 align-center">
 	<div class="inner medium">
 		<h2>Contacto r&aacute;pido</h2>
-		<form method="post" action="#">
+		{!! Form::open(['route' => 'contacto']) !!}
 			<div class="field half first">
 				<label for="name">Nombre</label>
 				<input type="text" name="name" id="name" value="" />
@@ -18,7 +18,6 @@
 			<ul class="actions">
 				<li><input type="submit" name="submit" id="submit" value="{{ $Constant[1]->value }}" /></li>
 			</ul>
-		</form>
-
+        {!! Form::close() !!}
 	</div>
 </section>

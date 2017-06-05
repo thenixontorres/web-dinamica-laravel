@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\section;
 use App\Models\constant;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 use App\Models\service;
 use Flash;
 
@@ -66,10 +67,20 @@ class landingController extends Controller
             Flash::error('Este servicio no esta disponible.');
             return route('landing');
         }else{
-            Flash::error('Este servicio no esta disponible.');
             return view('landing.service')
             ->with('service', $service)
             ->with('Constant', $Constant);
         }
+    }
+
+    public function contacto(Request $request){
+        $mail_to = constant::where('var', 'Email de contacto')->first();
+        try {
+        Mail::to($mail_to->value)->send(new ContactMail($request->name, $request->menssage, $request->email));
+        Flash::success('Su mensaje fue enviado exitosamente.');
+        } catch (Exception $e) {
+        Flash::success('Lo sentimos, no fue posible enviar su mensaje.');
+        }
+        return redirect()->back();
     }
 }

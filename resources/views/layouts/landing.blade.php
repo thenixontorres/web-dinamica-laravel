@@ -18,7 +18,6 @@
 
 <body>
 
-@if (!Auth::guest())
     <nav class="nav-landing" >
         <ul>
             <li>
@@ -33,6 +32,7 @@
             <li>
                 <a href="{!! url('/blog') !!}">Blog</a>
             </li>
+            @if(Auth::user())
             <li>
                 <a href="{!! url('/panel') !!}">Menu</a>
             </li>
@@ -45,11 +45,11 @@
                     {{ csrf_field() }}
                 </form>
             </li>
+            @endif
         </ul>
     </nav>
     <br>
     <br>
-@endif
 
     <div id="wrapper" class="divided"></div>
         @yield('content')
