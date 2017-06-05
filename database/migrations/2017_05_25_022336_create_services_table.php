@@ -19,7 +19,7 @@ class CreateservicesTable extends Migration
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('banner_img');
-            $table->string('content');
+            $table->text('content');
             //$table->string('url')->nullable();
             $table->integer('visibility');
             $table->integer('section_id')->unsigned();

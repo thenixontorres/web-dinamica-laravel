@@ -1,14 +1,17 @@
 @section('css')
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
+<script src="{{ url('js/tinyMCE/tinymce.min.js') }}"></script>
 @endsection
 
 <!-- Title Field -->
+
 <div class="form-group col-sm-6">
     {!! Form::label('title', 'Titulo:') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Categorie Field--> 
+<!-- Categorie Field -->
+
 <div class="form-group col-sm-6">
     {!! Form::label('categories', 'Categoria:') !!}
     <select class="form-control" name="tag_id">
@@ -31,19 +34,17 @@
     	@endforeach
     </select>
 </div>
-  
-  <textarea>Next, get a free TinyMCE Cloud API key!</textarea>
 
-<!-- Content Field 
+<!-- Content Field --> 
 <div class="form-group col-sm-12">
     {!! Form::label('content', 'Contenido:') !!}
-    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control', 'id' => 'content']) !!}
 </div>
--->
+
+
 <!-- Summary Field -->
 <div class="form-group col-sm-12">
-    {!! Form::label('summary', 'Resumen:') !!}
-    {!! Form::textarea('summary', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('summary', null, ['class' => 'form-control', 'placeholder'=>'Escribe algo que atraiga a los lectores']) !!}
 </div>
 
 <!-- previw Field -->
@@ -77,5 +78,5 @@
 </div>
 
 @section('scripts')
- <script>tinymce.init({ selector:'textarea' });</script>
+ <script>tinymce.init({ selector:'textarea#content' });</script>
 @endsection

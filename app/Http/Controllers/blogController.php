@@ -18,7 +18,8 @@ class blogController extends Controller
     	$tags = tag::all();
     	$Constant = constant::all();
     	$articles = article::buscar($request->title)->orderBy('id', 'DESC')->where('visibility', '1')->paginate(3);
-    	return view('blog.public')
+    	
+        return view('blog.public')
         ->with('articles', $articles)
         ->with('Constant', $Constant)
         ->with('tags', $tags);

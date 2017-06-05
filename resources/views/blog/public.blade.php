@@ -3,7 +3,7 @@
 @section('content')
 <!-- Six -->
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-1">	
+	<div class="col-sm-9 col-sm-offset-1">	
 	@if(isset($articles))				
 		@foreach($articles as $article)
 		<div class="row">
@@ -31,7 +31,7 @@
 	{{ $articles->links() }}
 	@endif
 	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-2">
 		<div class="row">
 			@include('blog.partials.category')
 		</div>
