@@ -46,9 +46,9 @@
     <br>
     <br>
 
-    <div id="wrapper" class="divided"></div>
+    <!--<div id="wrapper" class="divided"></div> -->
         @yield('content')
-    </div>
+    <!-- </div> -->
 
     <!-- jQuery 3.1.1 -->
     <script src="{{ url('js/home/jquery.min.js') }}"></script>

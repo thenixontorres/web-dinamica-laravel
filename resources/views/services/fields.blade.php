@@ -1,3 +1,7 @@
+@section('css')
+<!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
+<script src="{{ url('js/tinyMCE/tinymce.min.js') }}"></script>
+@endsection
 <!-- Icon Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('icon', 'Icono:') !!}
@@ -31,7 +35,7 @@
 <!-- Content Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('content', 'Contenido:') !!}
-    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control', 'id'=>'content']) !!}
 </div>
 
 <!-- Visibility Field -->
@@ -64,3 +68,11 @@
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('services.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
+
+@section('scripts')
+ <script>tinymce.init({ 
+    selector:'textarea#content',
+    toolbar: "image",
+    plugins: "image imagetools" 
+ });</script>
+@endsection

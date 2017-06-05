@@ -8,6 +8,6 @@
 			<li><a href="{{ $Constant[5]->value }}" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
 			<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 		</ul>
-		<!-- <p>&copy; Dise&ntilde;o y desarrollo: <a href="http://tylmarketing.com">Torres Lapilover Marketing</a>.</p> -->
 	</div>
 </footer>
+<!--end footer -->
