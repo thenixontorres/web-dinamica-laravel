@@ -30,6 +30,11 @@ class article extends Model
         return $this->hasOne(thumb::class);
     }
 
+    public function scopeBuscar($query, $title)
+    {
+        return $query->where('title','LIKE',"%$title%");
+    }
+
     public $fillable = [
         'title',
         'content',

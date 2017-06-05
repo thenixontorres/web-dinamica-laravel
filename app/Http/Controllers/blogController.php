@@ -11,11 +11,11 @@ use App\Models\tag;
 
 class blogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {	
     	$tags = tag::all();
     	$Constant = constant::all();
-    	$articles = article::where('visibility', '1')->paginate(3);
+    	$articles = article::buscar($request->title)->where('visibility', '1')->paginate(3);
     	return view('blog.public')
         ->with('articles', $articles)
         ->with('Constant', $Constant)
