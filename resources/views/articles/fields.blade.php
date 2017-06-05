@@ -78,5 +78,9 @@
 </div>
 
 @section('scripts')
- <script>tinymce.init({ selector:'textarea#content' });</script>
+ <script>tinymce.init({ 
+    selector:'textarea#content',
+    toolbar: "image",
+    plugins: "image imagetools" 
+ });</script>
 @endsection
