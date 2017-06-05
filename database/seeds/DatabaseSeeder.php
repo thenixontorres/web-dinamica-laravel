@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(IconsTableSeeder::class);
         $this->call(ServicesTableSeeder::class);
         $this->call(SectionConfigTableSeeder::class);
-
+        $this->call(TagsTableSeeder::class);
     }
 }
