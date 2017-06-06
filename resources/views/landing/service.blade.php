@@ -5,10 +5,11 @@
 		<div class="col-sm-12">
 			<img class="img img-responsive" style="min-width:100%;" src="{{ asset('/storage/images/').'/'.$service->banner_img }}" alt="" />
 		</div>
-	</div>
-	<br>
+	</div>		
+</div>
+<div class="container">
 	<div class="row">
-		<div class="col-sm-6 col-sm-offset-1 font-body">			
+		<div class="col-sm-8 font-body">			
 			<h2>{{ $service->title }}</h2>
 			<p class="article-content">{!! $service->content !!} </p>
 		</div>	
@@ -42,7 +43,7 @@
 	</div>
 	<!--
 	<div class="row">	
-		<div class="col-sm-10 col-sm-offset-1">				
+		<div class="col-sm-18">				
 			<h2 class="align-center">Contacto r&aacute;pido</h2>
 			{!! Form::open(['route' => 'contacto']) !!}
 				<div class="row">
@@ -72,9 +73,9 @@
 	</div> 
 	-->
 	<div class="row">	
-		<div class="col-sm-10 col-sm-offset-1">				
+		<div class="col-sm-12">				
 		@include('landing.partials.footer')	
 		</div>
-	</div>		
+	</div>
 </div>
 @endsection

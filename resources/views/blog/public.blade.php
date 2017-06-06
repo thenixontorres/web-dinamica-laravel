@@ -2,19 +2,21 @@
 
 @section('content')
 <!-- Six -->
+<br>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">	
 		@if(isset($articles))				
 			@foreach($articles as $article)
 			<div class="row">
-				<div class="col-sm-10">		
-					<article class="wrapper style1 align-center">
+				<div class="col-sm-12">		
+					<article class="">
 						<div class="inner">
-								<h2><a href="{{ route('blog.article', $article->id) }}">{{ $article->title }}
-								</a></h2>
+							<h2><a href="{{ route('blog.article', $article->id) }}">{{ $article->title }}
+							</a></h2>						
+							<p class="align-left">  {{ $article->created_at }} </p>
 						</div>
-						<p class="align-left">{{ $article->tag->category }}</p>
+						<b style="line-height: 0px;" class="align-left">{{ $article->tag->category }}</b>
 						<div class="image">
 							<a href="{{ route('blog.article', $article->id) }}">
 							<img class="img img-responsive" src="{{ asset('/storage/images/').'/'.$article->thumb->thumb }}" alt="" />
@@ -23,9 +25,6 @@
 						<div class="inner">
 							<p>{{ $article->summary }}</p>
 						</div>
-					</article>
-					<article class="wrapper style1">
-						<p class="align-right">  {{ $article->created_at }} </p>
 					</article>
 				</div>
 			</div>

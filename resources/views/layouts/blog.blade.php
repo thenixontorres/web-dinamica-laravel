@@ -12,6 +12,9 @@
         body{
             overflow-x: hidden;
         }
+        .wrapper{
+            padding-top: 44px;
+        }
     </style>
 
     @yield('css')
@@ -49,13 +52,10 @@
             @endif
         </ul>
     </nav>
-    <br>
-    <br>
 
-    <!--<div id="wrapper" class="divided"></div> -->
+    <div class="wrapper">
         @yield('content')
-    <!-- </div> -->
-
+    </div>
     <!-- jQuery 3.1.1 -->
     <script src="{{ url('js/home/jquery.min.js') }}"></script>
     <script src="{{ url('js/home/jquery.scrollex.min.js') }}"></script>
