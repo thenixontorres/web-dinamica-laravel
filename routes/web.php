@@ -59,33 +59,25 @@ Route::group(['middleware'=>'auth'], function(){
 
 	Route::get('/panel', 'HomeController@index');
 
-	Route::resource('pages', 'pageController');
+	Route::resource('pages', 'pageController', ['only' =>['index']]);
 
-	Route::resource('sections', 'sectionController');
+	Route::resource('sections', 'sectionController', ['only' =>['index','edit','update']]);
 
-	Route::resource('contents', 'contentController');
+	//Route::resource('contents', 'contentController');
 
-	Route::resource('configs', 'configController');
+	Route::resource('imgs', 'imgController', ['except' =>['show']]);
 
-	Route::resource('imgs', 'imgController');
+	Route::resource('services', 'serviceController',['except' =>['show']]);
 
-	Route::resource('services', 'serviceController');
+	Route::resource('constants', 'constantController',['only' =>['index','edit','update']]);
 
-	Route::resource('socials', 'socialController');
+	Route::resource('icons', 'iconController',['except' =>['destroy','edit','update']]);
 
-	Route::resource('vars', 'varController');
+	Route::resource('articles', 'articleController',['except' =>['show']]);
 
-	Route::resource('globals', 'globalController');
+	//Route::resource('thumbs', 'thumbController');
 
-	Route::resource('constants', 'constantController');
-
-	Route::resource('icons', 'iconController');
-
-	Route::resource('articles', 'articleController');
-
-	Route::resource('thumbs', 'thumbController');
-
-	Route::resource('tags', 'tagController');
+	Route::resource('tags', 'tagController',['except' =>['show']]);
 
 	Route::resource('sectionConfigs', 'sectionConfigController');
 });

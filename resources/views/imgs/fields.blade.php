@@ -2,6 +2,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('img', 'Imagen:') !!}
         {!! Form::file('img', null, ['class' => 'form-control']) !!}
+    <span>Preferiblemente 450x150 para sliders y banners </span>
 </div>
 
 <!-- Position Field -->

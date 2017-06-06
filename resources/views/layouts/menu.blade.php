@@ -10,10 +10,6 @@
     <a href="{!! route('sections.index') !!}"><i class="fa fa-edit"></i><span>Secciones</span></a>
 </li>
 
-<!-- <li class="{{ Request::is('contents*') ? 'active' : '' }}">
-    <a href="{!! route('contents.index') !!}"><i class="fa fa-edit"></i><span>Contenidos</span></a>
-</li> -->
-
 <li class="{{ Request::is('imgs*') ? 'active' : '' }}">
     <a href="{!! route('imgs.index') !!}"><i class="fa fa-edit"></i><span>Imagenes</span></a>
 </li>

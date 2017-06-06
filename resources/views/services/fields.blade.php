@@ -42,6 +42,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('banner_img', 'Imagen de Banner: ') !!}
     {!! Form::file('banner_img', null, ['class' => 'form-control']) !!}
+    <span class="align-center">Preferiblemente 450x150 o superior</span>
 </div>
 
 <!-- Visibility Field -->

@@ -51,6 +51,8 @@
 <div class="form-group col-sm-6">
     {!! Form::label('thumb', 'Imagen para mostrar:') !!}
     {!! Form::file('thumb', null, ['class' => 'form-control']) !!}
+    <span>Preferiblemente 500x500</span>
+
 </div>
 <!-- Visibility Field -->
 <div class="form-group col-sm-6">

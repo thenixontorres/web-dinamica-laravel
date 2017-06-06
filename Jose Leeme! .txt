@@ -9,9 +9,7 @@ Ojo, es muy importante que hagas --seed porque sin la informacion precargada las
 Otra cosa es asegurarte que tengas las imagenes default de la carpeta storage, y hacer storage:link antes de probar el sistema.
 
 falta:
--middleware para restringir ciertas rutas al usuario.
 -El frontend del blog.
--mensajes sobre el tamaño recomendado para sliders y banners.
 -Poner funcional el envio de emails en contacto.
 -Detalles en vistas para hacerlas mas intuitivas.
 -Datepicker en el blog para buscar por fecha.
