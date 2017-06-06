@@ -18,11 +18,13 @@ class blogController extends Controller
     	$tags = tag::all();
     	$Constant = constant::all();
     	$articles = article::buscar($request->title)->orderBy('id', 'DESC')->where('visibility', '1')->paginate(3);
-    	
+    	$lastest = article::orderBy('id', 'DESC')->where('visibility', '1')->limit(10)->get();
+
         return view('blog.public')
         ->with('articles', $articles)
         ->with('Constant', $Constant)
-        ->with('tags', $tags);
+        ->with('tags', $tags)
+        ->with('lastest', $lastest);
     }
 
     //recibe id del articulo
@@ -30,7 +32,8 @@ class blogController extends Controller
     {
     	$tags = tag::all();
     	$Constant = constant::all();
-    	$article = article::where('id', $id)->first();
+        $lastest = article::orderBy('id', 'DESC')->where('visibility', '1')->limit(10)->get();
+        $article = article::where('id', $id)->first();
     	if(empty($article) || $article->visibility == '0'){
     		Flash::error('Este articulo no existe o no esta disponible.');
     		return view('blog.public');
@@ -38,7 +41,8 @@ class blogController extends Controller
     		return view('blog.article')
     			->with('article', $article)
     			->with('Constant', $Constant)
-    			->with('tags', $tags);
+    			->with('tags', $tags)
+                ->with('lastest', $lastest);
     	}
     }
 
@@ -48,6 +52,7 @@ class blogController extends Controller
     	$tags = tag::all();
     	$Constant = constant::all();
     	$articles = article::orderBy('id', 'DESC')->where('tag_id', $id)->where('visibility', '1')->paginate(3);
+        $lastest = article::orderBy('id', 'DESC')->where('visibility', '1')->limit(10)->get();
     	if(empty($articles)){
     		Flash::error('Esta categria no posee articulos aun.');
     		return view('blog.public');
@@ -55,7 +60,8 @@ class blogController extends Controller
     		return view('blog.public')
     			->with('articles', $articles)
     			->with('Constant', $Constant)
-    			->with('tags', $tags);
+    			->with('tags', $tags)
+                ->with('lastest', $lastest);
     	}
     }
 }

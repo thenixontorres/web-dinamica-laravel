@@ -13,3 +13,4 @@ falta:
 -Poner funcional el envio de emails en contacto.
 -Detalles en vistas para hacerlas mas intuitivas.
 -Datepicker en el blog para buscar por fecha.
+-depurar vistas no utilizadas
