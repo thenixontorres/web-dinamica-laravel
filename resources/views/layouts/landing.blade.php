@@ -48,10 +48,8 @@
             @endif
         </ul>
     </nav>
-    <br>
-    <br>
 
-    <div id="wrapper" class="divided"></div>
+    <div id="wrapper" class="divided top">
         @yield('content')
     </div>
 
