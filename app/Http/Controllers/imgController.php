@@ -69,12 +69,19 @@ class imgController extends AppBaseController
         mkdir($path, 0777, true);
         }
 
+        //posicion = cantidad de imagenes de la seccion +1
+        $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
+        //solo la seccion testimonios (id=5) puede tener mas de una imagen visible
+        if($request->section_id != "5" && $request->visibility == "1"){
+            $imgs = img::where('section_id', $request->section_id)->get();
+            foreach($imgs as $img){
+                $img->visibility = "0";
+                $img->save();
+            }
+        }
+        //guardado de la imagen
         //crear img
         $img = new img();
-        //agregarle la posicion por default
-        $input['position'] = count(img::where('section_id', $request->section_id)->get())+1;
-        $img->fill($input);
-        //guardado de la imagen
         if (empty($request->file('img'))) {
             $img->img = 'images/default.jpg';
             $img->save();
@@ -82,6 +89,7 @@ class imgController extends AppBaseController
         $idImage = uniqid();
         $imageUp = $request->file('img');
         $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
+        $img->fill($input);
         $img->img = $image;
         $img->save();
         }
@@ -142,27 +150,36 @@ class imgController extends AppBaseController
      */
     public function update($id, UpdateimgRequest $request)
     {
-        $img = $this->imgRepository->findWithoutFail($id);
+        $Newimg = $this->imgRepository->findWithoutFail($id);
 
-        if (empty($img)) {
+        if (empty($Newimg)) {
             Flash::error('Img not found');
 
             return redirect(route('imgs.index'));
         }
 
+        //solo la seccion testimonios (id=5) puede tener mas de una imagen visible
+        if($request->section_id != "5" && $request->visibility == "1"){
+            $imgs = img::where('section_id', $request->section_id)->where('visibility', '1')->get();
+            foreach($imgs as $img){
+                $img->visibility = "0";
+                $img->save();
+            }
+        }
+
         //actualizacion de la posicion
         //ontengo las imagenes de la seccion
-        $coincidencias = img::where('section_id', $img->section_id)->get();
+        $coincidencias = img::where('section_id', $Newimg->section_id)->get();
         foreach ($coincidencias as $coincidencia) {
             if ($request->position == $coincidencia->position) {
-                $coincidencia->position = $img->position;
+                $coincidencia->position = $Newimg->position;
                 $coincidencia->save();
             }
         }
 
         if ($request->file('img') != null) {
             //Borrado de imagen anterior
-            Storage::disk('images')->delete($img->img);
+            Storage::disk('images')->delete($Newimg->img);
             
             //guaradado de nueva imagen
             $path = storage_path('app/public/images/');
@@ -173,13 +190,13 @@ class imgController extends AppBaseController
             $idImage = uniqid();
             $imageUp = $request->file('img');
             $image = Storage::disk('images')->putFileAs('images', $request->file('img'), $idImage.'.'.$imageUp->getClientOriginalExtension());
-            $img->fill($request->all());
-            $img->img = $image;
-            $img->save();
+            $Newimg->fill($request->all());
+            $Newimg->img = $image;
+            $Newimg->save();
         }else{
-            $request->img = $img->img;
-            $img->fill($request->all());
-            $img->save();
+            $Newimg->fill($request->all());
+            $request->img = $Newimg->img;
+            $Newimg->save();
         }
         
         //$img = $this->imgRepository->update($request->all(), $id);

@@ -15,9 +15,11 @@
 	</div>
 	<div class="image">
 		@if(!empty($Cabecera->imgs))
-		@foreach($Cabecera->imgs as $img)
-		<img src="{{ asset('storage/images/').'/'.$img->img }}" alt="" />
-		@endforeach
+			@foreach($Cabecera->imgs as $img)
+				@if($img->visibility == "1")
+				<img src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
+				@endif
+			@endforeach
 		@else
 		<img src="{{ asset('storage/images/').'/images/default.jpg' }}" alt="" />
 		@endif
