@@ -39,6 +39,7 @@ class article extends Model
         'title',
         'content',
         'visibility',
+        'slug',
         'summary',
         'tag_id'
     ];
@@ -50,6 +51,7 @@ class article extends Model
      */
     protected $casts = [
         'title' => 'string',
+        'slug' => 'string',
         'content' => 'string',
         'visibility' => 'integer',
         'summary' => 'string',

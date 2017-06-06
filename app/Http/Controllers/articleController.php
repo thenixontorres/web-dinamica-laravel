@@ -14,6 +14,7 @@ use Response;
 use App\Models\tag;
 use App\Models\thumb;
 use App\Models\article;
+use Illuminate\Support\Str as Str;
 
 class articleController extends AppBaseController
 {
@@ -62,8 +63,18 @@ class articleController extends AppBaseController
     public function store(CreatearticleRequest $request)
     {
         $input = $request->all();
+        $slug = Str::slug($request->title);
+        $repeats = article::where('slug', $slug)->get();
+        //el slug/nombre del articulo debe ser unico
+        if(count($repeats)>0){
+            Flash::error('Articulo ya existe, pruebe otro nombre');
+            return redirect()->back();
+        }
+
+        $input['slug'] = $slug;
 
         $article = $this->articleRepository->create($input);
+        $article->save();
 
         $path = storage_path('app/public/images/');
         if (!is_dir($path)) {
@@ -83,7 +94,7 @@ class articleController extends AppBaseController
         $thumb->article_id = $article->id;
         $thumb->save();
         }    
-        Flash::success('Article saved successfully.');
+        Flash::success('Articulo registrado con exito.');
 
         return redirect(route('articles.index'));
     }
@@ -145,9 +156,20 @@ class articleController extends AppBaseController
         $article = $this->articleRepository->findWithoutFail($id);
 
         if (empty($article)) {
-            Flash::error('Article not found');
+            Flash::error('Articulo no encontrado');
 
             return redirect(route('articles.index'));
+        }
+
+        $slug = Str::slug($request->title);
+
+        //si modifica el titulo/slug no deben haber coincidencias de slug
+        if ($request->title != $article->title) {
+            $repeats = article::where('slug', $slug)->get();
+            if(count($repeats) > 0){
+                Flash::error('Articulo ya existe, pruebe otro nombre');
+                return redirect()->back();
+            }
         }
 
         //si carga la imagen
@@ -172,7 +194,7 @@ class articleController extends AppBaseController
 
         $article = $this->articleRepository->update($request->all(), $id);
 
-        Flash::success('Article updated successfully.');
+        Flash::success('Articulo actualizado con exito.');
 
         return redirect(route('articles.index'));
     }
@@ -189,7 +211,7 @@ class articleController extends AppBaseController
         $article = $this->articleRepository->findWithoutFail($id);
 
         if (empty($article)) {
-            Flash::error('Article not found');
+            Flash::error('Articulo no encontrado.');
 
             return redirect(route('articles.index'));
         }
@@ -203,7 +225,7 @@ class articleController extends AppBaseController
         $thumb->delete();
         $this->articleRepository->delete($id);
 
-        Flash::success('Article deleted successfully.');
+        Flash::success('Articulo borrado con exito.');
 
         return redirect(route('articles.index'));
     }
