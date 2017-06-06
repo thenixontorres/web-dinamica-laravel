@@ -11,12 +11,12 @@
 				<div class="col-sm-10">		
 					<article class="wrapper style1 align-center">
 						<div class="inner">
-								<h2><a href="{{ route('blog.article', $article->id) }}">{{ $article->title }}
+								<h2><a href="{{ route('blog.article', $article->slug) }}">{{ $article->title }}
 								</a></h2>
 						</div>
 						<p class="align-left">{{ $article->tag->category }}</p>
 						<div class="image">
-							<a href="{{ route('blog.article', $article->id) }}">
+							<a href="{{ route('blog.article', $article->slug) }}">
 							<img class="img img-responsive" src="{{ asset('/storage/images/').'/'.$article->thumb->thumb }}" alt="" />
 							</a>
 						</div>

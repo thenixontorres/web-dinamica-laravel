@@ -27,13 +27,13 @@ class blogController extends Controller
         ->with('lastest', $lastest);
     }
 
-    //recibe id del articulo
-    public function article($id)
+    //recibe slug del articulo
+    public function article($slug)
     {
     	$tags = tag::all();
     	$Constant = constant::all();
         $lastest = article::orderBy('id', 'DESC')->where('visibility', '1')->limit(10)->get();
-        $article = article::where('id', $id)->first();
+        $article = article::where('slug', $slug)->first();
     	if(empty($article) || $article->visibility == '0'){
     		Flash::error('Este articulo no existe o no esta disponible.');
     		return view('blog.public');

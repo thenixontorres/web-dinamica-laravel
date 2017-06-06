@@ -41,7 +41,7 @@ Route::get('/blog', [
         'as'    =>  'blog',
 ]);
 
-Route::get('/blog/article/{id}', [
+Route::get('/blog/article/{slug}', [
         'uses'  =>  'blogController@article',
         'as'    =>  'blog.article',
 ]);

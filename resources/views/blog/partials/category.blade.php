@@ -22,6 +22,6 @@
 </div>
 <div class="col-sm-12 col-sm-offset-1">	
 	@foreach($lastest as $last)
-	<a href="{{ route('blog.article', $last->id) }}"><p>{{ $last->title }} </p></a>
+	<a href="{{ route('blog.article', $last->slug) }}"><p>{{ $last->title }} </p></a>
 	@endforeach
 </div>
