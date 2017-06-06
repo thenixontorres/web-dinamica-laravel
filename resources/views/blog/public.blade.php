@@ -2,9 +2,9 @@
 
 @section('content')
 <!-- Six -->
-<div class="container-fuid">
+<div class="container">
 	<div class="row">
-		<div class="col-sm-9 col-sm-offset-1">	
+		<div class="col-sm-8">	
 		@if(isset($articles))				
 			@foreach($articles as $article)
 			<div class="row">
@@ -33,7 +33,7 @@
 		{{ $articles->links() }}
 		@endif
 		</div>
-		<div class="col-sm-2">
+		<div class="col-sm-4">
 			<div class="row">
 				@include('blog.partials.category')
 			</div>
@@ -41,7 +41,7 @@
 	</div>
 
 	<div class="row">	
-		<div class="col-sm-10 col-sm-offset-1">				
+		<div class="col-sm-12">				
 		@include('landing.partials.footer')	
 		</div>
 	</div>	

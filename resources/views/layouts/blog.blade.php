@@ -8,6 +8,12 @@
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
 
+    <style type="text/css">
+        body{
+            overflow-x: hidden;
+        }
+    </style>
+
     @yield('css')
 </head>
 
