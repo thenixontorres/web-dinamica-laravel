@@ -25,7 +25,6 @@ class landingController extends Controller
         $Servicios = section::where('page_id', '1')->where('name', 'Servicios')->first();
         $Slider = section::where('page_id', '1')->where('name', 'Slider')->first();
         $Constant = constant::all();
-
         return view('landing.public')
         ->with('Cabecera', $Cabecera)
         ->with('Perfil', $Perfil)

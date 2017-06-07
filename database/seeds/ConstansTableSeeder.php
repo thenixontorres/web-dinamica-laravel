@@ -40,5 +40,15 @@ class ConstansTableSeeder extends Seeder
             'var' => 'Enlace a Linked in',
             'value' => 'https://www.example.com/',
         ]);
+
+       DB::table('constants')->insert([
+            'var' => 'Telefono/Whatsapp',
+            'value' => '0000-000-0000',
+        ]);
+
+       DB::table('constants')->insert([
+            'var' => 'Email',
+            'value' => 'Example@email.com',
+        ]);
     }
 }
