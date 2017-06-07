@@ -5,28 +5,28 @@
 <br>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8">					
+		<div class="col-sm-8">	
 			<div class="row">
 				<div class="col-sm-12">		
-					<article class="">
 						<div class="inner">
-							<h2>{{ $article->title }}</h2>
+								<h2><a href="{{ route('blog.article', $article->slug) }}">{{ $article->title }}
+								</a></h2>
 						</div>
-						<p style="line-height: 0px;" class="align-left">  {{ $article->created_at }} </p>
-						<b class="align-left">{{ $article->tag->category }}</b>
+						<p style="line-height: 0px;" class="align-left">{{ $article->tag->category }}</p>
 						<div class="image">
+							<a href="{{ route('blog.article', $article->slug) }}">
 							<img class="img img-responsive" src="{{ asset('/storage/images/').'/'.$article->thumb->thumb }}" alt="" />
+							</a>
 						</div>
-						<div class="">
+						<div class="inner">
 							<p>{!! $article->content !!}</p>
 						</div>
-					</article>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="row">
-			@include('blog.partials.category')
+				@include('blog.partials.category')
 			</div>
 		</div>					
 	</div>
@@ -40,5 +40,5 @@
 		@include('landing.partials.footer')	
 		</div>
 	</div>	
-</div>	
+</div>
 @endsection

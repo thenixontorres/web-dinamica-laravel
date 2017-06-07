@@ -10,13 +10,11 @@
 			@foreach($articles as $article)
 			<div class="row">
 				<div class="col-sm-12">		
-					<article class="">
 						<div class="inner">
-							<h2><a href="{{ route('blog.article', $article->id) }}">{{ $article->title }}
-							</a></h2>						
-							<p class="align-left">  {{ $article->created_at }} </p>
+								<h2><a href="{{ route('blog.article', $article->slug) }}">{{ $article->title }}
+								</a></h2>
 						</div>
-						<b style="line-height: 0px;" class="align-left">{{ $article->tag->category }}</b>
+						<p style="line-height: 0px;" class="align-left">{{ $article->tag->category }}</p>
 						<div class="image">
 							<a href="{{ route('blog.article', $article->slug) }}">
 							<img class="img img-responsive" src="{{ asset('/storage/images/').'/'.$article->thumb->thumb }}" alt="" />
@@ -25,7 +23,6 @@
 						<div class="inner">
 							<p>{{ $article->summary }}</p>
 						</div>
-					</article>
 				</div>
 			</div>
 			@endforeach
