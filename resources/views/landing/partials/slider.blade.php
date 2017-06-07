@@ -1,7 +1,7 @@
 <!-- Five -->
 @if($Slider->visibility == '1')
 <section id="Slider" class="wrapper style1 align-center">
-	<div class="inner">
+		<br>
 		@if(!empty($Slider->content->title))
 			<h2>{{ $Slider->content->title }}</h2>
 		@endif
@@ -11,8 +11,6 @@
 		@if(!empty($Slider->content->body))
 		<p>{{ $Slider->content->body }} </p>
 		@endif
-	</div>
-
 	<!-- Gallery -->
 
 	<div class="slider-wrapper theme-default">
@@ -38,5 +36,6 @@
 			@endif
 		@endforeach
 	</div>
+	<br>
 </section>
 @endif

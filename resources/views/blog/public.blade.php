@@ -15,6 +15,7 @@
 	</div>		
 </div>
 @endif
+<br>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">	
@@ -26,7 +27,7 @@
 								<h2><a href="{{ route('blog.article', $article->slug) }}">{{ $article->title }}
 								</a></h2>
 						</div>
-						<p style="line-height: 0px;" class="align-left">{{ $article->tag->category }}</p>
+						<p style="line-height: 0px;" class="align-left"><a href="{{ route('blog.category', $article->tag->id) }}">{{ $article->tag->category }}</a></p>
 						<div class="image">
 							<a href="{{ route('blog.article', $article->slug) }}">
 							<img class="img img-responsive" src="{{ asset('/storage/images/').'/'.$article->thumb->thumb }}" alt="" />
@@ -34,6 +35,7 @@
 						</div>
 						<div class="inner">
 							<p>{{ $article->summary }}</p>
+							<p>{{ $article->created_at }} </p>
 						</div>
 				</div>
 			</div>

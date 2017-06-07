@@ -17,7 +17,7 @@ class CreatecontentsTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
-            $table->string('body')->nullable()	;
+            $table->text('body')->nullable()	;
             $table->string('button_text')->nullable()	;
             $table->string('button_link')->nullable()	;
             $table->integer('visibility');

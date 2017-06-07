@@ -82,9 +82,9 @@ class ContentsTableSeeder extends Seeder
         ]);
 
         DB::table('contents')->insert([
-            'title' => 'Dr Carlos Pisanu.',
-            'subtitle' => 'Subtitulo de la seccion',
-            'body' => 'Cuerpo de la seccion.',
+            'title' => 'Dr. Carlos Pisanu.',
+            'subtitle' => 'Detalles sobre el resumen curricular, experiencia, trabajo, objetivos y visión',
+            'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             'button_link' => null,
             'button_text' => null,
             'visibility' => '1',
@@ -94,7 +94,7 @@ class ContentsTableSeeder extends Seeder
         DB::table('contents')->insert([
             'title' => 'Spotlight.',
             'subtitle' => 'Subtitulo de la seccion',
-            'body' => 'Cuerpo de la seccion.',
+            'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             'button_link' => null,
             'button_text' => null,
             'visibility' => '1',
@@ -104,7 +104,7 @@ class ContentsTableSeeder extends Seeder
         DB::table('contents')->insert([
             'title' => 'Sobre Nosotros.',
             'subtitle' => 'Subtitulo de la seccion',
-            'body' => 'Cuerpo de la seccion.',
+            'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             'button_link' => null,
             'button_text' => null,
             'visibility' => '1',
