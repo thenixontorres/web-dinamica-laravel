@@ -13,7 +13,7 @@
 </div>
 <div class="col-sm-12 col-sm-offset-1">	
 	@foreach($tags as $tag)
-	<a href="{{ route('blog.category', $tag->id) }}"><p>{{ $tag->category }} </p></a>
+	<a href="{{ route('blog.category', $tag->id) }}"><p>{{ $tag->category }} ( {{ @count($tag->articles) }} )</p></a>
 	@endforeach
 </div>
 
