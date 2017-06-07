@@ -16,7 +16,7 @@ class CreatesectionConfigsTable extends Migration
         Schema::create('section_configs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('section_id')->unsigned();
-            $table->enum('structure',['slider', 'carousel', 'standar','blog','board']);
+            $table->enum('structure',['slider', 'carousel', 'standar','blog','board', 'banner']);
             $table->enum('imgs',['no-img', 'one-active-img', 'multi-active-img']);
             $table->enum('btns',['no-btn', 'btn']);
             $table->timestamps();

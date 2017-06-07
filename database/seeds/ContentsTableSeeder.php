@@ -130,5 +130,15 @@ class ContentsTableSeeder extends Seeder
             'visibility' => '1',
             'section_id' => '12',
         ]);
+
+        DB::table('contents')->insert([
+            'title' => null,
+            'subtitle' => null,
+            'body' => null,
+            'button_link' => null,
+            'button_text' => null,
+            'visibility' => '1',
+            'section_id' => '13',
+        ]);
     }
 }

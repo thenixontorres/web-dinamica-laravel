@@ -82,5 +82,11 @@ class SectionsTableSeeder extends Seeder
             'name' => 'Nuestro Equipo',
             'page_id' => '4',
         ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Cabecera del Blog',
+            'page_id' => '2',
+        ]);
     }
 }

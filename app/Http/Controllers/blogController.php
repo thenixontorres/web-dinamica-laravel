@@ -8,6 +8,7 @@ use App\Models\article;
 use App\Models\constant;
 use Flash;
 use App\Models\tag;
+use App\Models\section;
 
 class blogController extends Controller
 {
@@ -20,10 +21,13 @@ class blogController extends Controller
     	$articles = article::buscar($request->title)->orderBy('id', 'DESC')->where('visibility', '1')->paginate(3);
     	$lastest = article::orderBy('id', 'DESC')->where('visibility', '1')->limit(10)->get();
 
+        $Banner = section::where('page_id', '2')->where('name', 'Cabecera del Blog')->first();
+
         return view('blog.public')
         ->with('articles', $articles)
         ->with('Constant', $Constant)
         ->with('tags', $tags)
+        ->with('Banner', $Banner)
         ->with('lastest', $lastest);
     }
 
@@ -34,6 +38,7 @@ class blogController extends Controller
     	$Constant = constant::all();
         $lastest = article::orderBy('id', 'DESC')->where('visibility', '1')->limit(10)->get();
         $article = article::where('slug', $slug)->first();
+        $Banner = section::where('page_id', '2')->where('name', 'Cabecera del Blog')->first();
     	if(empty($article) || $article->visibility == '0'){
     		Flash::error('Este articulo no existe o no esta disponible.');
     		return view('blog.public');
@@ -42,6 +47,7 @@ class blogController extends Controller
     			->with('article', $article)
     			->with('Constant', $Constant)
     			->with('tags', $tags)
+                ->with('Banner', $Banner)
                 ->with('lastest', $lastest);
     	}
     }
@@ -53,6 +59,7 @@ class blogController extends Controller
     	$Constant = constant::all();
     	$articles = article::orderBy('id', 'DESC')->where('tag_id', $id)->where('visibility', '1')->paginate(3);
         $lastest = article::orderBy('id', 'DESC')->where('visibility', '1')->limit(10)->get();
+        $Banner = section::where('page_id', '2')->where('name', 'Cabecera del Blog')->first();
     	if(empty($articles)){
     		Flash::error('Esta categria no posee articulos aun.');
     		return view('blog.public');
@@ -61,6 +68,7 @@ class blogController extends Controller
     			->with('articles', $articles)
     			->with('Constant', $Constant)
     			->with('tags', $tags)
+                ->with('Banner', $Banner)
                 ->with('lastest', $lastest);
     	}
     }

@@ -181,5 +181,14 @@ class ImgsTableSeeder extends Seeder
             'subtitle' => null,
             'section_id' => '12',
         ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/slider-default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Banner del Blog',
+            'subtitle' => null,
+            'section_id' => '13',
+        ]);
     }
 }

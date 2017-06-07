@@ -2,7 +2,19 @@
 
 @section('content')
 <!-- Six -->
-<br>
+@if($Banner->visibility == '1')
+<div class="container-fuid">
+	<div class="row">
+		<div class="col-sm-12">
+			@foreach($Banner->imgs as $img)
+				@if($img->visibility == '1')
+				<img class="img img-responsive" style="min-width:100%;" src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
+				@endif
+			@endforeach
+		</div>
+	</div>		
+</div>
+@endif
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">	

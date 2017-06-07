@@ -47,6 +47,7 @@
 </div>
 <!--De la tabla contents -->
 @if(isset($content))
+@if($section->sectionConfig->structure != 'banner')
 <!-- Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('title', 'Titulo:') !!}
@@ -64,6 +65,7 @@
     {!! Form::label('body', 'Cuerpo:') !!}
     {!! Form::text('body', $content->body, ['class' => 'form-control']) !!}
 </div>
+@endif
     @if($section->sectionConfig->btns == 'btn')
     <!-- Button Text Field -->
     <div class="form-group col-sm-6">
