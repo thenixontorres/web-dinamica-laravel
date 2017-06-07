@@ -50,7 +50,7 @@
         <select class="form-control" name="section_id">
         @foreach($sections as $section)
             @if($section->sectionConfig->imgs != 'no-img')
-            <option value="{{ $section->id}}"> {{ $section->name }}</option>
+            <option value="{{ $section->id}}"> {{ $section->name.' - '.$section->page->title }}</option>
             @endif
         @endforeach
         </select>

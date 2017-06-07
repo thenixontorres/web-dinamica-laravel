@@ -8,6 +8,12 @@
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
 
+    <link href="{{ url('plugins/Nivo-Slider/themes/default/default.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ url('plugins/Nivo-Slider/themes/light/light.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ url('plugins/Nivo-Slider/themes/dark/dark.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ url('plugins/Nivo-Slider/themes/bar/bar.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ url('plugins/Nivo-Slider/nivo-slider.css') }}" type="text/css" rel="stylesheet"/>
+
     <style type="text/css">
         body{
             overflow-x: hidden;
@@ -62,8 +68,13 @@
     <script src="{{ url('js/home/jquery.scrolly.min.js') }}"></script>
     <script src="{{ url('js/home/skel.min.js') }}"></script>
     <script src="{{ url('js/home/util.js') }}"></script>
+    <script src="{{ url('plugins/Nivo-Slider/jquery.nivo.slider.js') }}"></script>
     <script src="{{ url('js/home/main.js') }}"></script>
-
+     <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider();
+        });
+    </script>
     @yield('scripts')
 </body>
 </html>

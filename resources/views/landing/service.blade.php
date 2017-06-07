@@ -1,17 +1,21 @@
 @extends('layouts.blog')
 @section('content')
-<div class="container-fuid">
-	<div class="row">
-		<div class="col-sm-12">
-			<img class="img img-responsive" style="min-width:100%;" src="{{ asset('/storage/images/').'/'.$service->banner_img }}" alt="" />
-		</div>
-	</div>		
+
+<div class="slider-wrapper theme-default">
+    <div id="htmlcaption" class="nivo-html-caption">
+        <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+    </div>
+	<div id="slider" class="nivoSlider">
+		<img src="{{ asset('/storage/images/').'/'.$service->banner_img }}" data-thumb="{{ asset('/storage/images/').'/'.$service->banner_img }}" alt="" title="#htmlcaption{{$service->id}}" />
+    </div>
+	<div id="htmlcaption{{$service->id}}" class="nivo-html-caption banner-caption">
+        <b style="color: #fff; font-size: 25px;">{{ $service->title }}</b>
+    </div>
 </div>
 <br>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8 font-body">			
-			<h2>{{ $service->title }}</h2>
 			<p class="article-content">{!! $service->content !!} </p>
 		</div>	
 		<div class="col-sm-4">				

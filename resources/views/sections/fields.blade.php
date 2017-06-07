@@ -61,9 +61,9 @@
 </div>
 
 <!-- Body Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-12">
     {!! Form::label('body', 'Cuerpo:') !!}
-    {!! Form::text('body', $content->body, ['class' => 'form-control']) !!}
+    {!! Form::textarea('body', $content->body, ['class' => 'form-control']) !!}
 </div>
 @endif
     @if($section->sectionConfig->btns == 'btn')
