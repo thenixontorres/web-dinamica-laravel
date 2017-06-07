@@ -8,6 +8,15 @@
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
 
+    <style type="text/css">
+        body{
+            overflow-x: hidden;
+        }
+        .wrapper{
+            padding-top: 44px;
+        }
+    </style>
+
     @yield('css')
 </head>
 
@@ -43,13 +52,10 @@
             @endif
         </ul>
     </nav>
-    <br>
-    <br>
 
-    <!--<div id="wrapper" class="divided"></div> -->
+    <div class="wrapper">
         @yield('content')
-    <!-- </div> -->
-
+    </div>
     <!-- jQuery 3.1.1 -->
     <script src="{{ url('js/home/jquery.min.js') }}"></script>
     <script src="{{ url('js/home/jquery.scrollex.min.js') }}"></script>
