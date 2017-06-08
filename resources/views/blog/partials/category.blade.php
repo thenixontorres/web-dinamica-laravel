@@ -9,19 +9,31 @@
   	</form>
 </div> 
 <div class="col-sm-12 col-sm-offset-1">	
-	Categorias
+	Categorias:
 </div>
 <div class="col-sm-12 col-sm-offset-1">	
-	@foreach($tags as $tag)
-	<a href="{{ route('blog.category', $tag->id) }}"><p>{{ $tag->category }} ( {{ @count($tag->articles) }} )</p></a>
-	@endforeach
+	<div class="row">
+		@foreach($tags as $tag)
+		<div class="col-sm-12">
+			<a class="text-left" href="{{ route('blog.category', $tag->id) }}">
+			{{ $tag->category }} ( {{ @count($tag->articles) }} )
+			</a>
+		</div>
+		@endforeach
+	</div>
 </div>
 
 <div class="col-sm-12 col-sm-offset-1">	
-	Ultimos Post
+	Ultimos Post:
 </div>
 <div class="col-sm-12 col-sm-offset-1">	
-	@foreach($lastest as $last)
-	<a href="{{ route('blog.article', $last->slug) }}"><p>{{ $last->title }} </p></a>
-	@endforeach
+	<div class="row">
+		@foreach($lastest as $last)
+		<div class="col-sm-12">
+			<a class="text-left" href="{{ route('blog.article', $last->slug) }}">
+			{{ $last->title }} ( {{ $last->created_at }} )
+			</a>
+		</div>
+		@endforeach
+	</div>
 </div>
