@@ -1,6 +1,8 @@
 @extends('layouts.landing')
 
 @section('content')
+	
+	@include('flash::message')
 
 	@include('landing.partials.cabecera')
 

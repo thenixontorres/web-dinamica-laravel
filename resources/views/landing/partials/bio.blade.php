@@ -1,6 +1,7 @@
 <!-- Three -->
 @if($Bio->visibility == "1")
 <section id="Noticias" class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+	<!--texto -->
 	<div class="content">
 		@if(!empty($Bio->content->title))
 			<h2>{{ $Bio->content->title }}</h2>
@@ -17,6 +18,8 @@
 		</ul>
 		@endif
 	</div>
+	<!-- fin texto -->
+	<!--imagen -->
 	@foreach($Bio->imgs as $img)
 		@if($img->visibility == '1')
 		<div class="image">
@@ -24,5 +27,6 @@
 		</div>
 		@endif
 	@endforeach
+	<!-- fin texto -->
 </section>
 @endif

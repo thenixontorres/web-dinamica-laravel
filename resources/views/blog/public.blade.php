@@ -2,6 +2,8 @@
 
 @section('content')
 <!-- Six -->
+@include('flash::message')
+
 @if($Banner->visibility == '1')
 <div class="container-fuid">
 	<div class="row">

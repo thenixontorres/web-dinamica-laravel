@@ -10,7 +10,6 @@ Otra cosa es asegurarte que tengas las imagenes default de la carpeta storage, y
 
 falta:
 -El frontend del blog.
--Poner funcional el envio de emails en contacto.
 -Detalles en vistas para hacerlas mas intuitivas.
 -Datepicker en el blog para buscar por fecha.
 -En paginas "Dr carlos Pisanu y  Sobre nosotros"  el tamaño de contenido del cuerpo afecta las dimenciones de la imagen. 

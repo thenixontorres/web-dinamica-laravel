@@ -1,4 +1,4 @@
-@extends('layouts.landing')
+@extends('layouts.blog')
 
 @section('content')
 	@include('landing.partials.bio')
