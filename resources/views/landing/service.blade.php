@@ -8,7 +8,7 @@
 	<div id="slider" class="nivoSlider">
 		<img src="{{ asset('/storage/images/').'/'.$service->banner_img }}" data-thumb="{{ asset('/storage/images/').'/'.$service->banner_img }}" alt="" title="#htmlcaption{{$service->id}}" />
     </div>
-	<div id="htmlcaption{{$service->id}}" class="nivo-html-caption banner-caption">
+	<div id="htmlcaption{{$service->id}}" class="nivo-html-caption">
         <b style="color: #fff; font-size: 25px;">{{ $service->title }}</b>
     </div>
 </div>
