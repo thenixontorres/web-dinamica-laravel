@@ -14,5 +14,4 @@ falta:
 -Detalles en vistas para hacerlas mas intuitivas.
 -Datepicker en el blog para buscar por fecha.
 -En paginas "Dr carlos Pisanu y  Sobre nosotros"  el tamaño de contenido del cuerpo afecta las dimenciones de la imagen. 
--Formulario de contacto en servicios tiene la letra muy grande.
 -Se ve tal como esta en el mockup en mi laptor, pero no la he probado en resoluciones mas amplias.
