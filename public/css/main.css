@@ -6,6 +6,14 @@
     src: url(../fonts/CornDemo-Regular.ttf) format("truetype");
 }
 
+.text-small{
+	font-size: 12px;
+}
+
+.text-mediun{
+	font-size: 16px;
+}
+
 .title-header{
 	font-family: 'CornDemo-Regular';
 	color: #7c7678;

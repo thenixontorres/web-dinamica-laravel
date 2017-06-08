@@ -18,65 +18,35 @@
 		<div class="col-sm-8 font-body">			
 			<p class="article-content">{!! $service->content !!} </p>
 		</div>	
-		<div class="col-sm-4">				
-			<h2 class="align-center">Contacto r&aacute;pido</h2>
+		<div class="col-sm-4" style="padding-top: 80px;">				
+			<h2 class="align-center" style="
+    font-size: 18px;">Contacto r&aacute;pido</h2>
 			{!! Form::open(['route' => 'contacto']) !!}
 				<div class="row">
 					<div class="form-group col-sm-6">
-					    {!! Form::label('name', 'Nombre:') !!}
+					    <label for="title" class="text-small text-center">Nombre </label>
 					    {!! Form::text('title', null, ['class' => 'form-control field']) !!}
 					</div>
 
 					<div class="form-group col-sm-6">
-					    {!! Form::label('email', 'Email:') !!}
+						<label for="email" class="text-small text-center">Email </label>
 					    {!! Form::email('email', null, ['class' => 'form-control field']) !!}
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-sm-12">
-					    {!! Form::label('message', 'Mensaje:') !!}
+					    <label for="message" class="text-small text-center">Mensaje </label>
 					    {!! Form::textarea('message', null, ['class' => 'form-control field']) !!}
 					</div>
 				</div>
 				<div class="row">	
 					<div class="form-group col-sm-12 align-center">
-						<input type="submit" name="submit" id="submit" value="{{ $Constant[1]->value }}" />
+						<input class="text-small text-center" type="submit" name="submit" id="submit" value="{{ $Constant[1]->value }}" />
 					</div>
 				</div>	
        		{!! Form::close() !!}
 		</div>
 	</div>
-	<!--
-	<div class="row">	
-		<div class="col-sm-18">				
-			<h2 class="align-center">Contacto r&aacute;pido</h2>
-			{!! Form::open(['route' => 'contacto']) !!}
-				<div class="row">
-					<div class="form-group col-sm-6">
-					    {!! Form::label('name', 'Nombre:') !!}
-					    {!! Form::text('title', null, ['class' => 'form-control field']) !!}
-					</div>
-
-					<div class="form-group col-sm-6">
-					    {!! Form::label('email', 'Email:') !!}
-					    {!! Form::email('email', null, ['class' => 'form-control field']) !!}
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-sm-12">
-					    {!! Form::label('message', 'Mensaje:') !!}
-					    {!! Form::textarea('message', null, ['class' => 'form-control field']) !!}
-					</div>
-				</div>
-				<div class="row">	
-					<div class="form-group col-sm-12 align-center">
-						<input type="submit" name="submit" id="submit" value="{{ $Constant[1]->value }}" />
-					</div>
-				</div>	
-       		{!! Form::close() !!}
-		</div>
-	</div> 
-	-->
 	<div class="row">	
 		<div class="col-sm-12">				
 		@include('landing.partials.footer')	
