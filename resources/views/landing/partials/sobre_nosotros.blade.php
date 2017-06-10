@@ -9,20 +9,15 @@
 		<p>{{ $Sobre->content->subtitle }} </p> <br>
 		@endif
 		@if(!empty($Sobre->content->body))
-		<p> {{ $Sobre->content->body }}</p>
+			<p class="text-justify"> 
+				@foreach($Sobre->imgs as $img)
+					@if($img->visibility == '1')
+							<img style="float:left; padding-right:60px;" src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
+					@endif
+					{{ $Sobre->content->body }}
+				@endforeach	
+			</p>
 		@endif
-		<ul class="actions vertical">
-		@if(!empty($Sobre->content->button_text))
-			<li><a href="{{ $Sobre->content->button_link }}" class="button">{{ $Sobre->content->button_text }}</a></li>
-		@endif
-		</ul>
 	</div>
-	@foreach($Sobre->imgs as $img)
-		@if($img->visibility == '1')
-		<div class="image">
-			<img src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
-		</div>
-		@endif
-	@endforeach	
 </section>
 @endif

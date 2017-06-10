@@ -1,29 +1,23 @@
-<!-- Three -->
-<br>
+
 @if($Mision->visibility == "1")
-<section id="Noticias" class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-	@if(!empty($Mision->content->title))
-		<h2 style="padding-left: 40px">{{ $Mision->content->title }}</h2>
-	@endif
+<section id="Perfil" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 	<div class="content">
-		@if(!empty($Mision->content->subtitle))
-			<p class="major">{{ $Mision->content->subtitle }} <br>
-        @endif
-        @if(!empty($Mision->content->body))
-			<p>{{ $Mision->content->body }}</p>
+		@if(!empty($Mision->content->title))
+		<h2>{{ $Sobre->content->title }}</h2>
 		@endif
-		@if(!empty($Mision->content->button_text))
-		<ul class="actions vertical">
-			<li><a href="{{ $Mision->content->button_link }}" class="button">{{ $Mision->content->button_text }}</a></li>
-		</ul>
+		@if(!empty($Mision->content->subtitle))
+		<p>{{ $Sobre->content->subtitle }} </p> <br>
+		@endif
+		@if(!empty($Mision->content->body))
+			<p class="text-justify"> 
+				@foreach($Mision->imgs as $img)
+					@if($img->visibility == '1')
+							<img style="float:right; padding-left:60px;" src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
+					@endif
+					{{ $Mision->content->body }}
+				@endforeach	
+			</p>
 		@endif
 	</div>
-	@foreach($Mision->imgs as $img)
-		@if($img->visibility == '1')
-		<div class="image">
-			<img src="{{ asset('/storage/images/').'/'.$img->img }}" alt="" />
-		</div>
-		@endif
-	@endforeach
 </section>
 @endif

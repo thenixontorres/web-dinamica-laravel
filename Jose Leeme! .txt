@@ -27,7 +27,7 @@ el banners, solo es sacar el texto que esta dentro del slider que no se vea.
 - Los forumarios de contacto de la Web aparte de enviarse por mail deben quedar almacenados en la web y en el admin debemos poder Ver 
 un listado de esos datos
 
-(Listo)
+(Parcialmente Listo)
 - La Vista de sobre nosotros tal como se ve ahora puede ser la vista para renovamos nuestro equipo, mientras que luego la vista sobre nosotros 
 debemos editarla para que se vea igual al boceto
 

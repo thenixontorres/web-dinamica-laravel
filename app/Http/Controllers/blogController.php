@@ -23,6 +23,8 @@ class blogController extends Controller
 
         $Banner = section::where('page_id', '2')->where('name', 'Cabecera del Blog')->first();
 
+        $mounths = article::where('visibility', '1')->get();
+
         return view('blog.public')
         ->with('articles', $articles)
         ->with('Constant', $Constant)
