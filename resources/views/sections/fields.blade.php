@@ -1,3 +1,8 @@
+@section('css')
+<!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
+<script src="{{ url('js/tinyMCE/tinymce.min.js') }}"></script>
+@endsection
+
 <!-- Name Field -->
 @if(isset($section))
 {!! Form::hidden('name', $section->name, ['class' => 'form-control']) !!}
@@ -95,7 +100,7 @@
 <!-- Body Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('body', 'Cuerpo:') !!}
-    {!! Form::text('body', null, ['class' => 'form-control']) !!}
+    {!! Form::text('body', null, ['class' => 'form-control', 'id' => 'content']) !!}
 </div>
 
 <!-- Button Text Field -->
@@ -133,3 +138,10 @@
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('sections.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
+@section('scripts')
+ <script>tinymce.init({ 
+    selector:'textarea#content',
+    toolbar: "image",
+    plugins: "image imagetools" 
+ });</script>
+@endsection

@@ -19,7 +19,7 @@
 				<span class="icon style2 major {{ $service->icon->css_value }}"></span>
 				<h3><a href="{{ route('servicios', $service->id)}}">{{ $service->title }}</a></h3>
 				@if(!empty($service->description))
-				<p>{{ $service->description }}</p>
+				<p style="word-wrap: break-word;">{{ $service->description }}</p>
 				@endif
 			</section>
 			@endif

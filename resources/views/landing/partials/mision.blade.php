@@ -1,10 +1,11 @@
 <!-- Three -->
+<br>
 @if($Mision->visibility == "1")
 <section id="Noticias" class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+	@if(!empty($Mision->content->title))
+		<h2 style="padding-left: 40px">{{ $Mision->content->title }}</h2>
+	@endif
 	<div class="content">
-		@if(!empty($Mision->content->title))
-			<h2>{{ $Mision->content->title }}</h2>
-		@endif
 		@if(!empty($Mision->content->subtitle))
 			<p class="major">{{ $Mision->content->subtitle }} <br>
         @endif

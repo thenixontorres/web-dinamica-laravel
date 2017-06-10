@@ -23,6 +23,7 @@ el banners, solo es sacar el texto que esta dentro del slider que no se vea.
 
 - El boton mas informacion de Sobre nosotros debe llevar a la vista sobre nosotros
 
+(Listo)
 - Los forumarios de contacto de la Web aparte de enviarse por mail deben quedar almacenados en la web y en el admin debemos poder Ver 
 un listado de esos datos
 
