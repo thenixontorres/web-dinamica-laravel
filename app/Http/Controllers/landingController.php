@@ -8,6 +8,7 @@ use App\Models\constant;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 use App\Models\service;
+use App\Models\message;
 use Flash;
 
 
@@ -87,6 +88,11 @@ class landingController extends Controller
     }
 
     public function contacto(Request $request){
+
+        $message = new message();
+        $message->fill($request->all());
+        $message->save();
+        
         $mail_to = constant::where('var', 'Email de contacto')->first();
         try {
         Mail::to($mail_to->value)->send(new ContactMail($request->name, $request->menssage, $request->email));

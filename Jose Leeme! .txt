@@ -5,12 +5,34 @@ Usuario admin
 admin@mail.com
 pass: admin
 
-Ojo, es muy importante que hagas --seed porque sin la informacion precargada las secciones no van a funcionar correctamente.
-Otra cosa es asegurarte que tengas las imagenes default de la carpeta storage, y hacer storage:link antes de probar el sistema.
+Pendiente:
 
-falta:
--El frontend del blog.
--Detalles en vistas para hacerlas mas intuitivas.
--Datepicker en el blog para buscar por fecha.
--En paginas "Dr carlos Pisanu y  Sobre nosotros"  el tamaño de contenido del cuerpo afecta las dimenciones de la imagen. 
--Se ve tal como esta en el mockup en mi laptor, pero no la he probado en resoluciones mas amplias.
+(Listo)
+- En el Home en la primera seccion donde tenemos el logo de Espacio Pisanu, debajo de salud y estatica debemos poner unos iconos del tipo 
+font de Whatsapp y Telefono y Redes sociales Instragram, Facebook, Twitter.  
+
+- El boton comenzar de esa primera seccion debe llevar a la seccion que esta debajo del slider, y el btn mas informacion de esa seccion es la que 
+debe llevar a la vista de Doctor Carlos Pisanu
+
+(Listo)
+- En el Home slider del home, tenemos que sacar el texto que se ve en el banner y dejar lo que ya pusiste del titulo y subtitulo del slider sobre 
+el banners, solo es sacar el texto que esta dentro del slider que no se vea.
+
+(Listo)
+- El boton mas informacion de Renovamos nuestro equipo debe tener una seccion interna tal como la seccion Sobre nosotros
+
+- El boton mas informacion de Sobre nosotros debe llevar a la vista sobre nosotros
+
+- Los forumarios de contacto de la Web aparte de enviarse por mail deben quedar almacenados en la web y en el admin debemos poder Ver 
+un listado de esos datos
+
+(Listo)
+- La Vista de sobre nosotros tal como se ve ahora puede ser la vista para renovamos nuestro equipo, mientras que luego la vista sobre nosotros 
+debemos editarla para que se vea igual al boceto
+
+(Listo)
+- La Vista Servicio la Palabra Servicio debe ser un poco mas grande y darle un poco mas de padding-right
+
+- En el blog sacar comentarios y pasarlo a los post directamente
+
+- En el Blog en vez de poner un calendario poner un listado de los meses que han habido post.

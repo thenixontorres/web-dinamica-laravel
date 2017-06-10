@@ -85,7 +85,11 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::resource('tags', 'tagController',['except' =>['show']]);
 
 	Route::resource('sectionConfigs', 'sectionConfigController');
+
+
+        Route::resource('messages', 'messageController',['only' =>['index','destroy']]);
 });
+
 
 
 

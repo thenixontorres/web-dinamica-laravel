@@ -39,3 +39,7 @@
 </li>
 
 @endif
+<li class="{{ Request::is('messages*') ? 'active' : '' }}">
+    <a href="{!! route('messages.index') !!}"><i class="fa fa-edit"></i><span>Mensajes</span></a>
+</li>
+
