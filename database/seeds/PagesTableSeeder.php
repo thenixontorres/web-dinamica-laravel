@@ -34,5 +34,11 @@ class PagesTableSeeder extends Seeder
             'url' => '/acerca',
             'visibility' => '1',
         ]);
+
+        DB::table('pages')->insert([
+            'title' => 'noticias',
+            'url' => '/noticias',
+            'visibility' => '1',
+        ]);
     }
 }

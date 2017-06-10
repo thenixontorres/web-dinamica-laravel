@@ -4,7 +4,7 @@
         <th>Posicion</th>
         <th>Titulo</th>
         <th>Subtitulo</th>
-        <th>Seccion</th>
+        <th>Pagina/Seccion</th>
         <th>¿Visibile?</th>
         <th colspan="3">Accion</th>
     </thead>
@@ -15,7 +15,7 @@
             <td>{!! $img->position !!}</td>
             <td>{!! $img->title !!}</td>
             <td>{!! $img->subtitle !!}</td>
-            <td>{!! $img->section->name !!}</td>
+            <td>{!! $img->section->page->title.'/'.$img->section->name !!}</td>
             <td>{!! $img->visibility !!}</td>
             <td>
                 {!! Form::open(['route' => ['imgs.destroy', $img->id], 'method' => 'delete']) !!}

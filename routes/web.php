@@ -26,6 +26,11 @@ Route::get('/perfil', [
         'as'    =>  'perfil',
 ]);
 
+Route::get('/noticias', [
+        'uses'  =>  'landingController@noticias',
+        'as'    =>  'noticias',
+]);
+
 Route::post('/contacto', [
         'uses'  =>  'landingController@contacto',
         'as'    =>  'contacto',

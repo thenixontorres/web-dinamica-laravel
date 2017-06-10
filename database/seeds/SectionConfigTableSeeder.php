@@ -102,5 +102,26 @@ class SectionConfigTableSeeder extends Seeder
             'imgs' => 'one-active-img',
             'btns' => 'no-btn',
         ]);
+
+        DB::table('section_configs')->insert([
+            'section_id' => '14',
+            'structure' => 'standar',
+            'imgs' => 'one-active-img',
+            'btns' => 'no-btn',
+        ]);
+
+        DB::table('section_configs')->insert([
+            'section_id' => '15',
+            'structure' => 'standar',
+            'imgs' => 'one-active-img',
+            'btns' => 'no-btn',
+        ]);
+
+        DB::table('section_configs')->insert([
+            'section_id' => '16',
+            'structure' => 'carousel',
+            'imgs' => 'multi-active-img',
+            'btns' => 'no-btn',
+        ]);
     }
 }

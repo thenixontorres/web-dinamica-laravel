@@ -88,5 +88,23 @@ class SectionsTableSeeder extends Seeder
             'name' => 'Cabecera del Blog',
             'page_id' => '2',
         ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Noticia 1',
+            'page_id' => '5',
+        ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Noticia 2',
+            'page_id' => '5',
+        ]);
+
+        DB::table('sections')->insert([
+            'visibility' => '1',
+            'name' => 'Noticia 3',
+            'page_id' => '5',
+        ]);
     }
 }

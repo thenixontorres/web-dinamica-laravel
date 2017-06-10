@@ -190,5 +190,50 @@ class ImgsTableSeeder extends Seeder
             'subtitle' => null,
             'section_id' => '13',
         ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Noticia 1.',
+            'subtitle' => null,
+            'section_id' => '14',
+        ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Noticia 2.',
+            'subtitle' => null,
+            'section_id' => '15',
+        ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Noticia 3.',
+            'subtitle' => null,
+            'section_id' => '16',
+        ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Noticia 3.',
+            'subtitle' => null,
+            'section_id' => '16',
+        ]);
+
+        DB::table('imgs')->insert([
+            'img' => 'images/default.jpg',
+            'position' => '1',
+            'visibility' => '1',
+            'title' => 'Noticia 3.',
+            'subtitle' => null,
+            'section_id' => '16',
+        ]);
     }
 }

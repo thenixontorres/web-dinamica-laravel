@@ -45,6 +45,20 @@ class landingController extends Controller
         ->with('Bio', $Bio)
         ->with('Spotlight', $Spotlight);
     }
+
+    //page id 5 contiene noticias 2 , noticia 2 noticia 3
+    public function noticias(){
+        $Noticia1 = section::where('page_id','5')->where('name','Noticia 1')->first();
+        $Noticia2 = section::where('page_id','5')->where('name','Noticia 2')->first();
+        $Noticia3 = section::where('page_id','5')->where('name','Noticia 3')->first();
+        $Constant = constant::all();
+        return view('landing.noticias')
+        ->with('Constant', $Constant)
+        ->with('Noticia1', $Noticia1)
+        ->with('Noticia2', $Noticia2)
+        ->with('Noticia3', $Noticia3);
+    }
+
     //page id 4 mision vision y equipo
     public function acerca(){
         $Sobre = section::where('page_id', '4')->where('name', 'Sobre Nosotros')->first();
