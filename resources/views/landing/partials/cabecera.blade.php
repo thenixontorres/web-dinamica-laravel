@@ -1,15 +1,15 @@
 <!-- One -->
 @if($Cabecera->visibility == "1")
 <section id="Cabecera" class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-	<div class="content">
+	<div class="content" style="padding-top:30px;">
 		<center>
-			<img src="{{ asset('/storage/images/').'/images/isotipo-pisanu.png' }}" alt="" />
+			<img src="{{ asset('/storage/images/').'/images/isotipo-pisanu.png' }}" alt="" style="height:150px;" />
 		</center>
 		@if(!empty($Cabecera->content->title))
-			<h2 class="title-header" style="text-align:right;">{{ $Cabecera->content->title }}</h2>
+			<h2 class="title-header" style="text-align:right;" style="margin-bottom:0;">{{ $Cabecera->content->title }}</h2>
 		@endif
 		@if(!empty($Cabecera->content->subtitle))
-			<strong><p class="major subtitle-header" style="text-align:right;">{{ $Cabecera->content->subtitle }} </p></strong>
+			<strong><p class="major subtitle-header" style="text-align:right;margin-bottom: 10px;">{{ $Cabecera->content->subtitle }} </p></strong>
         @endif
         <ul class="icons">
 			@foreach($Constant as $const)
