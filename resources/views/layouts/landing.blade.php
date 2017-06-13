@@ -33,6 +33,9 @@
                 <a href="{!! url('/acerca') !!}">Sobre Nosotros</a>
             </li>
             <li>
+                <a href="#Servicios">Servicios</a>
+            </li>
+            <li>
                 <a href="{!! url('/blog') !!}">Blog</a>
             </li>
             @if(Auth::user())
