@@ -32,7 +32,7 @@
             <li>
                 <a href="{!! url('/acerca') !!}">Sobre Nosotros</a>
             </li>
-            <li>
+            <li class="actions vertical">
                 <a href="#Servicios">Servicios</a>
             </li>
             <li>
