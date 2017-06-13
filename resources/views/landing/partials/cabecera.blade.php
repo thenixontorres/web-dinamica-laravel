@@ -22,7 +22,7 @@
 				@elseif($const->var == "Enlace a Linked in")
 				<li><a href="{{ $const->value }}" style="font-size: 12px;" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
 				@elseif($const->var == "Telefono/Whatsapp")
-				<li><a href="tel:{{ $const->value }}" style="font-size: 12px;" class="icon style2 fa-whatsapp"><span class="label">Telefono</span></a></li>
+				<li><a href="whatsapp://send?text=Pisanu!&phone={{ $const->value }}" style="font-size: 12px;" class="icon style2 fa-whatsapp"><span class="label">Telefono</span></a></li>
 				@elseif($const->var == "Email")
 				<li><a href="mailto:{{ $const->value }}?Subject=Contacto%20Pisanu" target="_top" style="font-size: 12px;"  class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 				@endif
