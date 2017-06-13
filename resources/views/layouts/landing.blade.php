@@ -33,7 +33,7 @@
                 <a href="{!! url('/acerca') !!}">Sobre Nosotros</a>
             </li>
             <li class="actions vertical">
-                <a href="#Servicios">Servicios</a>
+                <a href="#Servicios" class="smooth-scroll-middle">Servicios</a>
             </li>
             <li>
                 <a href="{!! url('/blog') !!}">Blog</a>
