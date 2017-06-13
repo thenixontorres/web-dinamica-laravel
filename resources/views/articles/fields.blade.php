@@ -83,6 +83,7 @@
  <script>tinymce.init({ 
     selector:'textarea#content',
     toolbar: "image",
-    plugins: "image imagetools" 
+    plugins: "image imagetools",
+    language: 'es'
  });</script>
 @endsection
