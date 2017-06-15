@@ -19,6 +19,15 @@
 	color: #7c7678;
 }
 
+.title-sub-header{
+	font-family: 'CornDemo-Regular';
+	color: #7c7678;
+	text-transform:uppercase;
+	font-size: 1.3rem;
+	text-align: right;
+	margin-bottom: 100px;
+}
+
 .subtitle-header{
 	color: #729ea5;
 }
@@ -28,6 +37,11 @@
 	font-size: 1rem !important;
     font-weight: 300 !important;
     line-height: 1.65 !important;
+}
+
+.ajust-header-content{
+	float: right;
+	width: 70%;	
 }
 /*
 	Story by HTML5 UP
@@ -1769,7 +1783,8 @@
 	}
 
 		p.major {
-			font-size: 1.25rem;
+			font-size: 1.05rem;
+			text-transform: lowercase;
 		}
 
 	h1, h2, h3, h4, h5, h6 {
