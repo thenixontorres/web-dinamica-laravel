@@ -1,6 +1,6 @@
 <!-- Five -->
 @if($Slider->visibility == '1')
-<section id="Slider" class="wrapper style1 align-center">
+<section id="Slider" class="wrapper style1 align-center" style="margin:20px 0;">
 		@if(!empty($Slider->content->title))
 			<h2>{{ $Slider->content->title }}</h2>
 		@endif
